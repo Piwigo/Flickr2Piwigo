@@ -8,7 +8,7 @@ load_language('plugin.lang', FLICKR_PATH);
 
 if (!file_exists(FLICKR_FS_CACHE))
 {
-  mdir(FLICKR_FS_CACHE, 0755);
+  mkdir(FLICKR_FS_CACHE, 0755);
 }
 
 // tabsheet

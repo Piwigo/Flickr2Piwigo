@@ -81,7 +81,7 @@ switch ($_GET['action'])
     $u = $flickr->people_getInfo($u['id']);
     $template->assign(array(
       'username' => $conf['flickr2piwigo']['username'],
-      'user_url' => $u['photosurl'],
+      'profile_url' => $u['photosurl'],
       'logout_url' => FLICKR_ADMIN.'-import&amp;action=logout',
       'list_albums_url' => FLICKR_ADMIN.'-import&amp;action=list_albums',
       'import_all_url' => FLICKR_ADMIN.'-import&amp;action=list_all',

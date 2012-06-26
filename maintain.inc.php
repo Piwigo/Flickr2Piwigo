@@ -15,7 +15,7 @@ function plugin_install()
 {
   global $conf;
   conf_update_param('flickr2piwigo', flickr2piwigo_default_config);
-  mdir($conf['data_location'].'flickr_cache/', 0755);
+  mkdir($conf['data_location'].'flickr_cache/', 0755);
 }
 
 function plugin_activate()
