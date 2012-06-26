@@ -24,7 +24,6 @@ $lang['List my albums'] = 'List my albums';
 $lang['Import all my pictures'] = 'Import all my pictures';
 $lang['(%d photos)'] = '(%d photos)';
 $lang['%d albums'] = '%d albums';
-//$lang['Import all pictures of this album'] = 'Import all pictures of this album';
 $lang['List pictures of this album'] = 'List pictures of this album';
 $lang['Begin transfert'] = 'Begin transfert';
 $lang['Open Flickr page in a new tab'] = 'Open Flickr page in a new tab';

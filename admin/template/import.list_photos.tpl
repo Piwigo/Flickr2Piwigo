@@ -329,7 +329,7 @@ $(document).ready(function() {
   
   /* pagination loader */
   jQuery('#navigation a').click(function() {
-    $("#loader_display").fadeIn()
+    $("#loader_display").fadeIn();
   });
 });
 {/literal}

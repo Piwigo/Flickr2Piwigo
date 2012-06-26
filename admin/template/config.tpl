@@ -22,13 +22,6 @@
         <input type="text" name="secret_key" value="{$flickr2piwigo.secret_key}" size="20">
       </label>
     </li>
-
-    <li>
-      <label>
-        <span class="property">{'Username'|@translate}</span>
-        <input type="text" name="username" value="{$flickr2piwigo.username}" size="20"></label>
-      </label>
-    </li>
   </ul>
 </fieldset>
 
