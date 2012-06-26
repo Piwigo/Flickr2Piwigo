@@ -1,0 +1,1 @@
+Extension for importing pictures from your Flickr account
