@@ -1,0 +1,7 @@
+#albumsList li {
+  list-style-type:square;
+  margin-top:5px;
+}
+#albumsList li.not_in_set {
+  margin-top:20px;
+}

@@ -5,22 +5,26 @@
 </div>
 
 {if $ACTION == 'init_login'}
-<p><a href="{$flickr_login}">{'Login'|@translate}</a></p>
+<p><input type="submit" onClick="javascript:window.location.href ='{$flickr_login}';" value="{'Login'|@translate}"></p>
 
-{elseif $ACTION == 'choice'}
+{elseif $ACTION == 'main'}
 <p>
-  <a href="{$list_albums_url}">{'List my albums'|@translate}</a> -
-  <a href="{$import_all_url}">{'Import all my pictures'|@translate}</a>
+  <b>{'Logued as'|@translate}</b> : <a href="{$profile_url}" target="_blank">{$username}</a><br><br>
+  <input type="submit" onClick="javascript:window.location.href ='{$logout_url}';" value="{'Logout'|@translate}">
+</p>
+<br>
+<p>
+  <input type="submit" onClick="javascript:window.location.href ='{$list_albums_url}';" value="{'List my albums'|@translate}">
+  <input type="submit" onClick="javascript:window.location.href ='{$import_all_url}';" value="{'Import all my pictures'|@translate}">
 </p>
 
 {elseif $ACTION == 'list_albums'}
-<h3>{'%d albums'|@translate}|@sprintf:$total_albums}</h3>
-<ul>
+<h3>{'%d albums'|@translate|@sprintf:$total_albums}</h3>
+<ul id="albumsList">
 {foreach from=$albums item=album}
-  <li>
-    <b><a href="{$album.U_LIST}">{$album.title}</a></b> <i>{'(%d photos)'|@translate|@sprintf:$album.photos}</i> 
+  <li {if $album.id == "not_in_set"}class="not_in_set"{/if}>
+    <b><a href="{$album.U_LIST}">{$album.title}</a></b> <i>{'(%d photos)'|@translate|@sprintf:$album.photos}</i> {if $album.description}- {$album.description|@truncate:100}{/if}
     {*- <a href="{$album.U_IMPORT_ALL}">{'Import all pictures of this album'|@translate}</a>*}
-    {*<p>{$album.description}</p>*}
   </li>
 {/foreach}
 </ul>

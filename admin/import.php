@@ -39,7 +39,7 @@ else
   }
 }
 
-if (!isset($_GET['action'])) $_GET['action'] = 'choice';
+if (!isset($_GET['action'])) $_GET['action'] = 'main';
 
 
 switch ($_GET['action'])
@@ -66,11 +66,26 @@ switch ($_GET['action'])
     break;
   }
   
-  // main menu
-  case 'choice':
+  // logout
+  case 'logout':
   {
-    $template->assign('list_albums_url', FLICKR_ADMIN.'-import&amp;action=list_albums');
-    $template->assign('import_all_url', FLICKR_ADMIN.'-import&amp;action=list_all');
+    unset($_SESSION['phpFlickr_auth_token']);
+    $_SESSION['page_infos'][] = l10n('Logued out');
+    redirect(FLICKR_ADMIN.'-import');
+    break;
+  }
+  
+  // main menu
+  case 'main':
+  {
+    $u = $flickr->people_getInfo($u['id']);
+    $template->assign(array(
+      'username' => $conf['flickr2piwigo']['username'],
+      'user_url' => $u['photosurl'],
+      'logout_url' => FLICKR_ADMIN.'-import&amp;action=logout',
+      'list_albums_url' => FLICKR_ADMIN.'-import&amp;action=list_albums',
+      'import_all_url' => FLICKR_ADMIN.'-import&amp;action=list_all',
+      ));
     break;
   }
   
