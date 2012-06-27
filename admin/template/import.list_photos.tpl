@@ -420,7 +420,7 @@ $(document).ready(function() {
 
     <p>
       <input type="hidden" name="album" value="{$album}">
-      <input type="submit" name="import_set" id="beginImport" value="{'Begin transfert'|@translate}" style="display:none;">
+      <input type="submit" name="import_set" id="beginImport" value="{'Begin transfer'|@translate}" style="display:none;">
       <span id="loader_import" style="display:none;"><img src="admin/themes/default/images/ajax-loader.gif"> <i>{'Processing...'|@translate}</i> <span id="progress"></span></span>
     </p>
   </fieldset>

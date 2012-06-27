@@ -129,7 +129,7 @@ $(document).ready(function() {
     </p>
     
     <p>
-      <input type="submit" name="import_set" id="beginImport" value="{'Begin transfert'|@translate}" {if not $nb_elements}style="display:none;"{/if}>
+      <input type="submit" name="import_set" id="beginImport" value="{'Begin transfer'|@translate}" {if not $nb_elements}style="display:none;"{/if}>
       <span id="loader_import" style="display:none;"><img src="admin/themes/default/images/ajax-loader.gif"> <i>{'Processing...'|@translate}</i> <span id="progress"></span></span>
     </p>
   </fieldset>
