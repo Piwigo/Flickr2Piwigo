@@ -1,7 +1,6 @@
 <?php
 
 $lang['Please fill your API keys on the configuration tab'] = 'Veuillez renseigner votre clé d\'API sur l\'écran de configuration';
-$lang['Unknown username, please verify your configuration'] = 'Nom d\'utilisateur inconnu, veuillez vérifier la configuration';
 $lang['Successfully logued to you Flickr account'] = 'Connecté à votre compte Flickr';
 $lang['Pictures without album'] = 'Photos sans album';
 $lang['One picture is not displayed because already existing in the database.'] = 'Une photo n\'est pas affichée car elle existe déjà sur la galerie';
@@ -28,5 +27,6 @@ $lang['List pictures of this album'] = 'Lister les photos de cet album';
 $lang['Begin transfert'] = 'Commencer les transfert';
 $lang['Open Flickr page in a new tab'] = 'Ouvrir la page Flickr dans un nouvel onglet';
 $lang['No download method available'] = 'Aucune méthode de téléchargement n\'est disponible';
+$lang['Logued as'] = 'Indentifié en tant que';
 
 ?>
