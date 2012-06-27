@@ -27,5 +27,6 @@ $lang['%d albums'] = '%d albums';
 $lang['List pictures of this album'] = 'List pictures of this album';
 $lang['Begin transfert'] = 'Begin transfert';
 $lang['Open Flickr page in a new tab'] = 'Open Flickr page in a new tab';
+$lang['No download method available'] = 'No download method available';
 
 ?>

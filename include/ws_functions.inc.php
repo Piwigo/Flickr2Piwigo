@@ -54,14 +54,10 @@ function ws_images_addFlickr($photo, &$service)
   $photo['path'] = FLICKR_FS_CACHE . 'flickr-'.$u['username'].'-'.$photo['id'].'.'.get_extension($photo['url']);
   
   // copy file
-  $file = fopen($photo['url'], "rb");
-  $newf = fopen($photo['path'], "wb");
-  while (!feof($file))
+  if (download_remote_file($photo['url'], $photo['path']) == false)
   {
-    fwrite($newf, fread($file, 1024 * 8 ), 1024 * 8 );
+    return new PwgError(500, l10n('No download method available'));
   }
-  fclose($file);
-  fclose($newf);
   
   // category
   if (!preg_match('#^[0-9]+$#', $photo['category']))
@@ -129,5 +125,43 @@ SELECT id FROM '.CATEGORIES_TABLE.'
   
   return sprintf(l10n('%s imported'), $photo['title']);
 }
+
+function download_remote_file($src, $dest)
+{
+  if (function_exists('curl_init'))
+  {
+    $newf = fopen($dest, "wb");
+    $ch = curl_init();
+    
+    curl_setopt($ch, CURLOPT_URL, $src);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)');
+    curl_setopt($ch, CURLOPT_FILE, $newf);
+    
+    curl_exec($ch);
+    curl_close($ch);
+    fclose($newf);
+    
+    return true;
+  }
+  else if (ini_get('allow_url_fopen'))
+  {
+    $file = fopen($src, "rb");
+    $newf = fopen($dest, "wb");
+    
+    while (!feof($file))
+    {
+      fwrite($newf, fread($file, 1024 * 8 ), 1024 * 8 );
+    }
+    
+    fclose($file);
+    fclose($newf);
+    
+    return true;
+  }
+  
+  return false;
+}
+
 
 ?>

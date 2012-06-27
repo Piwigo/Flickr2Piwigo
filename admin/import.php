@@ -7,6 +7,11 @@ if ( empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['s
   array_push($page['warnings'], l10n('Please fill your API keys on the configuration tab'));
   $_GET['action'] = 'error';
 }
+else if ( !function_exists('curl_init') and !ini_get('allow_url_fopen') )
+{
+  array_push($page['errors'], l10n('No download method available'));
+  $_GET['action'] = 'error';
+}
 else
 {
   // init flickr API
@@ -28,6 +33,7 @@ else
     $_GET['action'] = 'logued';
   }
 }
+
 
 if (!isset($_GET['action'])) $_GET['action'] = 'main';
 
