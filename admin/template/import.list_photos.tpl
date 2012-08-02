@@ -402,7 +402,7 @@ $(document).ready(function() {
     <legend>{'Import options'|@translate}</legend>
 
     <p>
-      <label for="albumSelect">{'Album'|@translate} :</label>
+      <label for="albumSelect"><b>{'Album'|@translate}:</b></label>
       <select style="width:400px" name="associate" id="albumSelect" size="1">
         {html_options options=$associate_options}
       </select>
@@ -410,7 +410,7 @@ $(document).ready(function() {
     </p>
     
     <p>
-      {'Fill these fields from Flickr datas'|@translate} :
+      <b>{'Fill these fields from Flickr datas'|@translate}:</b>
       <label><input type="checkbox" name="fill_name" checked="checked"> {'Photo name'|@translate}</label>
       <label><input type="checkbox" name="fill_author" checked="checked"> {'Author'|@translate}</label>
       <label><input type="checkbox" name="fill_tags" checked="checked"> {'Tags'|@translate}</label>

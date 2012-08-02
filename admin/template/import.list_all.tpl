@@ -120,7 +120,7 @@ $(document).ready(function() {
     </p>
     
     <p>
-      {'Fill these fields from Flickr datas'|@translate} :
+      <b>{'Fill these fields from Flickr datas'|@translate}:</b>
       <label><input type="checkbox" name="fill_name" checked="checked"> {'Photo name'|@translate}</label>
       <label><input type="checkbox" name="fill_author" checked="checked"> {'Author'|@translate}</label>
       <label><input type="checkbox" name="fill_tags" checked="checked"> {'Tags'|@translate}</label>

@@ -1,6 +1,8 @@
 <?php
 if (!defined('FLICKR_PATH')) die('Hacking attempt!');
 
+set_time_limit(600);
+
 // check API parameters and connect to flickr
 if ( empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']) )
 {
@@ -196,7 +198,7 @@ SELECT id, file
 SELECT id, name, uppercats, global_rank
   FROM '.CATEGORIES_TABLE.'
 ;';
-    display_select_cat_wrapper($query, array(), 'associate_options', true);
+    display_select_cat_wrapper($query, array(), 'associate_options');
     display_select_cat_wrapper($query, array(), 'category_parent_options');
     
     // get navbar

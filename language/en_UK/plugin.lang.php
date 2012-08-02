@@ -28,5 +28,6 @@ $lang['Begin transfer'] = 'Begin transfer';
 $lang['Open Flickr page in a new tab'] = 'Open Flickr page in a new tab';
 $lang['No download method available'] = 'No download method available';
 $lang['Logued as'] = 'Logued as';
+$lang['%d elements ready for importation'] = '%d elements ready for importation';
 
 ?>

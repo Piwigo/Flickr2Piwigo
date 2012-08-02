@@ -24,9 +24,10 @@ $lang['Import all my pictures'] = 'Importer toutes mes photos';
 $lang['(%d photos)'] = '(%d photos)';
 $lang['%d albums'] = '%d albums';
 $lang['List pictures of this album'] = 'Lister les photos de cet album';
-$lang['Begin transfer'] = 'Commencer les transfert';
+$lang['Begin transfer'] = 'Commencer le transfert';
 $lang['Open Flickr page in a new tab'] = 'Ouvrir la page Flickr dans un nouvel onglet';
 $lang['No download method available'] = 'Aucune méthode de téléchargement n\'est disponible';
 $lang['Logued as'] = 'Indentifié en tant que';
+$lang['%d elements ready for importation'] = '%d elements prêts à l\'importation';
 
 ?>
