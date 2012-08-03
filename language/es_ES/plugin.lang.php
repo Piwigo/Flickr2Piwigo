@@ -48,4 +48,5 @@ $lang['Please fill your API keys on the configuration tab'] = 'Por favor, rellen
 $lang['Processing...'] = 'Procesando...';
 $lang['Reproduce flickr albums'] = 'Reproducir álbumes de flickr';
 $lang['Successfully logued to you Flickr account'] = 'Logueado con éxito en su cuenta de Flickr';
+$lang['%d elements ready for importation'] = '%d elementos listos para importar';
 ?>
