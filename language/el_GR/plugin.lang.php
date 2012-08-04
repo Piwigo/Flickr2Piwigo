@@ -48,4 +48,5 @@ $lang['Please fill your API keys on the configuration tab'] = 'Παρακαλο�
 $lang['Processing...'] = 'Επεξεργασία ...';
 $lang['Reproduce flickr albums'] = 'Αναπαραγωγή λευκώματος flickr ';
 $lang['Successfully logued to you Flickr account'] = 'Συνδεθήκατε επιτυχώς στο Flickr λογαριασμό σας';
+$lang['%d elements ready for importation'] = '%d στοιχεία έτοιμα για την εισαγωγή';
 ?>
