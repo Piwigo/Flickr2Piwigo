@@ -3,13 +3,15 @@ if (!defined('FLICKR_PATH')) die('Hacking attempt!');
 
 set_time_limit(600);
 
+include_once(PICASA_WA_PATH . 'include/functions.inc.php');
+
 // check API parameters and connect to flickr
 if ( empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']) )
 {
   array_push($page['warnings'], l10n('Please fill your API keys on the configuration tab'));
   $_GET['action'] = 'error';
 }
-else if ( !function_exists('curl_init') and !ini_get('allow_url_fopen') )
+else if ( !test_remote_download() )
 {
   array_push($page['errors'], l10n('No download method available'));
   $_GET['action'] = 'error';
@@ -153,7 +155,7 @@ SELECT id, file
   WHERE file LIKE "'.$flickr_prefix.'%"
 ;';
     $existing_photos = simple_hash_from_query($query, 'id', 'file');
-    $existing_photos = array_map(create_function('$p', '$p=preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p); return $p;'), $existing_photos);
+    $existing_photos = array_map(create_function('$p', 'return preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p);'), $existing_photos);
     
     // remove existing photos
     $duplicates = 0;
@@ -198,7 +200,6 @@ SELECT id, file
 SELECT id, name, uppercats, global_rank
   FROM '.CATEGORIES_TABLE.'
 ;';
-    display_select_cat_wrapper($query, array(), 'associate_options');
     display_select_cat_wrapper($query, array(), 'category_parent_options');
     
     // get navbar
@@ -222,18 +223,16 @@ SELECT id, name, uppercats, global_rank
     $all_albums = $all_albums['photoset'];
     
     $all_photos = array();
-    foreach ($all_albums as &$album)
+    foreach ($all_albums as $album)
     {
       $album_photos = $flickr->photosets_getPhotos($album['id'], NULL, NULL, 500, NULL, 'photos');
       $album_photos = $album_photos['photoset']['photo'];
       
-      foreach ($album_photos as &$photo)
+      foreach ($album_photos as $photo)
       {
         $all_photos[ $photo['id'] ][] = $album['title'];
       }
-      unset($photo);
     }
-    unset($album);
     
     // get existing photos
     $query = '
@@ -242,7 +241,7 @@ SELECT id, file
   WHERE file LIKE "'.$flickr_prefix.'%"
 ;';
     $existing_photos = simple_hash_from_query($query, 'id', 'file');
-    $existing_photos = array_map(create_function('$p', '$p=preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p); return $p;'), $existing_photos);
+    $existing_photos = array_map(create_function('$p', 'return preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p);'), $existing_photos);
     
     // remove existing photos
     $duplicates = 0;
@@ -280,7 +279,6 @@ SELECT id, file
 SELECT id, name, uppercats, global_rank
   FROM '.CATEGORIES_TABLE.'
 ;';
-    display_select_cat_wrapper($query, array(), 'associate_options', true);
     display_select_cat_wrapper($query, array(), 'category_parent_options');
     break;
   }

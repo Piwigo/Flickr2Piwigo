@@ -56,7 +56,7 @@ $(document).ready(function() {
   jQuery('#beginImport').click(function() {
     $("#loader_import").fadeIn();
     
-    if ($("input[name='album_mode']").val() == 'identical') {
+    if ($("input[name='album_mode']:checked").val() == 'identical') {
       var album = 0;
     } else {
       var album = $("#albumSelect option:selected").val();
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
     <p id="albumSelectWrapper" style="display:none;">
       <select style="width:400px" name="associate" id="albumSelect" size="1">
-        {html_options options=$associate_options}
+        {html_options options=$category_parent_options}
       </select>
       {'... or '|@translate}<a href="#" class="addAlbumOpen" title="{'create a new album'|@translate}">{'create a new album'|@translate}</a>
     </p>

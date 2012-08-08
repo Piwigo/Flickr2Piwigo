@@ -9,11 +9,11 @@ function flickr_add_ws_method($arr)
     'pwg.images.addFlickr',
     'ws_images_addFlickr',
     array(
-      'category' => array('default' => null),   
-      'id' => array('default' => null),
+      'id' => array(),
+      'category' => array(),
       'fills' => array('default' =>null),
       ),
-    'Used by Flickr2Piwigo, fills € (fill_name,fill_posted,fill_taken,fill_author,fill_tags)'
+    'Used by Flickr2Piwigo'
     );
 }
 
@@ -29,12 +29,17 @@ function ws_images_addFlickr($photo, &$service)
   
   if ( empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']) )
   {
-    return new PwgError(500, l10n('Please fill your API keys on the configuration tab'));
+    return new PwgError(null, l10n('Please fill your API keys on the configuration tab'));
   }
   
   include_once(PHPWG_ROOT_PATH . 'admin/include/functions.php');
   include_once(PHPWG_ROOT_PATH . 'admin/include/functions_upload.inc.php');
   include_once(FLICKR_PATH . 'include/functions.inc.php');
+  
+  if (test_remote_download() === false)
+  {
+    return new PwgError(null, l10n('No download method available'));
+  }
   
   // init flickr API
   include_once(FLICKR_PATH . 'include/phpFlickr/phpFlickr.php');
@@ -57,7 +62,7 @@ function ws_images_addFlickr($photo, &$service)
   // copy file
   if (download_remote_file($photo['url'], $photo['path']) == false)
   {
-    return new PwgError(500, l10n('No download method available'));
+    return new PwgError(null, l10n('Can\'t download file'));
   }
   
   // category
@@ -124,7 +129,7 @@ SELECT id FROM '.CATEGORIES_TABLE.'
     }
   }
   
-  return sprintf(l10n('%s imported'), $photo['title']);
+  return sprintf(l10n('Photo "%s" imported'), $photo['title']);
 }
 
 ?>

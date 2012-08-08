@@ -1,1 +1,1 @@
-Extension permettant d'importer des photos depuis votre compte Flickr.
+Importez des photos depuis votre compte Flickr.

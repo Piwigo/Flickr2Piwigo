@@ -8,7 +8,7 @@ $lang['%d pictures are not displayed because already existing in the database.']
 $lang['%d pictures imported'] = '%d photos importées';
 $lang['Import'] = 'Importation';
 $lang['API not authenticated'] = 'API non authentifiée';
-$lang['%s imported'] = '%s importé';
+$lang['Photo "%s" imported'] = 'Photo "%s" importée';
 $lang['Flickr logins'] = 'Identifiants Flickr';
 $lang['API key'] = 'Clé API';
 $lang['API secret'] = 'Secret API';
@@ -28,6 +28,7 @@ $lang['Begin transfer'] = 'Commencer le transfert';
 $lang['Open Flickr page in a new tab'] = 'Ouvrir la page Flickr dans un nouvel onglet';
 $lang['No download method available'] = 'Aucune méthode de téléchargement n\'est disponible';
 $lang['Logued as'] = 'Indentifié en tant que';
+$lang['Logued out'] = 'Déconnecté';
 $lang['%d elements ready for importation'] = '%d elements prêts à l\'importation';
 
 ?>

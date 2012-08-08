@@ -36,6 +36,8 @@ function plugin_activate()
 
 function plugin_uninstall() 
 {
+  global $conf;
+  
   pwg_query('DELETE FROM `'. CONFIG_TABLE .'` WHERE param = "flickr2piwigo" LIMIT 1;');
   
   rrmdir($conf['data_location'].'flickr_cache/');

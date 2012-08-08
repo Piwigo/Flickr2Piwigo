@@ -404,7 +404,7 @@ $(document).ready(function() {
     <p>
       <label for="albumSelect"><b>{'Album'|@translate}:</b></label>
       <select style="width:400px" name="associate" id="albumSelect" size="1">
-        {html_options options=$associate_options}
+        {html_options options=$category_parent_options}
       </select>
       {'... or '|@translate}<a href="#" class="addAlbumOpen" title="{'create a new album'|@translate}">{'create a new album'|@translate}</a>
     </p>

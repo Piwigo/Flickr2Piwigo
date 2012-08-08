@@ -2,7 +2,7 @@
 /*
 Plugin Name: Flickr2Piwigo
 Version: auto
-Description: Extension for importing pictures from your Flickr account
+Description: Import pictures from your Flickr account
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=612
 Author: Mistic
 Author URI: http://www.strangeplanet.fr

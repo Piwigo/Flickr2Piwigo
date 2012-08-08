@@ -5,3 +5,7 @@
 #albumsList li.not_in_set {
   margin-top:20px;
 }
+UL.thumbnails span.wrap2 {
+  height: 128px;
+  width: 128px;
+}
