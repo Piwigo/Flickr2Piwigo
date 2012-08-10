@@ -23,7 +23,6 @@
 $lang['%d albums'] = '%d albüm';
 $lang['%d pictures are not displayed because already existing in the database.'] = 'Mevcut veri tabanında zaten bulunduklarından %d resim gösterilmedi.';
 $lang['%d pictures imported'] = '%d resim içe aktarıldı';
-$lang['%s imported'] = '%s içe aktarıldı';
 $lang['(%d photos)'] = '(%d fotoğraf)';
 $lang['API key'] = 'API anahtarı';
 $lang['API not authenticated'] = 'API doğrulanmamış';
@@ -48,4 +47,7 @@ $lang['Please fill your API keys on the configuration tab'] = 'Lütfen yapıland
 $lang['Processing...'] = 'İşleniyor...';
 $lang['Reproduce flickr albums'] = 'Flickr albümlerini yeniden üret';
 $lang['Successfully logued to you Flickr account'] = 'Flickr \'de başarılı olarak oturum açıldı.';
+$lang['%d elements ready for importation'] = 'İçe aktarmak için %d öğe hazır';
+$lang['Logued out'] = 'Oturum kapatıldı';
+$lang['Photo "%s" imported'] = '"%s" fotoğraf içe aktarıldı.';
 ?>
