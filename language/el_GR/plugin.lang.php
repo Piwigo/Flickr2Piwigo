@@ -23,7 +23,6 @@
 $lang['%d albums'] = '%d λευκώματα';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d των εικόνων δεν εμφανίζονται επειδή υπάρχουν ήδη στην βάση δεδομένων.';
 $lang['%d pictures imported'] = '%d εικόνες εισήχθησαν';
-$lang['%s imported'] = '%s εισήχθησαν';
 $lang['(%d photos)'] = '(%d εικόνες)';
 $lang['API key'] = 'κλειδί API ';
 $lang['API not authenticated'] = 'το κλειδί API δεν επικυρώθηκε';
@@ -49,4 +48,6 @@ $lang['Processing...'] = 'Επεξεργασία ...';
 $lang['Reproduce flickr albums'] = 'Αναπαραγωγή λευκώματος flickr ';
 $lang['Successfully logued to you Flickr account'] = 'Συνδεθήκατε επιτυχώς στο Flickr λογαριασμό σας';
 $lang['%d elements ready for importation'] = '%d στοιχεία έτοιμα για την εισαγωγή';
+$lang['Photo "%s" imported'] = 'Η Φωτογραφία "%s" έχει εισαχθεί ';
+$lang['Logued out'] = 'Αποθηκεύτηκε ';
 ?>
