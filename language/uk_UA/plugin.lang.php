@@ -47,6 +47,7 @@ $lang['Pictures without album'] = 'Зображення без альбому';
 $lang['%d albums'] = '%d альбоми';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d малюнки не відображаються, оскільки вже існують в базі даних.';
 $lang['%d pictures imported'] = '%d імпортованих зображень';
-$lang['%s imported'] = '%s імпортовано';
 $lang['%d elements ready for importation'] = '%d елементів готові для імпортування';
+$lang['Photo "%s" imported'] = 'Зображення "%s" імпортовано';
+$lang['Logued out'] = 'Вихід';
 ?>
