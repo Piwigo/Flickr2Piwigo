@@ -23,7 +23,6 @@
 $lang['%d albums'] = '%d albumy';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d zdjęcia nie są wyświetlane ponieważ znajdu';
 $lang['%d pictures imported'] = '%d zdjęć zaimportowanych';
-$lang['%s imported'] = '%s zaimportowane';
 $lang['(%d photos)'] = '(%d zdjęć)';
 $lang['API key'] = 'Klucz API';
 $lang['API not authenticated'] = 'Brak autentykacji API';
@@ -48,4 +47,7 @@ $lang['Please fill your API keys on the configuration tab'] = 'Wypełnij klucze 
 $lang['Processing...'] = 'Przetwarzanie...';
 $lang['Reproduce flickr albums'] = 'Odbuduj albumy Flickr';
 $lang['Successfully logued to you Flickr account'] = 'Udane logowanie do Flickr';
+$lang['%d elements ready for importation'] = '%d elementów gotowych do importu';
+$lang['Logued out'] = 'Wylogowano';
+$lang['Photo "%s" imported'] = 'Zdjęcie "%s" zaimportowane';
 ?>
