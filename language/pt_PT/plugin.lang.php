@@ -20,19 +20,18 @@
 // | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
-$lang['%d albums'] = '%d albums';
+$lang['%d albums'] = '%d albuns';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d fotos não são mostradas porque já existem na base de dados';
 $lang['%d pictures imported'] = '%d fotos importadas';
-$lang['%s imported'] = '%s importadas';
 $lang['(%d photos)'] = '(%d fotos)';
 $lang['API key'] = 'Chave API';
 $lang['API not authenticated'] = 'API não autenticada';
 $lang['API secret'] = 'API secreta';
-$lang['Begin transfer'] = 'Transferencia grande';
+$lang['Begin transfer'] = 'Iniciar transferencia ';
 $lang['Callback URL'] = 'URL de regresso';
 $lang['Fill these fields from Flickr datas'] = 'Completar estes campos com dados Flickr';
-$lang['Flickr logins'] = 'Entradas Flickr';
-$lang['How do I get my Flickr API key?'] = 'Como obter a chave API flickr';
+$lang['Flickr logins'] = 'Entradas no Flickr';
+$lang['How do I get my Flickr API key?'] = 'Como obtenho a chave flickr API';
 $lang['Import all my pictures'] = 'Inportar todas as minhas fotos';
 $lang['Import all photos in this album'] = 'Importar todas as fotos deste Album';
 $lang['Import options'] = 'Opções de importação';
@@ -49,4 +48,6 @@ $lang['Processing...'] = 'Processando...';
 $lang['Reproduce flickr albums'] = 'Reproduzir albuns Flickr';
 $lang['Successfully logued to you Flickr account'] = 'Entrou com sucesso na sua conta Flickr';
 $lang['%d elements ready for importation'] = '%d elementos prontos para a importação ';
+$lang['Logued out'] = 'Saiu';
+$lang['Photo "%s" imported'] = 'Importadas  "%s" fotos';
 ?>
