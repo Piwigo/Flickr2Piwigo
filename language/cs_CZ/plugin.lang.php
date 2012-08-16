@@ -23,7 +23,6 @@
 $lang['%d albums'] = '%d alb';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d obrázků nebylo zobrazeno, protože se už nachází v databázi';
 $lang['%d pictures imported'] = '%d obrázků importováno';
-$lang['%s imported'] = '%s importováno';
 $lang['(%d photos)'] = '(%d fotek)';
 $lang['API key'] = 'API klíč';
 $lang['API not authenticated'] = 'API neutentifikováno';
@@ -48,4 +47,7 @@ $lang['Please fill your API keys on the configuration tab'] = 'Vyplňte prosím 
 $lang['Processing...'] = 'Zpracovávání...';
 $lang['Reproduce flickr albums'] = 'Vytvořit Flickr alba';
 $lang['Successfully logued to you Flickr account'] = 'Přiglášení na účet Flickr úspěšné';
+$lang['%d elements ready for importation'] = '%d elementů připravených k importování';
+$lang['Logued out'] = 'odhlášen';
+$lang['Photo "%s" imported'] = 'Fotka "%s" importována';
 ?>
