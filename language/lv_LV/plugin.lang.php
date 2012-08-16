@@ -23,7 +23,6 @@
 $lang['%d albums'] = '%d albūmi';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d netiek rādītas, jo datubāzē jau eksistē.';
 $lang['%d pictures imported'] = '%d attēli importēti';
-$lang['%s imported'] = '%s importēti';
 $lang['(%d photos)'] = '(%d attēlu)';
 $lang['API key'] = 'API atsēga';
 $lang['API not authenticated'] = 'API nav autentisks';
@@ -48,4 +47,7 @@ $lang['Please fill your API keys on the configuration tab'] = 'Lūdzu ieraksties
 $lang['Processing...'] = 'Apstrāde...';
 $lang['Reproduce flickr albums'] = 'Reproducēt Flickr albūmus';
 $lang['Successfully logued to you Flickr account'] = 'Esat veiksmīgi pieteikušies savā Flickr kontā';
+$lang['Logued out'] = 'Izgājis no sistēmas';
+$lang['Photo "%s" imported'] = 'Importēts "%s" fotogrāfiju';
+$lang['%d elements ready for importation'] = '%d elementi gatavi importam';
 ?>
