@@ -23,7 +23,6 @@
 $lang['%d albums'] = '%d albums';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d afbeeldingen worden niet getoond omdat ze al in de database staan.';
 $lang['%d pictures imported'] = '%d afbeeldingen geïmporteerd';
-$lang['%s imported'] = '%s geïmporteerd';
 $lang['(%d photos)'] = '(%d foto\'s)';
 $lang['API key'] = 'API sleutel';
 $lang['API not authenticated'] = 'API niet geverifieerd';
@@ -48,4 +47,7 @@ $lang['Please fill your API keys on the configuration tab'] = 'Vul je API sleute
 $lang['Processing...'] = 'Bewerken ...';
 $lang['Reproduce flickr albums'] = 'Reproduceer Flickr albums';
 $lang['Successfully logued to you Flickr account'] = 'Succesvol ingelogd in Flickr ';
+$lang['%d elements ready for importation'] = '%d onderdelen klaar voor import';
+$lang['Logued out'] = 'Uitgelogd ';
+$lang['Photo "%s" imported'] = 'Foto "%d" geïmporteerd';
 ?>
