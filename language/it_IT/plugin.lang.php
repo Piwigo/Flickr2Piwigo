@@ -23,7 +23,6 @@
 $lang['%d albums'] = '%d albums';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d foto non sono visualizzate perché già presenti nella galleria';
 $lang['%d pictures imported'] = '%d immagini importate';
-$lang['%s imported'] = '%s importati';
 $lang['(%d photos)'] = '(%d foto)';
 $lang['API key'] = 'API key';
 $lang['API not authenticated'] = 'API non autenticate';
@@ -48,4 +47,6 @@ $lang['Please fill your API keys on the configuration tab'] = 'Si prega di compi
 $lang['Processing...'] = 'Elaborazione...';
 $lang['Reproduce flickr albums'] = 'Riproduci gli album flickr';
 $lang['Successfully logued to you Flickr account'] = 'Accesso al tuo account Flickr riuscito';
+$lang['%d elements ready for importation'] = '%d elementi sono pronti per essere importati';
+$lang['Photo "%s" imported'] = 'La foto "%s" è stata importata';
 ?>
