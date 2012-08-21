@@ -49,4 +49,5 @@ $lang['Reproduce flickr albums'] = 'Riproduci gli album flickr';
 $lang['Successfully logued to you Flickr account'] = 'Accesso al tuo account Flickr riuscito';
 $lang['%d elements ready for importation'] = '%d elementi sono pronti per essere importati';
 $lang['Photo "%s" imported'] = 'La foto "%s" è stata importata';
+$lang['Logued out'] = 'Disconnesso';
 ?>
