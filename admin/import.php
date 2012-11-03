@@ -61,7 +61,7 @@ switch ($_GET['action'])
   // message after login
   case 'logued':
   {
-    $_SESSION['page_infos'][] = l10n('Successfully logued to you Flickr account');
+    $_SESSION['page_infos'][] = l10n('Successfully logged in to you Flickr account');
     redirect(FLICKR_ADMIN . '-import');
     break;
   }
@@ -70,7 +70,7 @@ switch ($_GET['action'])
   case 'logout':
   {
     unset($_SESSION['phpFlickr_auth_token']);
-    $_SESSION['page_infos'][] = l10n('Logued out');
+    $_SESSION['page_infos'][] = l10n('Logged out');
     redirect(FLICKR_ADMIN . '-import');
     break;
   }

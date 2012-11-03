@@ -21,8 +21,8 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['One picture is not displayed because already existing in the database.'] = 'Egy kép nem látható, mert már létezik az adatbázisban.';
-$lang['Logued as'] = 'Bejelentkzeve, mint';
-$lang['Logued out'] = 'Kijelentkezve';
+$lang['Logged in as'] = 'Bejelentkzeve, mint';
+$lang['Logged out'] = 'Kijelentkezve';
 $lang['No download method available'] = 'Nincs használható letöltési módszer';
 $lang['Open Flickr page in a new tab'] = 'Flickr oldal megnyitása egy új fülben';
 $lang['Photo "%s" imported'] = '"%s" fotó importálva';
@@ -30,7 +30,7 @@ $lang['Pictures without album'] = 'Album nélküli képek';
 $lang['Please fill your API keys on the configuration tab'] = 'Kérünk, add meg az API kulcsod a konfiguráció-fülön';
 $lang['Processing...'] = 'Feldolgozás folyamatban...';
 $lang['Reproduce flickr albums'] = 'Flickr albumok lemásolása';
-$lang['Successfully logued to you Flickr account'] = 'Sikeresen bejelentkezve a Flickr fiókodba';
+$lang['Successfully logged in to you Flickr account'] = 'Sikeresen bejelentkezve a Flickr fiókodba';
 $lang['Callback URL'] = 'Visszahívási URL';
 $lang['Fill these fields from Flickr datas'] = 'Ezeket a mezőket a Flickr adatokkal töltsd fel';
 $lang['Flickr logins'] = 'Flickr bejelentkezések';

@@ -25,7 +25,7 @@ $lang['One picture is not displayed because already existing in the database.'] 
 $lang['Please fill your API keys on the configuration tab'] = 'Будь ласка, заповніть API ключі на вкладці конфігурації';
 $lang['Processing...'] = 'Обробка...';
 $lang['Reproduce flickr albums'] = 'Відтворити flickr альбоми';
-$lang['Successfully logued to you Flickr account'] = 'Успішно увійшли до вашого облікового запису Flickr';
+$lang['Successfully logged in to you Flickr account'] = 'Успішно увійшли до вашого облікового запису Flickr';
 $lang['(%d photos)'] = '(%d зображень)';
 $lang['API key'] = 'Ключ API';
 $lang['API not authenticated'] = 'API не перевірку автентичності';
@@ -40,7 +40,7 @@ $lang['Import all photos in this album'] = 'Імпортувати всі зоб
 $lang['Import options'] = 'Параметри імпорту';
 $lang['List my albums'] = 'Список моїх альбомів';
 $lang['List pictures of this album'] = 'Список зображень цього альбому';
-$lang['Logued as'] = 'Залоґінений як';
+$lang['Logged in as'] = 'Залоґінений як';
 $lang['No download method available'] = 'Немає доступних методів завантаження';
 $lang['Open Flickr page in a new tab'] = 'Відкрити сторінку Flickr в новій вкладці';
 $lang['Pictures without album'] = 'Зображення без альбому';
@@ -49,5 +49,5 @@ $lang['%d pictures are not displayed because already existing in the database.']
 $lang['%d pictures imported'] = '%d імпортованих зображень';
 $lang['%d elements ready for importation'] = '%d елементів готові для імпортування';
 $lang['Photo "%s" imported'] = 'Зображення "%s" імпортовано';
-$lang['Logued out'] = 'Вихід';
+$lang['Logged out'] = 'Вихід';
 ?>

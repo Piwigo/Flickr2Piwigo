@@ -20,7 +20,7 @@ jQuery('.load').click(function() {
 {/literal}{/footer_script}
 
 <p>
-  <b>{'Logued as'|@translate}</b> : <a href="{$profile_url}" target="_blank">{$username}</a><br><br>
+  <b>{'Logged in as'|@translate}</b> : <a href="{$profile_url}" target="_blank">{$username}</a><br><br>
   <input type="submit" data="{$logout_url}" value="{'Logout'|@translate}">
 </p>
 <br>

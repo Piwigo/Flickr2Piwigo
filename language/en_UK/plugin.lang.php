@@ -1,7 +1,7 @@
 <?php
 
 $lang['Please fill your API keys on the configuration tab'] = 'Please fill your API keys on the configuration tab';
-$lang['Successfully logued to you Flickr account'] = 'Successfully logued to you Flickr account';
+$lang['Successfully logged in to you Flickr account'] = 'Successfully logged in to you Flickr account';
 $lang['Pictures without album'] = 'Pictures without album';
 $lang['One picture is not displayed because already existing in the database.'] = 'One picture is not displayed because already existing in the database.';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d pictures are not displayed because already existing in the database.';
@@ -27,8 +27,8 @@ $lang['List pictures of this album'] = 'List pictures of this album';
 $lang['Begin transfer'] = 'Begin transfer';
 $lang['Open Flickr page in a new tab'] = 'Open Flickr page in a new tab';
 $lang['No download method available'] = 'No download method available';
-$lang['Logued as'] = 'Logued as';
-$lang['Logued out'] = 'Logued out';
+$lang['Logged in as'] = 'Logged in as';
+$lang['Logged out'] = 'Logged out';
 $lang['%d elements ready for importation'] = '%d elements ready for importation';
 
 ?>

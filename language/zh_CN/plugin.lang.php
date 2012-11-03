@@ -20,8 +20,8 @@
 // | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
-$lang['Logued as'] = '登录为';
-$lang['Logued out'] = '登出';
+$lang['Logged in as'] = '登录为';
+$lang['Logged out'] = '登出';
 $lang['List my albums'] = '列出我的相册';
 $lang['List pictures of this album'] = '列出此相册中的图片';
 $lang['No download method available'] = '没有可用的下载方法';
@@ -32,7 +32,7 @@ $lang['Pictures without album'] = '无隶属相册的图片';
 $lang['Please fill your API keys on the configuration tab'] = '请在配置选项卡上填写您的API keys';
 $lang['Processing...'] = '处理中...';
 $lang['Reproduce flickr albums'] = '复制Flickr相册';
-$lang['Successfully logued to you Flickr account'] = '已成功登录到您的Flickr相册';
+$lang['Successfully logged in to you Flickr account'] = '已成功登录到您的Flickr相册';
 $lang['(%d photos)'] = '(%d张图片)';
 $lang['API key'] = 'API key';
 $lang['API not authenticated'] = 'API未通过验证';

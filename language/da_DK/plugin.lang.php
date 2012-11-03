@@ -20,7 +20,7 @@
 // | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
-$lang['Logued out'] = 'Logget ud';
+$lang['Logged out'] = 'Logget ud';
 $lang['No download method available'] = 'Ingen downloadmetode til rådighed';
 $lang['One picture is not displayed because already existing in the database.'] = 'Et billede vises ikke, fordi det allerede findes i databasen.';
 $lang['Open Flickr page in a new tab'] = 'Åbn Flickr-side i en ny fane';
@@ -29,7 +29,7 @@ $lang['Pictures without album'] = 'Billeder uden album';
 $lang['Please fill your API keys on the configuration tab'] = 'Angiv dine API-nøgler på opsætningsfanen';
 $lang['Processing...'] = 'Behandler ...';
 $lang['Reproduce flickr albums'] = 'Reproducere Flickr-album';
-$lang['Successfully logued to you Flickr account'] = 'Loggede på din Flickr-konto';
+$lang['Successfully logged in to you Flickr account'] = 'Loggede på din Flickr-konto';
 $lang['%d albums'] = '%d album';
 $lang['%d elements ready for importation'] = '%d elementer klar til import';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d billeder vises ikke, fordi de allerede findes i databasen.';
@@ -49,5 +49,5 @@ $lang['Import all photos in this album'] = 'Importer alle fotoer i dette album';
 $lang['Import options'] = 'Importindstillinger';
 $lang['List my albums'] = 'Liste over mine albums';
 $lang['List pictures of this album'] = 'List billeder i dette album';
-$lang['Logued as'] = 'Logget som';
+$lang['Logged in as'] = 'Logget som';
 ?>

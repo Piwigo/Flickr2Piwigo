@@ -23,7 +23,7 @@
 $lang['Import'] = 'นำเข้า';
 $lang['List my albums'] = 'รายชื่ออัลบั้มของฉัน';
 $lang['Import options'] = 'ตัวเลือกการนำเข้า';
-$lang['Logued as'] = 'เข้าสู่ระบบโดย';
+$lang['Logged in as'] = 'เข้าสู่ระบบโดย';
 $lang['API secret'] = 'API secret';
 $lang['API key'] = 'API key';
 ?>
