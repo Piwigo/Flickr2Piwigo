@@ -17,15 +17,18 @@ define('FLICKR_ADMIN', get_root_url() . 'admin.php?page=plugin-' . basename(dirn
 define('FLICKR_FS_CACHE', $conf['data_location'].'flickr_cache/');
 
 
-add_event_handler('get_admin_plugin_menu_links', 'flickr_admin_menu');
-
-function flickr_admin_menu($menu) 
+if (defined('IN_ADMIN'))
 {
-  array_push($menu, array(
-    'NAME' => 'Flickr2Piwigo',
-    'URL' => FLICKR_ADMIN,
-  ));
-  return $menu;
+  add_event_handler('get_admin_plugin_menu_links', 'flickr_admin_menu');
+
+  function flickr_admin_menu($menu) 
+  {
+    array_push($menu, array(
+      'NAME' => 'Flickr2Piwigo',
+      'URL' => FLICKR_ADMIN,
+    ));
+    return $menu;
+  }
 }
 
 

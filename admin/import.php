@@ -3,7 +3,7 @@ if (!defined('FLICKR_PATH')) die('Hacking attempt!');
 
 set_time_limit(600);
 
-include_once(PICASA_WA_PATH . 'include/functions.inc.php');
+include_once(FLICKR_PATH . 'include/functions.inc.php');
 
 // check API parameters and connect to flickr
 if ( empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']) )
