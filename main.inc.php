@@ -12,9 +12,9 @@ if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 
 global $conf;
 
-define('FLICKR_PATH', PHPWG_PLUGINS_PATH . basename(dirname(__FILE__)) . '/');
-define('FLICKR_ADMIN', get_root_url() . 'admin.php?page=plugin-' . basename(dirname(__FILE__)));
-define('FLICKR_FS_CACHE', $conf['data_location'].'flickr_cache/');
+define('FLICKR_PATH',     PHPWG_PLUGINS_PATH . basename(dirname(__FILE__)) . '/');
+define('FLICKR_ADMIN',    get_root_url() . 'admin.php?page=plugin-' . basename(dirname(__FILE__)));
+define('FLICKR_FS_CACHE', PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/');
 
 
 if (defined('IN_ADMIN'))

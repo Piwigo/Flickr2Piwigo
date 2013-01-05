@@ -16,7 +16,7 @@ function plugin_install()
   
   conf_update_param('flickr2piwigo', flickr2piwigo_default_config);
   
-  mkdir($conf['data_location'].'flickr_cache/', 0755);
+  mkgetdir(PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/', MKGETDIR_DEFAULT&~MKGETDIR_DIE_ON_ERROR);
 }
 
 function plugin_activate()
@@ -28,9 +28,9 @@ function plugin_activate()
     conf_update_param('flickr2piwigo', flickr2piwigo_default_config);
   }
   
-  if (!file_exists($conf['data_location'].'flickr_cache/'))
+  if (!file_exists(PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/'))
   {
-    mkdir($conf['data_location'].'flickr_cache/', 0755);
+    mkgetdir(PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/', MKGETDIR_DEFAULT&~MKGETDIR_DIE_ON_ERROR);
   }
 }
 
@@ -40,7 +40,7 @@ function plugin_uninstall()
   
   pwg_query('DELETE FROM `'. CONFIG_TABLE .'` WHERE param = "flickr2piwigo" LIMIT 1;');
   
-  rrmdir($conf['data_location'].'flickr_cache/');
+  rrmdir(PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/');
 }
 
 function rrmdir($dir)
