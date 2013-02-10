@@ -33,4 +33,14 @@ $lang['List my albums'] = 'لیست البوم های من';
 $lang['List pictures of this album'] = 'لیست عکس ها از این البوم';
 $lang['Import'] = 'وارد کردن';
 $lang['Begin transfer'] = 'آغاز انتقال';
+$lang['Callback URL'] = 'آدرس بازخورد';
+$lang['Fill these fields from Flickr datas'] = 'این فیلد ها را با اطلاعات فلیکر تکمیل نمایید';
+$lang['Logged in as'] = 'وارد شداید با';
+$lang['Logged out'] = 'خارج شدید';
+$lang['No download method available'] = 'هیچ روشی برای بارگیری وجود ندارد';
+$lang['Open Flickr page in a new tab'] = 'باز کردن فلیکر در یک تب جدید';
+$lang['Reproduce flickr albums'] = 'بازسازی آلبوم های فلیکر';
+$lang['Successfully logged in to you Flickr account'] = 'به درستی در حساب فلیکر شما وارد شد';
+$lang['API not authenticated'] = 'ای پی آی تایید نشد.';
+$lang['API key'] = 'کلید ای پی آی (API)';
 ?>
