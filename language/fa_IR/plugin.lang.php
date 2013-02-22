@@ -43,4 +43,12 @@ $lang['Reproduce flickr albums'] = 'بازسازی آلبوم های فلیکر'
 $lang['Successfully logged in to you Flickr account'] = 'به درستی در حساب فلیکر شما وارد شد';
 $lang['API not authenticated'] = 'ای پی آی تایید نشد.';
 $lang['API key'] = 'کلید ای پی آی (API)';
+$lang['%d elements ready for importation'] = ' عناصر آماده برای واردات';
+$lang['%d pictures are not displayed because already existing in the database.'] = 'تصاویر نمایش داده نمی شود چرا که در حال حاضر در پایگاه داده موجود نیست.';
+$lang['API secret'] = 'api مخفی';
+$lang['How do I get my Flickr API key?'] = 'چگونه می توانم کلید ای پی آی فلیکرم را دریافت کنم؟';
+$lang['One picture is not displayed because already existing in the database.'] = 'یک تصویر نمایش داده نمی شود چرا که در حال حاضر در پایگاه داده موجود نیست.';
+$lang['Photo "%s" imported'] = 'عکس  "%s" وارد شد';
+$lang['Please fill your API keys on the configuration tab'] = 'لطفا
+کلید آی پی ای خود را بر روی برگه پیکربندی را پر کنید';
 ?>
