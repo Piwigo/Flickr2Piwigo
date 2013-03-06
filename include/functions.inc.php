@@ -45,9 +45,12 @@ if (!function_exists('download_remote_file'))
       curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array("Accept-language: en"));
       curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)');
-      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-      curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
       curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+      if (!ini_get('safe_mode'))
+      {
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
+      }
       if (strpos($src, 'https://') !== false)
       {
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
