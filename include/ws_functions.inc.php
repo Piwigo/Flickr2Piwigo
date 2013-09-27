@@ -108,7 +108,7 @@ SELECT id FROM '.CATEGORIES_TABLE.'
   
     $updates = array();
     if (in_array('fill_name', $photo['fills']))   $updates['name'] = $photo['title']; 
-    if (in_array('fill_posted', $photo['fills'])) $updates['date_available'] = date('Y-d-m H:i:s', $photo['dates']['posted']);
+    if (in_array('fill_posted', $photo['fills'])) $updates['date_available'] = date('Y-m-d H:i:s', $photo['dates']['posted']);
     if (in_array('fill_taken', $photo['fills']))  $updates['date_creation'] = $photo['dates']['taken'];
     if (in_array('fill_author', $photo['fills'])) $updates['author'] = $photo['owner']['username'];
     
