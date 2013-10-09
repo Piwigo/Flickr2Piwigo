@@ -20,6 +20,9 @@ define('FLICKR_FS_CACHE', PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cac
 if (defined('IN_ADMIN'))
 {
   add_event_handler('get_admin_plugin_menu_links', 'flickr_admin_menu');
+  add_event_handler('get_batch_manager_prefilters', 'flickr_add_batch_manager_prefilters');
+  add_event_handler('perform_batch_manager_prefilters', 'flickr_perform_batch_manager_prefilters', EVENT_HANDLER_PRIORITY_NEUTRAL, 2);
+  add_event_handler('loc_begin_admin_page', 'flickr_prefilter_from_url');
 
   function flickr_admin_menu($menu) 
   {
@@ -28,6 +31,40 @@ if (defined('IN_ADMIN'))
       'URL' => FLICKR_ADMIN,
     ));
     return $menu;
+  }
+  
+  function flickr_add_batch_manager_prefilters($prefilters)
+  {
+    array_push($prefilters, array(
+      'ID' => 'flickr',
+      'NAME' => l10n('Imported from Flickr'),
+    ));
+    return $prefilters;
+  }
+
+  function flickr_perform_batch_manager_prefilters($filter_sets, $prefilter)
+  {
+    if ($prefilter == 'flickr')
+    {
+      $query = '
+  SELECT id
+    FROM '.IMAGES_TABLE.'
+    WHERE file LIKE "flickr-%"
+  ;';
+      $filter_sets[] = array_from_query($query, 'id');
+    }
+    
+    return $filter_sets;
+  }
+  
+  function flickr_prefilter_from_url()
+  {
+    global $page;
+    if ($page['page'] == 'batch_manager' && @$_GET['prefilter'] == 'flickr')
+    {
+      $_SESSION['bulk_manager_filter'] = array('prefilter' => 'flickr');
+      unset($_GET['prefilter']);
+    }
   }
 }
 

@@ -107,10 +107,10 @@ SELECT id FROM '.CATEGORIES_TABLE.'
     $photo['fills'] = explode(',', $photo['fills']);
   
     $updates = array();
-    if (in_array('fill_name', $photo['fills']))   $updates['name'] = $photo['title']; 
+    if (in_array('fill_name', $photo['fills']))   $updates['name'] = pwg_db_real_escape_string($photo['title']); 
     if (in_array('fill_posted', $photo['fills'])) $updates['date_available'] = date('Y-m-d H:i:s', $photo['dates']['posted']);
     if (in_array('fill_taken', $photo['fills']))  $updates['date_creation'] = $photo['dates']['taken'];
-    if (in_array('fill_author', $photo['fills'])) $updates['author'] = $photo['owner']['username'];
+    if (in_array('fill_author', $photo['fills'])) $updates['author'] = pwg_db_real_escape_string($photo['owner']['username']);
     
     if (count($updates))
     {
