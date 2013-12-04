@@ -30,5 +30,6 @@ $lang['No download method available'] = 'Aucune méthode de téléchargement n\'
 $lang['Logged in as'] = 'Indentifié en tant que';
 $lang['Logged out'] = 'Déconnecté';
 $lang['%d elements ready for importation'] = '%d elements prêts à l\'importation';
+$lang['Geolocalization'] = 'Géolocalisation';
 
 ?>

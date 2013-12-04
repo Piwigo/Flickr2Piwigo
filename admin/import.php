@@ -299,7 +299,10 @@ SELECT id, name, uppercats, global_rank
 }
 
 
-$template->assign('ACTION', $_GET['action']);
+$template->assign(array(
+  'ACTION' => $_GET['action'],
+  'GMAPS_LOADED' => !empty($pwg_loaded_plugins['rv_gmaps']) || !empty($pwg_loaded_plugins['piwigo-openstreetmap']),
+  ));
 
 $template->set_filename('flickr2piwigo', dirname(__FILE__) . '/template/import.tpl');
 
