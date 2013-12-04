@@ -111,7 +111,7 @@ SELECT id FROM '.CATEGORIES_TABLE.'
     if (in_array('fill_posted', $photo['fills'])) $updates['date_available'] = date('Y-m-d H:i:s', $photo['dates']['posted']);
     if (in_array('fill_taken', $photo['fills']))  $updates['date_creation'] = $photo['dates']['taken'];
     if (in_array('fill_author', $photo['fills'])) $updates['author'] = pwg_db_real_escape_string($photo['owner']['username']);
-    if (in_array('fill_description', $photo['fills'])) $updates['comment'] = pwg_db_real_escape_string($photo['description']);
+    if (in_array('fill_description', $photo['fills'])) $updates['comment'] = pwg_db_real_escape_string(@$photo['description']);
     if (in_array('fill_geotag', $photo['fills']) and !empty($photo['location']) )
     {
       $updates['lat'] = pwg_db_real_escape_string($photo['location']['latitude']);
