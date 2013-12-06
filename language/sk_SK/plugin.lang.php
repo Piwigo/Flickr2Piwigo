@@ -50,4 +50,5 @@ $lang['Successfully logged in to you Flickr account'] = 'Úspešne prihlásený 
 $lang['%d elements ready for importation'] = '%d prvky/prvkov pripravených pre import';
 $lang['Logged out'] = 'Odhlásený';
 $lang['Photo "%s" imported'] = 'Fotka %d importovaná';
+$lang['Geolocalization'] = 'Geolokalizácia';
 ?>
