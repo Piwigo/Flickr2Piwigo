@@ -50,4 +50,5 @@ $lang['Successfully logged in to you Flickr account'] = 'Flickr \'de başarılı
 $lang['%d elements ready for importation'] = 'İçe aktarmak için %d öğe hazır';
 $lang['Logged out'] = 'Oturum kapatıldı';
 $lang['Photo "%s" imported'] = '"%s" fotoğraf içe aktarıldı.';
+$lang['Geolocalization'] = 'Küresel konumlama';
 ?>
