@@ -50,4 +50,5 @@ $lang['Successfully logged in to you Flickr account'] = 'Esat veiksmīgi pieteik
 $lang['Logged out'] = 'Izgājis no sistēmas';
 $lang['Photo "%s" imported'] = 'Importēts "%s" fotogrāfiju';
 $lang['%d elements ready for importation'] = '%d elementi gatavi importam';
+$lang['Geolocalization'] = 'Ģeolokalizācija';
 ?>
