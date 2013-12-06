@@ -50,4 +50,5 @@ $lang['Import options'] = 'Importindstillinger';
 $lang['List my albums'] = 'Liste over mine albums';
 $lang['List pictures of this album'] = 'List billeder i dette album';
 $lang['Logged in as'] = 'Logget som';
+$lang['Geolocalization'] = 'Geolokalisering';
 ?>
