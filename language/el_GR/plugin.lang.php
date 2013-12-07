@@ -50,4 +50,5 @@ $lang['Successfully logged in to you Flickr account'] = 'Συνδεθήκατε 
 $lang['%d elements ready for importation'] = '%d στοιχεία έτοιμα για την εισαγωγή';
 $lang['Photo "%s" imported'] = 'Η Φωτογραφία "%s" έχει εισαχθεί ';
 $lang['Logged out'] = 'Αποθηκεύτηκε ';
+$lang['Geolocalization'] = 'Γεωγραφικός Εντοπισμός';
 ?>
