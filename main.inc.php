@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 Plugin Name: Flickr2Piwigo
 Version: auto
@@ -8,37 +8,45 @@ Author: Mistic
 Author URI: http://www.strangeplanet.fr
 */
 
-if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
+defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
 
 global $conf;
 
-define('FLICKR_PATH',     PHPWG_PLUGINS_PATH . basename(dirname(__FILE__)) . '/');
-define('FLICKR_ADMIN',    get_root_url() . 'admin.php?page=plugin-' . basename(dirname(__FILE__)));
+define('FLICKR_ID',       basename(dirname(__FILE__)));
+define('FLICKR_PATH',     PHPWG_PLUGINS_PATH . FLICKR_ID . '/');
+define('FLICKR_ADMIN',    get_root_url() . 'admin.php?page=plugin-' . FLICKR_ID);
 define('FLICKR_FS_CACHE', PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/');
+define('FLICKR_VERSION',  'auto');
 
+
+include_once(FLICKR_PATH . 'include/ws_functions.inc.php');
+
+
+add_event_handler('init', 'flickr_init');
+add_event_handler('ws_add_methods', 'flickr_add_ws_method');
 
 if (defined('IN_ADMIN'))
 {
   add_event_handler('get_admin_plugin_menu_links', 'flickr_admin_menu');
+
   add_event_handler('get_batch_manager_prefilters', 'flickr_add_batch_manager_prefilters');
   add_event_handler('perform_batch_manager_prefilters', 'flickr_perform_batch_manager_prefilters', EVENT_HANDLER_PRIORITY_NEUTRAL, 2);
-  add_event_handler('loc_begin_admin_page', 'flickr_prefilter_from_url');
 
-  function flickr_admin_menu($menu) 
+  function flickr_admin_menu($menu)
   {
-    array_push($menu, array(
+    $menu[] = array(
       'NAME' => 'Flickr2Piwigo',
       'URL' => FLICKR_ADMIN,
-    ));
+      );
     return $menu;
   }
-  
+
   function flickr_add_batch_manager_prefilters($prefilters)
   {
-    array_push($prefilters, array(
+    $prefilters[] = array(
       'ID' => 'flickr',
       'NAME' => l10n('Imported from Flickr'),
-    ));
+      );
     return $prefilters;
   }
 
@@ -53,24 +61,18 @@ if (defined('IN_ADMIN'))
   ;';
       $filter_sets[] = array_from_query($query, 'id');
     }
-    
+
     return $filter_sets;
-  }
-  
-  function flickr_prefilter_from_url()
-  {
-    global $page;
-    if ($page['page'] == 'batch_manager' && @$_GET['prefilter'] == 'flickr')
-    {
-      $_SESSION['bulk_manager_filter'] = array('prefilter' => 'flickr');
-      unset($_GET['prefilter']);
-    }
   }
 }
 
 
-include_once(FLICKR_PATH . 'include/ws_functions.inc.php');
+function flickr_init()
+{
+  global $conf;
+  include_once(FLICKR_PATH . 'maintain.inc.php');
+  $maintain = new flickr2piwigo_maintain(FLICKR_ID);
+  $maintain->autoUpdate(FLICKR_VERSION, 'install');
 
-add_event_handler('ws_add_methods', 'flickr_add_ws_method');
-
-?>
+  $conf['flickr2piwigo'] = unserialize($conf['flickr2piwigo']);
+}

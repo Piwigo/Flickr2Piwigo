@@ -1,5 +1,5 @@
 <?php
-if (!defined('FLICKR_PATH')) die('Hacking attempt!');
+defined('FLICKR_PATH') or die('Hacking attempt!');
 
 if (isset($_POST['save_config']))
 {
@@ -20,6 +20,4 @@ $template->assign(array(
   ));
 
 
-$template->set_filename('flickr2piwigo', dirname(__FILE__) . '/template/config.tpl');
-
-?>
+$template->set_filename('flickr2piwigo', realpath(FLICKR_PATH . 'admin/template/config.tpl'));

@@ -1,19 +1,19 @@
 <?php
-if (!defined('FLICKR_PATH')) die('Hacking attempt!');
+defined('FLICKR_PATH') or die('Hacking attempt!');
 
 set_time_limit(600);
 
 include_once(FLICKR_PATH . 'include/functions.inc.php');
 
 // check API parameters and connect to flickr
-if ( empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']) )
+if (empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']))
 {
-  array_push($page['warnings'], l10n('Please fill your API keys on the configuration tab'));
+  $page['warnings'][] = l10n('Please fill your API keys on the configuration tab');
   $_GET['action'] = 'error';
 }
-else if ( !test_remote_download() )
+else if (!test_remote_download())
 {
-  array_push($page['errors'], l10n('No download method available'));
+  $page['errors'][] = l10n('No download method available');
   $_GET['action'] = 'error';
 }
 else
@@ -22,24 +22,27 @@ else
   include_once(FLICKR_PATH . 'include/phpFlickr/phpFlickr.php');
   $flickr = new phpFlickr($conf['flickr2piwigo']['api_key'], $conf['flickr2piwigo']['secret_key']);
   $flickr->enableCache('fs', FLICKR_FS_CACHE);
-  
+
   // must authenticate
   $u = $flickr->test_login();
   if ( ($u === false or empty($_SESSION['phpFlickr_auth_token'])) and @$_GET['action']!='login' )
   {
     $_GET['action'] = 'init_login';
   }
-  
+
   // generate token after authentication
   if (!empty($_GET['frob']))
   {
     $flickr->auth_getToken($_GET['frob']);
-    $_GET['action'] = 'logued';
+    $_GET['action'] = 'logged';
   }
 }
 
 
-if (!isset($_GET['action'])) $_GET['action'] = 'main';
+if (!isset($_GET['action']))
+{
+  $_GET['action'] = 'main';
+}
 
 
 switch ($_GET['action'])
@@ -50,22 +53,22 @@ switch ($_GET['action'])
     $template->assign('flickr_login', FLICKR_ADMIN . '-import&amp;action=login');
     break;
   }
-  
+
   // call flickr login procedure
   case 'login':
   {
     $flickr->auth('read', false);
     break;
   }
-  
+
   // message after login
-  case 'logued':
+  case 'logged':
   {
     $_SESSION['page_infos'][] = l10n('Successfully logged in to you Flickr account');
     redirect(FLICKR_ADMIN . '-import');
     break;
   }
-  
+
   // logout
   case 'logout':
   {
@@ -74,7 +77,7 @@ switch ($_GET['action'])
     redirect(FLICKR_ADMIN . '-import');
     break;
   }
-  
+
   // main menu
   case 'main':
   {
@@ -88,7 +91,7 @@ switch ($_GET['action'])
       ));
     break;
   }
-  
+
   // list user albums
   case 'list_albums':
   {
@@ -96,46 +99,46 @@ switch ($_GET['action'])
     $albums = $flickr->photosets_getList($u['id']);
     $total_albums = $albums['total'];
     $albums = $albums['photoset'];
-    
+
     foreach ($albums as &$album)
     {
       $album['U_LIST'] = FLICKR_ADMIN . '-import&amp;action=list_photos&amp;album='.$album['id'];
     }
     unset($album);
-    
+
     // not classed
     $wo_albums = $flickr->photos_getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, NULL, 1);
     if ($wo_albums['photos']['total'] > 0)
     {
-      array_push($albums, array(
+      $albums[] = array(
         'id' => 'not_in_set',
         'title' => l10n('Pictures without album'),
         'description' => null,
         'photos' => $wo_albums['photos']['total'],
         'U_LIST' => FLICKR_ADMIN . '-import&amp;action=list_photos&amp;album=not_in_set',
-        ));
+        );
     }
-    
+
     $template->assign(array(
       'total_albums' => $total_albums,
       'albums' => $albums,
       ));
     break;
   }
-  
+
   // list photos of an album
   case 'list_photos':
   {
     $self_url = FLICKR_ADMIN . '-import&amp;action=list_photos&amp;album='.$_GET['album'];
     $flickr_prefix = 'flickr-'.$u['username'].'-';
     $flickr_root_url = $flickr->urls_getUserPhotos($u['id']);
-    
+
     // pagination
     if (isset($_GET['start']))   $page['start'] = intval($_GET['start']);
     else                         $page['start'] = 0;
     if (isset($_GET['display'])) $page['display'] = $_GET['display']=='all' ? 500 : intval($_GET['display']);
     else                         $page['display'] = 20;
-    
+
     // get photos
     if ($_GET['album'] == 'not_in_set')
     {
@@ -147,7 +150,7 @@ switch ($_GET['action'])
       $all_photos = $flickr->photosets_getPhotos($_GET['album'], NULL, NULL, 500, NULL, 'photos');
       $all_photos = $all_photos['photoset']['photo'];
     }
-    
+
     // get existing photos
     $query = '
 SELECT id, file
@@ -156,7 +159,7 @@ SELECT id, file
 ;';
     $existing_photos = simple_hash_from_query($query, 'id', 'file');
     $existing_photos = array_map(create_function('$p', 'return preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p);'), $existing_photos);
-    
+
     // remove existing photos
     $duplicates = 0;
     foreach ($all_photos as $i => $photo)
@@ -167,18 +170,21 @@ SELECT id, file
         $duplicates++;
       }
     }
-    
+
     if ($duplicates>0)
     {
-      $page['infos'][] = '<a href="admin.php?page=batch_manager&amp;prefilter=flickr">'
-          .l10n_dec('One picture is not displayed because already existing in the database.', '%d pictures are not displayed because already existing in the database.', $duplicates)
+      $page['infos'][] = '<a href="admin.php?page=batch_manager&amp;filter=prefilter-flickr">'
+          .l10n_dec(
+            'One picture is not displayed because already existing in the database.',
+            '%d pictures are not displayed because already existing in the database.',
+            $duplicates)
         .'</a>';
     }
-    
+
     // displayed photos
     $page_photos = array_slice($all_photos, $page['start'], $page['display']);
     $all_elements = array_map(create_function('$p', 'return  \'"\'.$p["id"].\'"\';'), $all_photos);
-    
+
     foreach ($page_photos as &$photo)
     {
       $photo['thumb'] = $flickr->buildPhotoURL($photo, "thumbnail");
@@ -186,7 +192,7 @@ SELECT id, file
       $photo['url'] = $flickr_root_url.$photo['id'];
     }
     unset($photo);
-    
+
     $template->assign(array(
       'nb_thumbs_set' => count($all_photos),
       'nb_thumbs_page' => count($page_photos),
@@ -196,14 +202,14 @@ SELECT id, file
       'F_ACTION' => FLICKR_ADMIN.'-import&amp;action=import_set',
       'U_DISPLAY' => $self_url,
       ));
-      
+
     // get piwigo categories
     $query = '
 SELECT id, name, uppercats, global_rank
   FROM '.CATEGORIES_TABLE.'
 ;';
     display_select_cat_wrapper($query, array(), 'category_parent_options');
-    
+
     // get navbar
     $nav_bar = create_navigation_bar(
       $self_url,
@@ -214,28 +220,28 @@ SELECT id, name, uppercats, global_rank
     $template->assign('navbar', $nav_bar);
     break;
   }
-  
+
   // list all photos of the user
   case 'list_all':
   {
     $flickr_prefix = 'flickr-'.$u['username'].'-';
-    
+
     // get all photos in all albums
     $all_albums = $flickr->photosets_getList($u['id']);
     $all_albums = $all_albums['photoset'];
-    
+
     $all_photos = array();
     foreach ($all_albums as $album)
     {
       $album_photos = $flickr->photosets_getPhotos($album['id'], NULL, NULL, 500, NULL, 'photos');
       $album_photos = $album_photos['photoset']['photo'];
-      
+
       foreach ($album_photos as $photo)
       {
         $all_photos[ $photo['id'] ][] = $album['title'];
       }
     }
-    
+
     // get existing photos
     $query = '
 SELECT id, file
@@ -244,7 +250,7 @@ SELECT id, file
 ;';
     $existing_photos = simple_hash_from_query($query, 'id', 'file');
     $existing_photos = array_map(create_function('$p', 'return preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p);'), $existing_photos);
-    
+
     // remove existing photos
     $duplicates = 0;
     foreach ($all_photos as $id => &$photo)
@@ -264,20 +270,23 @@ SELECT id, file
     }
     unset($photo);
     $all_photos = array_values($all_photos);
-    
+
     if ($duplicates>0)
     {
-      $page['infos'][] = '<a href="admin.php?page=batch_manager&amp;prefilter=flickr">'
-          .l10n_dec('%d picture is not displayed because already existing in the database.', '%d pictures are not displayed because already existing in the database.', $duplicates)
+      $page['infos'][] = '<a href="admin.php?page=batch_manager&amp;filter=prefilter-flickr">'
+          .l10n_dec(
+            'One picture is not displayed because already existing in the database.',
+            '%d pictures are not displayed because already existing in the database.',
+            $duplicates)
         .'</a>';
     }
-    
+
     $template->assign(array(
       'nb_elements' => count($all_photos),
-      'all_elements' => json_encode($all_photos),
+      'all_elements' => $all_photos,
       'F_ACTION' => FLICKR_ADMIN . '-import&amp;action=import_set',
       ));
-      
+
     // get piwigo categories
     $query = '
 SELECT id, name, uppercats, global_rank
@@ -286,24 +295,19 @@ SELECT id, name, uppercats, global_rank
     display_select_cat_wrapper($query, array(), 'category_parent_options');
     break;
   }
-  
+
   // success message after import
   case 'import_set':
   {
     if (isset($_POST['done']))
     {
-      $_SESSION['page_infos'][] = sprintf(l10n('%d pictures imported'), $_POST['done']);
+      $_SESSION['page_infos'][] = l10n('%d pictures imported', $_POST['done']);
     }
     redirect(FLICKR_ADMIN . '-import');
   }
 }
 
 
-$template->assign(array(
-  'ACTION' => $_GET['action'],
-  'GMAPS_LOADED' => !empty($pwg_loaded_plugins['rv_gmaps']) || !empty($pwg_loaded_plugins['piwigo-openstreetmap']),
-  ));
+$template->assign('ACTION', $_GET['action']);
 
-$template->set_filename('flickr2piwigo', dirname(__FILE__) . '/template/import.tpl');
-
-?>
+$template->set_filename('flickr2piwigo', realpath(FLICKR_PATH . 'admin/template/import.tpl'));

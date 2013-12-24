@@ -1,5 +1,5 @@
 <?php
-if (!defined('FLICKR_PATH')) die('Hacking attempt!');
+defined('FLICKR_PATH') or die('Hacking attempt!');
 
 /**
  * test if a download method is available
@@ -29,9 +29,9 @@ if (!function_exists('download_remote_file'))
     {
       return false;
     }
-    
+
     $return = ($dest === true) ? true : false;
-    
+
     /* curl */
     if (function_exists('curl_init'))
     {
@@ -40,7 +40,7 @@ if (!function_exists('download_remote_file'))
         $newf = fopen($dest, "wb");
       }
       $ch = curl_init();
-      
+
       curl_setopt($ch, CURLOPT_URL, $src);
       curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array("Accept-language: en"));
@@ -64,10 +64,10 @@ if (!function_exists('download_remote_file'))
       {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       }
-      
+
       $out = curl_exec($ch);
       curl_close($ch);
-      
+
       if ($out === false)
       {
         return 'file_error';
@@ -89,7 +89,7 @@ if (!function_exists('download_remote_file'))
       {
         return false;
       }
-      
+
       $opts = array(
         'http' => array(
           'method' => "GET",
@@ -99,12 +99,12 @@ if (!function_exists('download_remote_file'))
       );
 
       $context = stream_context_create($opts);
-      
+
       if (($file = file_get_contents($src, false, $context)) === false)
       {
         return 'file_error';
       }
-      
+
       if (!$return)
       {
         file_put_contents($dest, $file);
@@ -115,9 +115,7 @@ if (!function_exists('download_remote_file'))
         return $file;
       }
     }
-    
+
     return false;
   }
 }
-
-?>
