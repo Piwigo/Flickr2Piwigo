@@ -51,4 +51,5 @@ $lang['One picture is not displayed because already existing in the database.'] 
 $lang['Photo "%s" imported'] = 'عکس  "%s" وارد شد';
 $lang['Please fill your API keys on the configuration tab'] = 'لطفا
 کلید آی پی ای خود را بر روی برگه پیکربندی را پر کنید';
+$lang['Geolocalization'] = 'محل جغرافیایی';
 ?>
