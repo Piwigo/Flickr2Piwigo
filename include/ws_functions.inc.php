@@ -97,9 +97,18 @@ SELECT id FROM '.CATEGORIES_TABLE.'
   {
     $photo['category'] = array($photo['category']);
   }
+  
+  // level
+  $level = 0;
+  if (in_array('level', $photo['fills']) && !$photo['visibility']['ispublic'])
+  {
+    $level = 8;
+    if ($photo['visibility']['isfamily']) $level = 4;
+    if ($photo['visibility']['isfriend']) $level = 2;
+  }
 
   // add photo
-  $photo['image_id'] = add_uploaded_file($photo['path'], basename($photo['path']), $photo['category']);
+  $photo['image_id'] = add_uploaded_file($photo['path'], basename($photo['path']), $photo['category'], $level);
 
   // do some updates
   if (!empty($photo['fills']))

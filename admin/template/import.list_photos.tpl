@@ -371,6 +371,7 @@
       <label><input type="checkbox" name="fill_posted"> {'Post date'|translate}</label>
       <label><input type="checkbox" name="fill_description" checked="checked"> {'Description'|@translate}</label>
       <label><input type="checkbox" name="fill_geotag" checked="checked"> {'Geolocalization'|@translate}</label>
+      <label><input type="checkbox" name="fill_level" checked="checked"> {'Privacy level'|@translate}</label>
     </p>
 
     <p>
