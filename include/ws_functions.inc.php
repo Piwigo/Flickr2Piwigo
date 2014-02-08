@@ -97,18 +97,9 @@ SELECT id FROM '.CATEGORIES_TABLE.'
   {
     $photo['category'] = array($photo['category']);
   }
-  
-  // level
-  $level = 0;
-  if (in_array('level', $photo['fills']) && !$photo['visibility']['ispublic'])
-  {
-    $level = 8;
-    if ($photo['visibility']['isfamily']) $level = 4;
-    if ($photo['visibility']['isfriend']) $level = 2;
-  }
 
   // add photo
-  $photo['image_id'] = add_uploaded_file($photo['path'], basename($photo['path']), $photo['category'], $level);
+  $photo['image_id'] = add_uploaded_file($photo['path'], basename($photo['path']), $photo['category']);
 
   // do some updates
   if (!empty($photo['fills']))
@@ -126,6 +117,12 @@ SELECT id FROM '.CATEGORIES_TABLE.'
     {
       $updates['latitude'] = pwg_db_real_escape_string($photo['location']['latitude']);
       $updates['longitude'] = pwg_db_real_escape_string($photo['location']['longitude']);
+    }
+    if (in_array('level', $photo['fills']) && !$photo['visibility']['ispublic'])
+    {
+      $updates['level'] = 8;
+      if ($photo['visibility']['isfamily']) $updates['level'] = 4;
+      if ($photo['visibility']['isfriend']) $updates['level'] = 2;
     }
 
     if (count($updates))

@@ -1,7 +1,7 @@
 {footer_script require='jquery.ajaxmanager,jquery.jgrowl'}
 (function($){
   /* global vars */
-  var all_elements = [{if !empty($all_elements)}{','|@implode:$all_elements}{/if}];
+  var all_elements = {$all_elements};
   var import_done = 0;
   var import_selected = {$nb_elements};
   var queuedManager = $.manageAjax.create('queued', {

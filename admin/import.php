@@ -283,7 +283,7 @@ SELECT id, file
 
     $template->assign(array(
       'nb_elements' => count($all_photos),
-      'all_elements' => $all_photos,
+      'all_elements' => json_encode($all_photos),
       'F_ACTION' => FLICKR_ADMIN . '-import&amp;action=import_set',
       ));
 
