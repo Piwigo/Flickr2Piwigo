@@ -3,8 +3,6 @@ defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
 
 class flickr2piwigo_maintain extends PluginMaintain
 {
-  private $installed = false;
-
   private $default_conf = array(
     'api_key' => null,
     'secret_key' => null,
@@ -16,25 +14,15 @@ class flickr2piwigo_maintain extends PluginMaintain
 
     if (empty($conf['flickr2piwigo']))
     {
-      $conf['flickr2piwigo'] = serialize($this->default_conf);
-      conf_update_param('flickr2piwigo', $conf['flickr2piwigo']);
+      conf_update_param('flickr2piwigo', $this->default_conf, true);
     }
 
     mkgetdir(PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/', MKGETDIR_DEFAULT&~MKGETDIR_DIE_ON_ERROR);
-
-    $this->installed = true;
   }
 
-  function activate($plugin_version, &$errors=array())
+  function update($old_version, $new_version, &$errors=array())
   {
-    if (!$this->installed)
-    {
-      $this->install($plugin_version, $errors);
-    }
-  }
-
-  function deactivate()
-  {
+    $this->install($new_version, $errors);
   }
 
   function uninstall()

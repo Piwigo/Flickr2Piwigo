@@ -16,13 +16,13 @@ define('FLICKR_ID',       basename(dirname(__FILE__)));
 define('FLICKR_PATH',     PHPWG_PLUGINS_PATH . FLICKR_ID . '/');
 define('FLICKR_ADMIN',    get_root_url() . 'admin.php?page=plugin-' . FLICKR_ID);
 define('FLICKR_FS_CACHE', PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/');
-define('FLICKR_VERSION',  'auto');
-
 
 include_once(FLICKR_PATH . 'include/ws_functions.inc.php');
 
 
-add_event_handler('init', 'flickr_init');
+$conf['flickr2piwigo'] = safe_unserialize($conf['flickr2piwigo']);
+
+
 add_event_handler('ws_add_methods', 'flickr_add_ws_method');
 
 if (defined('IN_ADMIN'))
@@ -64,15 +64,4 @@ if (defined('IN_ADMIN'))
 
     return $filter_sets;
   }
-}
-
-
-function flickr_init()
-{
-  global $conf;
-  include_once(FLICKR_PATH . 'maintain.inc.php');
-  $maintain = new flickr2piwigo_maintain(FLICKR_ID);
-  $maintain->autoUpdate(FLICKR_VERSION, 'install');
-
-  $conf['flickr2piwigo'] = unserialize($conf['flickr2piwigo']);
 }

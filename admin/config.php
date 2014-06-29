@@ -8,7 +8,8 @@ if (isset($_POST['save_config']))
     'secret_key' => trim($_POST['secret_key']),
     );
   unset($_SESSION['phpFlickr_auth_token']);
-  conf_update_param('flickr2piwigo', serialize($conf['flickr2piwigo']));
+
+  conf_update_param('flickr2piwigo', $conf['flickr2piwigo']);
   $page['infos'][] = l10n('Information data registered in database');
 }
 
