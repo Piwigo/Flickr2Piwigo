@@ -50,4 +50,4 @@ $lang['%d albums'] = '%d албуми';
 $lang['%d pictures imported'] = '%d снимки импортирани';
 $lang['API not authenticated'] = 'API ключа не е удостоверен';
 $lang['API key'] = 'API ключ';
-?>
+$lang['Geolocalization'] = 'Географска локализация';
