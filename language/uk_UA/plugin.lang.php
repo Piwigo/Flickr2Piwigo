@@ -50,4 +50,4 @@ $lang['%d pictures imported'] = '%d імпортованих зображень'
 $lang['%d elements ready for importation'] = '%d елементів готові для імпортування';
 $lang['Photo "%s" imported'] = 'Зображення "%s" імпортовано';
 $lang['Logged out'] = 'Вихід';
-?>
+$lang['Geolocalization'] = 'Місцезнаходження';
