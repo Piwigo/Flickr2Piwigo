@@ -10,11 +10,21 @@ Author URI: http://www.strangeplanet.fr
 
 defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
 
+if (basename(dirname(__FILE__)) != 'flickr2piwigo')
+{
+  add_event_handler('init', 'flickr_error');
+  function flickr_error()
+  {
+    global $page;
+    $page['errors'][] = 'Flickr2Piwigo folder name is incorrect, uninstall the plugin and rename it to "flickr2piwigo"';
+  }
+  return;
+}
+
 global $conf;
 
-define('FLICKR_ID',       basename(dirname(__FILE__)));
-define('FLICKR_PATH',     PHPWG_PLUGINS_PATH . FLICKR_ID . '/');
-define('FLICKR_ADMIN',    get_root_url() . 'admin.php?page=plugin-' . FLICKR_ID);
+define('FLICKR_PATH',     PHPWG_PLUGINS_PATH . 'flickr2piwigo/');
+define('FLICKR_ADMIN',    get_root_url() . 'admin.php?page=plugin-flickr2piwigo');
 define('FLICKR_FS_CACHE', PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/');
 
 include_once(FLICKR_PATH . 'include/ws_functions.inc.php');
