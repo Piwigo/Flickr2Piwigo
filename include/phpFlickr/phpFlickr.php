@@ -225,6 +225,8 @@ if ( !class_exists('phpFlickr') ) {
 				curl_setopt($curl, CURLOPT_POST, true);
 				curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+				curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
 				$response = curl_exec($curl);
 				curl_close($curl);
 			} else {
@@ -309,8 +311,8 @@ if ( !class_exists('phpFlickr') ) {
 			 * and you're concerned about time.  This will, however, change the structure of
 			 * the result, so be sure that you look at the results.
 			 */
-			$this->parsed_response = json_decode($this->response, TRUE);
-/* 			$this->parsed_response = $this->clean_text_nodes(json_decode($this->response, TRUE)); */
+			// $this->parsed_response = json_decode($this->response, TRUE);
+ 			$this->parsed_response = $this->clean_text_nodes(json_decode($this->response, TRUE));
 			if ($this->parsed_response['stat'] == 'fail') {
 				if ($this->die_on_error) die("The Flickr API returned the following error: #{$this->parsed_response['code']} - {$this->parsed_response['message']}");
 				else {
