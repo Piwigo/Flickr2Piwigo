@@ -1,4 +1,27 @@
 {footer_script require='jquery.ajaxmanager,jquery.jgrowl'}
+{* <!-- CATEGORIES --> *}
+var categoriesCache = new CategoriesCache({
+  serverKey: '{$CACHE_KEYS.categories}',
+  serverId: '{$CACHE_KEYS._hash}',
+  rootUrl: '{$ROOT_URL}'
+});
+
+categoriesCache.selectize(jQuery('[data-selectize=categories]'), {
+  filter: function(categories, options) {
+    if (categories.length > 0) {
+      jQuery("#albumSelection").show();
+    }
+    
+    return categories;
+  }
+});
+
+jQuery('[data-add-album]').pwgAddAlbum({
+  afterSelect: function() {
+    jQuery("#albumSelection").show();
+  }
+});
+
 (function($){
   /* global vars */
   var all_elements = {$all_elements};
@@ -62,7 +85,7 @@
       var album = 0;
     }
     else {
-      var album = $("#albumSelect option:selected").val();
+      var album = $('select[name=category] option:selected').val();
     }
 
     var fills = '';
@@ -117,10 +140,10 @@
     </p>
 
     <p id="albumSelectWrapper" style="display:none;">
-      <select style="width:400px" name="associate" id="albumSelect" size="1">
-        {html_options options=$category_parent_options}
-      </select>
-      {'... or '|translate}<a href="#" class="addAlbumOpen" title="{'create a new album'|translate}">{'create a new album'|translate}</a>
+      <span id="albumSelection" style="display:none">
+      <select data-selectize="categories" data-default="first" name="category" style="width:600px"></select>
+      <br>{'... or '|@translate}</span>
+      <a href="#" data-add-album="category" title="{'create a new album'|@translate}">{'create a new album'|@translate}</a>
     </p>
 
     <p>
