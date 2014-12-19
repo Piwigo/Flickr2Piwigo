@@ -17,6 +17,7 @@ categoriesCache.selectize(jQuery('[data-selectize=categories]'), {
 });
 
 jQuery('[data-add-album]').pwgAddAlbum({
+  cache: categoriesCache,
   afterSelect: function() {
     jQuery("#albumSelection").show();
   }
