@@ -34,7 +34,7 @@ $lang['Processing...'] = '处理中...';
 $lang['Reproduce flickr albums'] = '复制Flickr相册';
 $lang['Successfully logged in to you Flickr account'] = '已成功登录到您的Flickr相册';
 $lang['(%d photos)'] = '(%d张图片)';
-$lang['API key'] = 'API key';
+$lang['API key'] = 'API 密钥';
 $lang['API not authenticated'] = 'API未通过验证';
 $lang['API secret'] = 'API密钥';
 $lang['Begin transfer'] = '开始转换';
@@ -50,4 +50,4 @@ $lang['%d albums'] = '%d个相册';
 $lang['%d elements ready for importation'] = '将要导入%d个元素';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d张图片没有显示，因为已经存在于数据库中。';
 $lang['%d pictures imported'] = '已经导入%d张图片';
-?>
+$lang['Geolocalization'] = '地理定位';
