@@ -9,10 +9,11 @@ if (isset($_POST['save_config']))
     );
   unset($_SESSION['phpFlickr_auth_token']);
 
+  // Save the new API values and redirect back to the config page.
   conf_update_param('flickr2piwigo', $conf['flickr2piwigo']);
-  $page['infos'][] = l10n('Information data registered in database');
+  $_SESSION['page_infos'][] = l10n('Information data registered in database');
+  redirect(FLICKR_ADMIN . '-config');
 }
-
 
 $template->assign(array(
   'flickr2piwigo' => $conf['flickr2piwigo'],
@@ -20,5 +21,10 @@ $template->assign(array(
   'FLICKR_CALLBACK' => get_absolute_root_url() . FLICKR_ADMIN . '-import',
   ));
 
+// Add a warning if the key and secret are not filled yet.
+if (empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']))
+{
+  $template->assign('warnings', l10n('Please enter your Flickr API keys'));
+}
 
 $template->set_filename('flickr2piwigo', realpath(FLICKR_PATH . 'admin/template/config.tpl'));
