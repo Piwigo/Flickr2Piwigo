@@ -30,7 +30,7 @@ function ws_images_addFlickr($photo, &$service)
 
   if (empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']))
   {
-    return new PwgError(null, l10n('Please fill your API keys on the configuration tab'));
+    return new PwgError(null, l10n('Please enter your Flickr API keys on the configuration tab'));
   }
 
   include_once(PHPWG_ROOT_PATH . 'admin/include/functions.php');

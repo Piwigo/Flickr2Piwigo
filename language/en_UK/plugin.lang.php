@@ -1,6 +1,7 @@
 <?php
 
-$lang['Please fill your API keys on the configuration tab'] = 'Please fill your API keys on the configuration tab';
+$lang['Please enter your Flickr API keys'] = 'Please enter your Flickr API keys';
+$lang['Please enter your Flickr API keys on the configuration tab'] = 'Please enter your Flickr API keys on the configuration tab';
 $lang['Successfully logged in to you Flickr account'] = 'Successfully logged in to you Flickr account';
 $lang['Pictures without album'] = 'Pictures without album';
 $lang['One picture is not displayed because already existing in the database.'] = 'One picture is not displayed because already existing in the database.';
