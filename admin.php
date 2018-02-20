@@ -5,11 +5,6 @@ global $template, $page, $conf;
 
 load_language('plugin.lang', FLICKR_PATH);
 
-if (!file_exists(FLICKR_FS_CACHE))
-{
-  mkdir(FLICKR_FS_CACHE, 0755);
-}
-
 // tabsheet
 include_once(PHPWG_ROOT_PATH.'admin/include/tabsheet.class.php');
 $page['tab'] = (isset($_GET['tab'])) ? $_GET['tab'] : $page['tab'] = 'import';

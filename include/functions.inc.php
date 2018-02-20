@@ -1,6 +1,47 @@
 <?php
 defined('FLICKR_PATH') or die('Hacking attempt!');
 
+include_once(FLICKR_PATH . 'vendor/autoload.php');
+
+use OAuth\Common\Storage\Memory;
+use OAuth\OAuth1\Token\StdOAuth1Token;
+use Samwilson\PhpFlickr\PhpFlickr;
+use Stash\Driver\FileSystem;
+use Stash\Pool;
+
+/**
+ * Get a PhpFlickr object, already set up with the stored credentials.
+ * @return PhpFlickr|bool The PhpFlickr object, or false if it could not be instantiated.
+ */
+function get_PhpFlickr() {
+  global $conf;
+
+  // Check for the API details.
+  if (empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']))
+  {
+    return false;
+  }
+
+  $flickr = new PhpFlickr($conf['flickr2piwigo']['api_key'], $conf['flickr2piwigo']['secret_key']);
+
+  // Enable the cache.
+  $driver = new FileSystem([ 'path' => FLICKR_FS_CACHE ]);
+  $pool = new Pool($driver);
+  $flickr->setCache($pool);
+
+  // Load access token if one's been saved.
+  if (isset($conf['flickr2piwigo']['access_token']) and isset($conf['flickr2piwigo']['access_secret'])) {
+    $token = new StdOAuth1Token();
+    $token->setAccessToken( $conf['flickr2piwigo']['access_token'] );
+    $token->setAccessTokenSecret( $conf['flickr2piwigo']['access_secret'] );
+    $storage = new Memory();
+    $storage->storeAccessToken('Flickr', $token);
+    $flickr->setOauthStorage($storage);
+  }
+
+  return $flickr;
+}
+
 /**
  * test if a download method is available
  * @return: bool

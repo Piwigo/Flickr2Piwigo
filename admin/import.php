@@ -4,6 +4,9 @@ defined('FLICKR_PATH') or die('Hacking attempt!');
 set_time_limit(600);
 
 include_once(FLICKR_PATH . 'include/functions.inc.php');
+include_once(FLICKR_PATH . 'vendor/autoload.php');
+
+use OAuth\Common\Storage\Session;
 
 // check API parameters and connect to flickr
 if (empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']))
@@ -18,24 +21,20 @@ else if (!test_remote_download())
 }
 else
 {
-  // init flickr API
-  include_once(FLICKR_PATH . 'include/phpFlickr/phpFlickr.php');
-  $flickr = new phpFlickr($conf['flickr2piwigo']['api_key'], $conf['flickr2piwigo']['secret_key']);
-  $flickr->enableCache('fs', FLICKR_FS_CACHE);
+  $flickr = get_PhpFlickr();
 
-  // must authenticate
-  $u = $flickr->test_login();
-  if ( ($u === false or empty($_SESSION['phpFlickr_auth_token'])) and @$_GET['action']!='login' )
-  {
-    $_GET['action'] = 'init_login';
+  if ( isset($_GET['action']) and in_array($_GET['action'], ['login', 'logged'])) {
+    // Set up session storage for use while logging in.
+    $storage = new Session();
+    $flickr->setOauthStorage($storage);
+  } else {
+    // If we're not logging in, test authentication.
+    $u = $flickr->test_login();
+    if (!$u && !isset($_GET['action'])) {
+      $_GET['action'] = 'init_login';
+    }
   }
 
-  // generate token after authentication
-  if (!empty($_GET['frob']))
-  {
-    $flickr->auth_getToken($_GET['frob']);
-    $_GET['action'] = 'logged';
-  }
 }
 
 
@@ -57,13 +56,31 @@ switch ($_GET['action'])
   // call flickr login procedure
   case 'login':
   {
-    $flickr->auth('read', false);
+    $callbackUrl = get_absolute_root_url() . FLICKR_ADMIN . '-import&action=logged';
+    $flickrUrl = $flickr->getAuthUrl('read', $callbackUrl);
+    redirect($flickrUrl->getAbsoluteUri());
     break;
   }
 
   // message after login
   case 'logged':
   {
+    // Get the access token.
+    $oauthVerifier = $_GET[ 'oauth_verifier' ];
+    $oauthToken = $_GET[ 'oauth_token' ];
+    try
+    {
+      $accessToken = $flickr->retrieveAccessToken($oauthVerifier, $oauthToken);
+    } catch (Exception $e) {
+      $_SESSION['page_warnings'][] = l10n('Unable to retrieve Flickr access token. The error was:').$e->getMessage();
+      redirect(FLICKR_ADMIN . '-import');
+    }
+
+    // Save the access token.
+    $conf['flickr2piwigo']['access_token'] = $accessToken->getAccessToken();
+    $conf['flickr2piwigo']['access_secret'] = $accessToken->getAccessTokenSecret();
+    conf_update_param('flickr2piwigo', $conf['flickr2piwigo']);
+
     $_SESSION['page_infos'][] = l10n('Successfully logged in to you Flickr account');
     redirect(FLICKR_ADMIN . '-import');
     break;
@@ -73,6 +90,9 @@ switch ($_GET['action'])
   case 'logout':
   {
     unset($_SESSION['phpFlickr_auth_token']);
+    unset($conf['flickr2piwigo']['access_token']);
+    unset($conf['flickr2piwigo']['access_secret']);
+    conf_update_param('flickr2piwigo', $conf['flickr2piwigo']);
     $_SESSION['page_infos'][] = l10n('Logged out');
     redirect(FLICKR_ADMIN . '-import');
     break;
@@ -147,7 +167,7 @@ switch ($_GET['action'])
     }
     else
     {
-      $all_photos = $flickr->photosets_getPhotos($_GET['album'], NULL, NULL, 500, NULL, 'photos');
+      $all_photos = $flickr->photosets_getPhotos($_GET['album'], 'url_m, url_t', NULL, 500, NULL, 'photos');
       $all_photos = $all_photos['photoset']['photo'];
     }
 
@@ -187,8 +207,8 @@ SELECT id, file
 
     foreach ($page_photos as &$photo)
     {
-      $photo['thumb'] = $flickr->buildPhotoURL($photo, "thumbnail");
-      $photo['src'] = $flickr->get_biggest_size($photo['id'], "medium_800");
+      $photo['thumb'] = $photo['url_t'];
+      $photo['src'] = $photo['url_m'];
       $photo['url'] = $flickr_root_url.$photo['id'];
     }
     unset($photo);

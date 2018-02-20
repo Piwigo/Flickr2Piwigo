@@ -43,21 +43,18 @@ function ws_images_addFlickr($photo, &$service)
   }
 
   // init flickr API
-  include_once(FLICKR_PATH . 'include/phpFlickr/phpFlickr.php');
-  $flickr = new phpFlickr($conf['flickr2piwigo']['api_key'], $conf['flickr2piwigo']['secret_key']);
-  $flickr->enableCache('fs', FLICKR_FS_CACHE);
+  $flickr = get_PhpFlickr();
 
   // user
   $u = $flickr->test_login();
-  if ($u === false or empty($_SESSION['phpFlickr_auth_token']))
+  if (!$u)
   {
     return new PwgError(403, l10n('API not authenticated'));
   }
 
   // photos infos
-  $photo_f = $flickr->photos_getInfo($photo['id']);
-  $photo = array_merge($photo, $photo_f['photo']);
-  $photo['url'] = $flickr->get_biggest_size($photo['id'], 'original');
+  $photo = array_merge($photo, $flickr->photos()->getInfo($photo['id']));
+  $photo['url'] = $flickr->photos()->getLargestSize($photo['id'])['source'];
   $photo['path'] = FLICKR_FS_CACHE . 'flickr-'.$u['username'].'-'.$photo['id'].'.'.get_extension($photo['url']);
 
   // copy file
