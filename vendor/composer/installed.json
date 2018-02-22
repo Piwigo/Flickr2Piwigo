@@ -117,46 +117,6 @@
         ]
     },
     {
-        "name": "samwilson/phpflickr",
-        "version": "4.2.0",
-        "version_normalized": "4.2.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/samwilson/phpflickr.git",
-            "reference": "5e77ba07ee1735cdb52403f712957b914a097dfa"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/samwilson/phpflickr/zipball/5e77ba07ee1735cdb52403f712957b914a097dfa",
-            "reference": "5e77ba07ee1735cdb52403f712957b914a097dfa",
-            "shasum": ""
-        },
-        "require": {
-            "lusitanian/oauth": "^0.8",
-            "php": ">=5.6",
-            "psr/cache": "^1.0"
-        },
-        "require-dev": {
-            "mediawiki/minus-x": "^0.3",
-            "phpunit/phpunit": "^5.0",
-            "squizlabs/php_codesniffer": "^3.0",
-            "tedivm/stash": "^0.14"
-        },
-        "time": "2018-02-18T06:20:22+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Samwilson\\PhpFlickr\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-3.0-or-later"
-        ],
-        "description": "A PHP wrapper for the Flickr API, including Oauth."
-    },
-    {
         "name": "tedivm/stash",
         "version": "v0.14.2",
         "version_normalized": "0.14.2.0",
@@ -217,5 +177,45 @@
             "redis",
             "sessions"
         ]
+    },
+    {
+        "name": "samwilson/phpflickr",
+        "version": "4.2.1",
+        "version_normalized": "4.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/samwilson/phpflickr.git",
+            "reference": "a42501f6e091884dcc637e46a4256148643b9fa9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/samwilson/phpflickr/zipball/a42501f6e091884dcc637e46a4256148643b9fa9",
+            "reference": "a42501f6e091884dcc637e46a4256148643b9fa9",
+            "shasum": ""
+        },
+        "require": {
+            "lusitanian/oauth": "^0.8",
+            "php": ">=5.6",
+            "psr/cache": "^1.0"
+        },
+        "require-dev": {
+            "mediawiki/minus-x": "^0.3",
+            "phpunit/phpunit": "^5.0",
+            "squizlabs/php_codesniffer": "^3.0",
+            "tedivm/stash": "^0.14"
+        },
+        "time": "2018-02-22T00:24:17+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Samwilson\\PhpFlickr\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-or-later"
+        ],
+        "description": "A PHP wrapper for the Flickr API, including Oauth."
     }
 ]

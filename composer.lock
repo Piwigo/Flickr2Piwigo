@@ -121,16 +121,16 @@
         },
         {
             "name": "samwilson/phpflickr",
-            "version": "4.2.0",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samwilson/phpflickr.git",
-                "reference": "5e77ba07ee1735cdb52403f712957b914a097dfa"
+                "reference": "a42501f6e091884dcc637e46a4256148643b9fa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samwilson/phpflickr/zipball/5e77ba07ee1735cdb52403f712957b914a097dfa",
-                "reference": "5e77ba07ee1735cdb52403f712957b914a097dfa",
+                "url": "https://api.github.com/repos/samwilson/phpflickr/zipball/a42501f6e091884dcc637e46a4256148643b9fa9",
+                "reference": "a42501f6e091884dcc637e46a4256148643b9fa9",
                 "shasum": ""
             },
             "require": {
@@ -155,7 +155,7 @@
                 "GPL-3.0-or-later"
             ],
             "description": "A PHP wrapper for the Flickr API, including Oauth.",
-            "time": "2018-02-18T06:20:22+00:00"
+            "time": "2018-02-22T00:24:17+00:00"
         },
         {
             "name": "tedivm/stash",

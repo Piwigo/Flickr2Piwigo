@@ -3,6 +3,7 @@ defined('FLICKR_PATH') or die('Hacking attempt!');
 
 function flickr_add_ws_method($arr)
 {
+  /** @var PwgServer $service */
   $service = &$arr[0];
 
   $service->addMethod(
