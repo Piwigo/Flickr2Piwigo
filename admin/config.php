@@ -15,11 +15,10 @@ if (isset($_POST['save_config']))
   redirect(FLICKR_ADMIN . '-config');
 }
 
-$template->assign(array(
+$template->assign([
   'flickr2piwigo' => $conf['flickr2piwigo'],
-  'FLICKR_HELP_CONTENT' => load_language('help_api_key.html', FLICKR_PATH, array('return'=>true)),
-  'FLICKR_CALLBACK' => get_absolute_root_url() . FLICKR_ADMIN . '-import',
-  ));
+  'FLICKR_HELP_CONTENT' => load_language('help_api_key.html', FLICKR_PATH, ['return'=>true]),
+]);
 
 // Add a warning if the key and secret are not filled yet.
 if (empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']))

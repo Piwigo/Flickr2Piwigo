@@ -30,7 +30,6 @@
 <fieldset>
   <legend>{'How do I get my Flickr API key?'|translate}</legend>
 
-  <p><b>{'Callback URL'|translate} :</b> <span style="font-family:monospace;font-size:14px;">{$FLICKR_CALLBACK}</span></p>
   {$FLICKR_HELP_CONTENT}
 </fieldset>
 

@@ -180,17 +180,17 @@
     },
     {
         "name": "samwilson/phpflickr",
-        "version": "4.2.1",
-        "version_normalized": "4.2.1.0",
+        "version": "4.2.2",
+        "version_normalized": "4.2.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/samwilson/phpflickr.git",
-            "reference": "a42501f6e091884dcc637e46a4256148643b9fa9"
+            "reference": "a680077f98114d6df2b7849cbddc43776fb92b59"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/samwilson/phpflickr/zipball/a42501f6e091884dcc637e46a4256148643b9fa9",
-            "reference": "a42501f6e091884dcc637e46a4256148643b9fa9",
+            "url": "https://api.github.com/repos/samwilson/phpflickr/zipball/a680077f98114d6df2b7849cbddc43776fb92b59",
+            "reference": "a680077f98114d6df2b7849cbddc43776fb92b59",
             "shasum": ""
         },
         "require": {
@@ -204,7 +204,7 @@
             "squizlabs/php_codesniffer": "^3.0",
             "tedivm/stash": "^0.14"
         },
-        "time": "2018-02-22T00:24:17+00:00",
+        "time": "2018-02-22T23:35:04+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

@@ -29,7 +29,7 @@ else
     $flickr->setOauthStorage($storage);
   } else {
     // If we're not logging in, test authentication.
-    $u = $flickr->test_login();
+    $u = $flickr->test()->login();
     if (!$u && !isset($_GET['action'])) {
       $_GET['action'] = 'init_login';
     }
