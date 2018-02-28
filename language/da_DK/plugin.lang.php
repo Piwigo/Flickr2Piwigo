@@ -26,7 +26,6 @@ $lang['One picture is not displayed because already existing in the database.'] 
 $lang['Open Flickr page in a new tab'] = 'Åbn Flickr-side i en ny fane';
 $lang['Photo "%s" imported'] = 'Importerede fotoet "%s"';
 $lang['Pictures without album'] = 'Billeder uden album';
-$lang['Please fill your API keys on the configuration tab'] = 'Angiv dine API-nøgler på opsætningsfanen';
 $lang['Processing...'] = 'Behandler ...';
 $lang['Reproduce flickr albums'] = 'Reproducere Flickr-album';
 $lang['Successfully logged in to you Flickr account'] = 'Loggede på din Flickr-konto';
@@ -51,4 +50,5 @@ $lang['List my albums'] = 'Liste over mine albums';
 $lang['List pictures of this album'] = 'List billeder i dette album';
 $lang['Logged in as'] = 'Logget som';
 $lang['Geolocalization'] = 'Geolokalisering';
-?>
+$lang['Please enter your Flickr API keys'] = 'Angiv dine API-nøgle til Flickr';
+$lang['Please enter your Flickr API keys on the configuration tab'] = 'Angiv dine API-nøgle til Flickr på opsætningsfanen';
