@@ -26,7 +26,6 @@ $lang['One picture is not displayed because already existing in the database.'] 
 $lang['Open Flickr page in a new tab'] = 'Abre página do Flickr em uma nova aba';
 $lang['Photo "%s" imported'] = 'Foto "%s" importada';
 $lang['Pictures without album'] = 'Foto sem álbum';
-$lang['Please fill your API keys on the configuration tab'] = 'Por favor preencha sua chave do API do Flickr na aba de configuração';
 $lang['Processing...'] = 'Processando...';
 $lang['Reproduce flickr albums'] = 'Reproduza álbuns do Flickr';
 $lang['Successfully logged in to you Flickr account'] = 'Logado com sucesso na sua conta do Flickr';
@@ -51,4 +50,5 @@ $lang['List my albums'] = 'Lista meus álbuns';
 $lang['List pictures of this album'] = 'Lista fotos nesse álbum';
 $lang['Logged in as'] = 'Logado como';
 $lang['Geolocalization'] = 'Geolocalização';
-?>
+$lang['Please enter your Flickr API keys on the configuration tab'] = 'Digite as chaves da API do Flickr na guia de configuração';
+$lang['Please enter your Flickr API keys'] = 'Digite as chaves da API do Flickr';
