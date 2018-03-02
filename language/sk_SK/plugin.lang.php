@@ -43,7 +43,6 @@ $lang['No download method available'] = 'Nedostupná sťahovacia metóda';
 $lang['One picture is not displayed because already existing in the database.'] = 'Jedna fotka nie je zobrazená ale je v databáze.';
 $lang['Open Flickr page in a new tab'] = 'Otvoriť Flickr stránku v novom okne';
 $lang['Pictures without album'] = 'Fotky bez albumov';
-$lang['Please fill your API keys on the configuration tab'] = 'Prosím vyplňte Vaše API kľúče v konfigurácii';
 $lang['Processing...'] = 'Spracovávam...';
 $lang['Reproduce flickr albums'] = 'Reprodukovať flickr albumy';
 $lang['Successfully logged in to you Flickr account'] = 'Úspešne prihlásený do Vášho Flickr konta';
@@ -51,4 +50,5 @@ $lang['%d elements ready for importation'] = '%d prvky/prvkov pripravených pre 
 $lang['Logged out'] = 'Odhlásený';
 $lang['Photo "%s" imported'] = 'Fotka %d importovaná';
 $lang['Geolocalization'] = 'Geolokalizácia';
-?>
+$lang['Please enter your Flickr API keys on the configuration tab'] = 'Prosím vložte Váš Flickr API kľúč do konfiguračnej tabuľky';
+$lang['Please enter your Flickr API keys'] = 'Prosím vložte Váš Flickr API kľúč';
