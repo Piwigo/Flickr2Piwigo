@@ -22,7 +22,6 @@
 // +-----------------------------------------------------------------------+
 $lang['Callback URL'] = 'Зворотній виклик URL (Callback URL)';
 $lang['One picture is not displayed because already existing in the database.'] = 'Одне зображення не відображається, тому що вже існує в базі даних.';
-$lang['Please fill your API keys on the configuration tab'] = 'Будь ласка, заповніть API ключі на вкладці конфігурації';
 $lang['Processing...'] = 'Обробка...';
 $lang['Reproduce flickr albums'] = 'Відтворити flickr альбоми';
 $lang['Successfully logged in to you Flickr account'] = 'Успішно увійшли до вашого облікового запису Flickr';
@@ -51,3 +50,5 @@ $lang['%d elements ready for importation'] = '%d елементів готові
 $lang['Photo "%s" imported'] = 'Зображення "%s" імпортовано';
 $lang['Logged out'] = 'Вихід';
 $lang['Geolocalization'] = 'Місцезнаходження';
+$lang['Please enter your Flickr API keys on the configuration tab'] = 'Будь ласка, введіть ваші ключі API Flickr на вкладці конфігурації';
+$lang['Please enter your Flickr API keys'] = 'Будь ласка введіть ваші Flickr API keys';
