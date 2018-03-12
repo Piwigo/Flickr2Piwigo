@@ -43,7 +43,6 @@ $lang['No download method available'] = 'Lejupielādes metodes nav pieejamas';
 $lang['One picture is not displayed because already existing in the database.'] = 'Attēls netika parādīts, jo datubāzē jau tāds eksistē';
 $lang['Open Flickr page in a new tab'] = 'Atvērt Flickr lapu jaunā cilnē';
 $lang['Pictures without album'] = 'Attēli, kas nav albūmos ';
-$lang['Please fill your API keys on the configuration tab'] = 'Lūdzu ieraksties savas API atslēgas konfigurācijas cilnē';
 $lang['Processing...'] = 'Apstrāde...';
 $lang['Reproduce flickr albums'] = 'Reproducēt Flickr albūmus';
 $lang['Successfully logged in to you Flickr account'] = 'Esat veiksmīgi pieteikušies savā Flickr kontā';
@@ -51,4 +50,5 @@ $lang['Logged out'] = 'Izgājis no sistēmas';
 $lang['Photo "%s" imported'] = 'Importēts "%s" fotogrāfiju';
 $lang['%d elements ready for importation'] = '%d elementi gatavi importam';
 $lang['Geolocalization'] = 'Ģeolokalizācija';
-?>
+$lang['Please enter your Flickr API keys'] = 'Lūdzu ievadiet savas Flickr API atslēgas';
+$lang['Please enter your Flickr API keys on the configuration tab'] = 'Lūdzu ievadiet savas Flickr API atslēgas konfigurācijas cilnē';
