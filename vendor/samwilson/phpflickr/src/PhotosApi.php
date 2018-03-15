@@ -61,6 +61,30 @@ class PhotosApi extends ApiMethodGroup
     }
 
     /**
+     * Get information about the sets to which the given photos belong.
+     * @param int[] $photoIds The photo IDs to look for.
+     * @param string $userId The user who owns the photos (if not set, will default to the
+     * current calling user).
+     * @return string[][]
+     */
+    public function getSets($photoIds, $userId = null)
+    {
+        $out = [];
+        $photoIdsString = join(',', $photoIds);
+        $sets = $this->flickr->photosets()->getList(
+            $userId, null, null, null, $photoIdsString
+        );
+        foreach ($sets['photoset'] as $photoset) {
+            foreach ($photoIds as $photoId) {
+                if (in_array($photoId, $photoset['has_requested_photos'])) {
+                    $out[] = $photoset;
+                }
+            }
+        }
+        return $out;
+    }
+
+    /**
      * Returns the available sizes for a photo. The calling user must have permission to view the photo.
      * @link https://www.flickr.com/services/api/flickr.photos.getSizes.html
      * @link https://www.flickr.com/services/api/misc.urls.html
@@ -69,7 +93,10 @@ class PhotosApi extends ApiMethodGroup
      */
     public function getSizes($photoId)
     {
-        $response = $this->flickr->request('flickr.photos.getSizes', ['photo_id'=>$photoId]);
+        $response = $this->flickr->request(
+            'flickr.photos.getSizes',
+            ['photo_id' => $photoId]
+        );
         return isset($response['sizes']) ? $response['sizes'] : false;
     }
 
@@ -103,5 +130,31 @@ class PhotosApi extends ApiMethodGroup
             }
         }
         return false;
+    }
+
+    /**
+     * Returns a list of the latest public photos uploaded to flickr.
+     * This method does not require authentication.
+     * @link https://www.flickr.com/services/api/flickr.photos.getRecent.html
+     * @param string[]|string $extras An array or comma-separated list of extra information to
+     * fetch for each returned record. Currently supported fields are: description, license,
+     * date_upload, date_taken, owner_name, icon_server, original_format, last_update, geo, tags,
+     * machine_tags, o_dims, views, media, path_alias, url_sq, url_t, url_s, url_q, url_m, url_n,
+     * url_z, url_c, url_l, and url_o. For details of the size suffixes,
+     * see https://www.flickr.com/services/api/misc.urls.html
+     * @param int $perPage Number of photos to return per page. If this argument is omitted,
+     * it defaults to 100. The maximum allowed value is 500.
+     * @param integer $page The page of results to return. If this argument is omitted, it defaults
+     * to 1.
+     * @return string[][]|bool
+     */
+    public function getRecent($extras = [], $perPage = null, $page = null)
+    {
+        if (is_array($extras)) {
+            $extras = implode(",", $extras);
+        }
+        $args = ['extras' => $extras, 'per_page' => $perPage, 'page' => $page ];
+        $result = $this->flickr->request('flickr.photos.getRecent', $args);
+        return isset($result['photos']['photo']) ? $result['photos']['photo'] : false;
     }
 }

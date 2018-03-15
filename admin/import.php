@@ -244,68 +244,21 @@ SELECT id, name, uppercats, global_rank
   // list all photos of the user
   case 'list_all':
   {
-    $flickr_prefix = 'flickr-'.$u['username'].'-';
+    $template->func_combine_script([
+      'id' => 'plugins.flickr2piwigo.list_all',
+      'path' => FLICKR_PATH.'/admin/template/list_all.js',
+      'require' => 'jquery.ajaxmanager,jquery.jgrowl',
+      'load' => 'footer',
+    ]);
 
-    // get all photos in all albums
-    $all_albums = $flickr->photosets_getList($u['id']);
-    $all_albums = $all_albums['photoset'];
+    $photoInfo = $flickr->people()->getPhotos($u['id']);
 
-    $all_photos = array();
-    foreach ($all_albums as $album)
-    {
-      $album_photos = $flickr->photosets_getPhotos($album['id'], NULL, NULL, 500, NULL, 'photos');
-      $album_photos = $album_photos['photoset']['photo'];
-
-      foreach ($album_photos as $photo)
-      {
-        $all_photos[ $photo['id'] ][] = $album['title'];
-      }
-    }
-
-    // get existing photos
-    $query = '
-SELECT id, file
-  FROM '.IMAGES_TABLE.'
-  WHERE file LIKE "'.$flickr_prefix.'%"
-;';
-    $existing_photos = simple_hash_from_query($query, 'id', 'file');
-    $existing_photos = array_map(create_function('$p', 'return preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p);'), $existing_photos);
-
-    // remove existing photos
-    $duplicates = 0;
-    foreach ($all_photos as $id => &$photo)
-    {
-      if (in_array($id, $existing_photos))
-      {
-        unset($all_photos[$id]);
-        $duplicates++;
-      }
-      else
-      {
-        $photo = array(
-          'id' => $id,
-          'albums' => implode(',', $photo),
-          );
-      }
-    }
-    unset($photo);
-    $all_photos = array_values($all_photos);
-
-    if ($duplicates>0)
-    {
-      $page['infos'][] = '<a href="admin.php?page=batch_manager&amp;filter=prefilter-flickr">'
-          .l10n_dec(
-            'One picture is not displayed because already existing in the database.',
-            '%d pictures are not displayed because already existing in the database.',
-            $duplicates)
-        .'</a>';
-    }
-
-    $template->assign(array(
-      'nb_elements' => count($all_photos),
-      'all_elements' => json_encode($all_photos),
+    $template->assign([
+      'flickrUserId' => $u['id'],
+      'nb_elements' => (int)$photoInfo['total'],
       'F_ACTION' => FLICKR_ADMIN . '-import&amp;action=import_set',
-      ));
+      'CACHE_KEYS' => get_admin_client_cache_keys(['categories']),
+    ]);
 
     // get piwigo categories
     $query = '

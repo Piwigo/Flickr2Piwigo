@@ -23,6 +23,7 @@ if (basename(dirname(__FILE__)) != 'flickr2piwigo')
 
 global $conf;
 
+define('FLICKR2PIWIGO', 'flickr2piwigo');
 define('FLICKR_PATH',     PHPWG_PLUGINS_PATH . 'flickr2piwigo/');
 define('FLICKR_ADMIN',    get_root_url() . 'admin.php?page=plugin-flickr2piwigo');
 define('FLICKR_FS_CACHE', PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/');

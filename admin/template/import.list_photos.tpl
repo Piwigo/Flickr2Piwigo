@@ -135,7 +135,7 @@ jQuery('[data-add-album]').pwgAddAlbum({
       dataType: 'json',
       url: 'ws.php',
       data: {
-        method: 'pwg.images.addFlickr',
+        method: 'flickr2piwigo.importPhoto',
         id: photo,
         category: album,
         fills: fills,
