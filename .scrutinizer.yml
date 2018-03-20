@@ -1,0 +1,11 @@
+filter:
+    excluded_paths:
+        - 'vendor/*'
+build:
+    project_setup:
+        before:
+            - composer install
+    tests:
+        override:
+            -
+                command: composer test

@@ -1,6 +1,26 @@
 {
+    "name": "mistic100/flickr2piwigo",
+    "description": "A Piwigo plugin for importing photos from Flickr.",
+    "license": "GPL-2.0-only",
     "require": {
         "samwilson/phpflickr": "^4.3",
         "tedivm/stash": "^0.14"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0",
+        "jakub-onderka/php-parallel-lint": "^0.9",
+        "mediawiki/minus-x": "^0.3"
+    },
+    "scripts": {
+        "test": [
+            "composer validate --ansi",
+            "./vendor/bin/parallel-lint --exclude vendor .",
+            "./vendor/bin/phpcs --standard=.phpcs.xml -s .",
+            "./vendor/bin/minus-x check ."
+        ],
+        "fix": [
+            "./vendor/bin/phpcbf .",
+            "./vendor/bin/minus-x fix ."
+        ]
     }
 }

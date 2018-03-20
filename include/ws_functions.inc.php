@@ -32,7 +32,8 @@ function flickr_add_ws_method($arr)
   );
 }
 
-function flickr2piwigo_ws_init() {
+function flickr2piwigo_ws_init() 
+{
   if (!is_admin())
   {
     return new PwgError(403, 'Forbidden');
@@ -45,9 +46,9 @@ function flickr2piwigo_ws_init() {
     return new PwgError(null, l10n('Please enter your Flickr API keys on the configuration tab'));
   }
 
-  include_once(PHPWG_ROOT_PATH . 'admin/include/functions.php');
-  include_once(PHPWG_ROOT_PATH . 'admin/include/functions_upload.inc.php');
-  include_once(FLICKR_PATH . 'include/functions.inc.php');
+  include_once(PHPWG_ROOT_PATH.'admin/include/functions.php');
+  include_once(PHPWG_ROOT_PATH.'admin/include/functions_upload.inc.php');
+  include_once(FLICKR_PATH.'include/functions.inc.php');
 
   if (test_remote_download() === false)
   {
@@ -62,7 +63,8 @@ function flickr2piwigo_ws_init() {
  * @param $params
  * @return bool|string[]
  */
-function ws_flickr2piwigo_allPhotos($params) {
+function ws_flickr2piwigo_allPhotos($params) 
+{
   $flickr = flickr2piwigo_ws_init();
   $page = $params['page'];
   $userId = $params['user_id'];
@@ -77,7 +79,8 @@ function ws_flickr2piwigo_allPhotos($params) {
  * @param $photo
  * @return PwgError|string
  */
-function ws_flickr2piwigo_importPhoto($params) {
+function ws_flickr2piwigo_importPhoto($params) 
+{
   global $logger;
   $flickr = flickr2piwigo_ws_init();
 

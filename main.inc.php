@@ -24,11 +24,11 @@ if (basename(dirname(__FILE__)) != 'flickr2piwigo')
 global $conf;
 
 define('FLICKR2PIWIGO', 'flickr2piwigo');
-define('FLICKR_PATH',     PHPWG_PLUGINS_PATH . 'flickr2piwigo/');
-define('FLICKR_ADMIN',    get_root_url() . 'admin.php?page=plugin-flickr2piwigo');
-define('FLICKR_FS_CACHE', PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/');
+define('FLICKR_PATH',     PHPWG_PLUGINS_PATH.'flickr2piwigo/');
+define('FLICKR_ADMIN',    get_root_url().'admin.php?page=plugin-flickr2piwigo');
+define('FLICKR_FS_CACHE', PHPWG_ROOT_PATH.$conf['data_location'].'flickr_cache/');
 
-include_once(FLICKR_PATH . 'include/ws_functions.inc.php');
+include_once(FLICKR_PATH.'include/ws_functions.inc.php');
 
 
 $conf['flickr2piwigo'] = safe_unserialize($conf['flickr2piwigo']);
@@ -48,7 +48,7 @@ if (defined('IN_ADMIN'))
     $menu[] = array(
       'NAME' => 'Flickr2Piwigo',
       'URL' => FLICKR_ADMIN,
-      );
+    );
     return $menu;
   }
 
@@ -57,7 +57,7 @@ if (defined('IN_ADMIN'))
     $prefilters[] = array(
       'ID' => 'flickr',
       'NAME' => l10n('Imported from Flickr'),
-      );
+    );
     return $prefilters;
   }
 

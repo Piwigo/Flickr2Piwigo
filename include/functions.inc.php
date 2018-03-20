@@ -1,7 +1,7 @@
 <?php
 defined('FLICKR_PATH') or die('Hacking attempt!');
 
-include_once(FLICKR_PATH . 'vendor/autoload.php');
+include_once(FLICKR_PATH.'vendor/autoload.php');
 
 use OAuth\Common\Storage\Memory;
 use OAuth\OAuth1\Token\StdOAuth1Token;
@@ -13,7 +13,8 @@ use Stash\Pool;
  * Get a PhpFlickr object, already set up with the stored credentials.
  * @return PhpFlickr|bool The PhpFlickr object, or false if it could not be instantiated.
  */
-function get_PhpFlickr() {
+function get_PhpFlickr() 
+{
   global $conf;
 
   // Check for the API details.
