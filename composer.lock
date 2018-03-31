@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfe1e956f22447685458d6e58564aba1",
+    "content-hash": "71142f7db8b9305a961b5bf2a09e2d21",
     "packages": [
         {
             "name": "lusitanian/oauth",
@@ -121,16 +121,16 @@
         },
         {
             "name": "samwilson/phpflickr",
-            "version": "4.2.2",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samwilson/phpflickr.git",
-                "reference": "a680077f98114d6df2b7849cbddc43776fb92b59"
+                "reference": "7918a3573d73cac137f78615f6afaa652e987140"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samwilson/phpflickr/zipball/a680077f98114d6df2b7849cbddc43776fb92b59",
-                "reference": "a680077f98114d6df2b7849cbddc43776fb92b59",
+                "url": "https://api.github.com/repos/samwilson/phpflickr/zipball/7918a3573d73cac137f78615f6afaa652e987140",
+                "reference": "7918a3573d73cac137f78615f6afaa652e987140",
                 "shasum": ""
             },
             "require": {
@@ -155,7 +155,7 @@
                 "GPL-3.0-or-later"
             ],
             "description": "A PHP wrapper for the Flickr API, including Oauth.",
-            "time": "2018-02-22T23:35:04+00:00"
+            "time": "2018-03-15T10:07:07+00:00"
         },
         {
             "name": "tedivm/stash",

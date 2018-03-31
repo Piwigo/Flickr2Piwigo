@@ -38,9 +38,8 @@ jQuery('.load').click(function() {
 <p>
   <input type="submit" data="{$list_albums_url}" class="load" value="{'List my albums'|translate}">
   <input type="submit" data="{$import_all_url}" class="load" value="{'Import all my pictures'|translate}">
-  <br>
-  <span id="loader_import" style="display:none;"><img src="admin/themes/default/images/ajax-loader.gif"> <i>{'Processing...'|translate}</i></span>
 </p>
+<p id="loader_import" style="display:none;"><img src="admin/themes/default/images/ajax-loader.gif"> <i>{'Processing...'|translate}</i></p>
 
 {* <!-- ALBUMS LIST --> *}
 {else if $ACTION == 'list_albums'}
@@ -60,7 +59,7 @@ jQuery('.load').click(function() {
   </li>
 {/foreach}
 </ul>
-<span id="loader_import" style="display:none;"><img src="admin/themes/default/images/ajax-loader.gif"> <i>{'Processing...'|translate}</i></span>
+<p id="loader_import" style="display:none;"><img src="admin/themes/default/images/ajax-loader.gif"> <i>{'Processing...'|translate}</i></p>
 
 {* <!-- PHOTOS LIST --> *}
 {else if $ACTION == 'list_photos'}

@@ -1312,28 +1312,19 @@ class PhpFlickr
     }
 
     /**
-     * Returns a list of the latest public photos uploaded to flickr.
-     * This method does not require authentication.
-     * @link https://www.flickr.com/services/api/flickr.photos.getRecent.html
-     * @param string[]|string $extras An array or comma-separated list of extra information to 
-     * fetch for each returned record. Currently supported fields are: description, license,
-     * date_upload, date_taken, owner_name, icon_server, original_format, last_update, geo, tags,
-     * machine_tags, o_dims, views, media, path_alias, url_sq, url_t, url_s, url_q, url_m, url_n,
-     * url_z, url_c, url_l, and url_o. For details of the size suffixes,
-     * see https://www.flickr.com/services/api/misc.urls.html
-     * @param int $perPage Number of photos to return per page. If this argument is omitted,
-     * it defaults to 100. The maximum allowed value is 500.
-     * @param integer $page The page of results to return. If this argument is omitted, it defaults
-     * to 1.
-     * @return string[]|bool
+     * @deprecated use $this->photos()->getRecent() instead.
      */
     public function photosGetRecent($extras = [], $perPage = null, $page = null)
     {
-        if (is_array($extras)) {
-            $extras = implode(",", $extras);
-        }
-        $args = ['extras' => $extras, 'per_page' => $perPage, 'page' => $page ];
-        return $this->call('flickr.photos.getRecent', $args);
+        return $this->photos()->getRecent($extras, $perPage, $page);
+    }
+
+    /**
+     * @deprecated use $this->photos()->getRecent() instead.
+     */
+    public function photos_getRecent($extras = [], $perPage = null, $page = null)
+    {
+        return $this->photos()->getRecent($extras, $perPage, $page);
     }
 
     /**
@@ -1635,6 +1626,14 @@ class PhpFlickr
         return $this->parsed_response ? $this->parsed_response['uploader']['ticket'] : false;
     }
 
+    /**
+     * @return PhotosetsApi
+     */
+    public function photosets()
+    {
+        return new PhotosetsApi($this);
+    }
+
     /* Photosets Methods */
     public function photosets_addPhoto($photoset_id, $photo_id)
     {
@@ -1684,11 +1683,12 @@ class PhpFlickr
         return $this->parsed_response ? $this->parsed_response['photoset'] : false;
     }
 
+    /**
+     * @deprecated
+     */
     public function photosets_getList($user_id = null, $page = null, $per_page = null, $primary_photo_extras = null)
     {
-        /* https://www.flickr.com/services/api/flickr.photosets.getList.html */
-        $this->request("flickr.photosets.getList", array("user_id" => $user_id, 'page' => $page, 'per_page' => $per_page, 'primary_photo_extras' => $primary_photo_extras));
-        return $this->parsed_response ? $this->parsed_response['photosets'] : false;
+        return $this->photosets()->getList($user_id, $page, $per_page, $primary_photo_extras);
     }
 
     public function photosets_getPhotos($photoset_id, $extras = null, $privacy_filter = null, $per_page = null, $page = null, $media = null)
