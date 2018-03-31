@@ -6,7 +6,7 @@ class flickr2piwigo_maintain extends PluginMaintain
   private $default_conf = array(
     'api_key' => null,
     'secret_key' => null,
-    );
+  );
 
   function install($plugin_version, &$errors=array())
   {
@@ -17,7 +17,7 @@ class flickr2piwigo_maintain extends PluginMaintain
       conf_update_param('flickr2piwigo', $this->default_conf, true);
     }
 
-    mkgetdir(PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/', MKGETDIR_DEFAULT&~MKGETDIR_DIE_ON_ERROR);
+    mkgetdir(PHPWG_ROOT_PATH.$conf['data_location'].'flickr_cache/', MKGETDIR_DEFAULT&~MKGETDIR_DIE_ON_ERROR);
   }
 
   function update($old_version, $new_version, &$errors=array())
@@ -31,7 +31,7 @@ class flickr2piwigo_maintain extends PluginMaintain
 
     conf_delete_param('flickr2piwigo');
 
-    self::rrmdir(PHPWG_ROOT_PATH . $conf['data_location'] . 'flickr_cache/');
+    self::rrmdir(PHPWG_ROOT_PATH.$conf['data_location'].'flickr_cache/');
   }
 
   static function rrmdir($dir)
