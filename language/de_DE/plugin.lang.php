@@ -43,7 +43,6 @@ $lang['No download method available'] = 'Keine Download Methode verfügbar';
 $lang['One picture is not displayed because already existing in the database.'] = 'Bild wird nicht angezeigt, existiert schon in der Datenbank';
 $lang['Open Flickr page in a new tab'] = 'Öffne Flickr Seite in neuem Tab';
 $lang['Pictures without album'] = 'Bild ohne Album';
-$lang['Please fill your API keys on the configuration tab'] = 'Bitte API Schlüssel auf Konfigurations-Tab eingeben';
 $lang['Processing...'] = 'Verarbeitung...';
 $lang['Reproduce flickr albums'] = 'Flickr Album abbilden';
 $lang['Successfully logged in to you Flickr account'] = 'Erfolgreich beim Flickr Konto eingeloggt ';
@@ -51,4 +50,5 @@ $lang['%d elements ready for importation'] = '%d Elemente fertig zum Import';
 $lang['Logged out'] = 'Aus-gelockt ';
 $lang['Photo "%s" imported'] = '"%s" Bilder importiert';
 $lang['Geolocalization'] = 'Standortbestimmung';
-?>
+$lang['Please enter your Flickr API keys'] = 'Bitte Flickr API-Schlüssel eingeben';
+$lang['Please enter your Flickr API keys on the configuration tab'] = 'Bitte Flickr API-Schlüssel beim Konfigurationsreiter eingeben';
