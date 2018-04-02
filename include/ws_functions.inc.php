@@ -208,6 +208,10 @@ function ws_flickr2piwigo_importPhoto($params)
     {
       $tag_ids = [];
       foreach ($photo['tags']['tag'] as $tag) {
+        if (preg_match('/checksum:(md5|sha1)=.*/i', $tag['raw']) === 1) {
+          // Don't import checksum machine tags (Github #10).
+          continue;
+        }
         $tag_ids[] = tag_id_from_tag_name(pwg_db_real_escape_string($tag['raw']));
       }
       $logger->debug('Updating tags of Piwigo ID: '.$photo['image_id'], FLICKR2PIWIGO);
