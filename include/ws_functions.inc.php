@@ -192,7 +192,7 @@ function ws_flickr2piwigo_importPhoto($params)
       $updates['latitude'] = pwg_db_real_escape_string($photo['location']['latitude']);
       $updates['longitude'] = pwg_db_real_escape_string($photo['location']['longitude']);
     }
-    if (in_array('level', $photo['fills']) && !$photo['visibility']['ispublic'])
+    if (in_array('fill_level', $photo['fills']) && !$photo['visibility']['ispublic'])
     {
       $updates['level'] = 8;
       if ($photo['visibility']['isfamily']) $updates['level'] = 4;
