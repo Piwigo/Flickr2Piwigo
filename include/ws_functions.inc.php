@@ -204,9 +204,22 @@ function ws_flickr2piwigo_importPhoto($params)
       single_update(IMAGES_TABLE, $updates, ['id' => $photo['image_id']]);
     }
 
+    // Start compiling tags.
+    $tag_ids = [];
+
+    // Add a tag for the Flickr safety level. '0' for Safe, '1' for Moderate, and '2' for Restricted
+    if (in_array('fill_safety', $photo['fills'])
+      and isset($photo['safety_level'])
+      and in_array($photo['safety_level'], ['1','2'])
+    ) {
+      $logger->debug('Adding safety level tag: '.$photo['safety_level'], FLICKR2PIWIGO);
+      $safety_tag = ((int)$photo['safety_level'] === '1') ? 'Moderate' : 'Restricted';
+      $tag_ids[] = tag_id_from_tag_name(pwg_db_real_escape_string(l10n($safety_tag)));
+    }
+
+    // Get normal tags.
     if (!empty($photo['tags']['tag']) and in_array('fill_tags', $photo['fills']))
     {
-      $tag_ids = [];
       foreach ($photo['tags']['tag'] as $tag) {
         if (preg_match('/checksum:(md5|sha1)=.*/i', $tag['raw']) === 1) {
           // Don't import checksum machine tags (Github #10).
@@ -214,6 +227,11 @@ function ws_flickr2piwigo_importPhoto($params)
         }
         $tag_ids[] = tag_id_from_tag_name(pwg_db_real_escape_string($tag['raw']));
       }
+    }
+
+    // Set all tags.
+    if (count($tag_ids) > 0)
+    {
       $logger->debug('Updating tags of Piwigo ID: '.$photo['image_id'], FLICKR2PIWIGO);
       set_tags($tag_ids, $photo['image_id']);
     }
