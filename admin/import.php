@@ -278,7 +278,7 @@ SELECT id, name, uppercats, global_rank
   }
 }
 
-
 $template->assign('ACTION', $_GET['action']);
+$template->assign('help', load_language('help_import.html', FLICKR_PATH, ['return'=>true]));
 
 $template->set_filename('flickr2piwigo', realpath(FLICKR_PATH.'admin/template/import.tpl'));

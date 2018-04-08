@@ -1,0 +1,29 @@
+<dl>
+  <dt>Duplicates</dt>
+  <dd>
+    <p>
+      Photos that already exist in Piwigo will not be imported.
+    </p>
+    <p>
+      The comparison is done firstly on the filename (for a match to "<code>flickr-&lt;Flickr_ID&gt;</code>")
+      and then on the checksum of the actual image file.
+      Note that no metadata is updated for photos already imported.
+    </p>
+  </dd>
+  <dt>Approximate dates</dt>
+  <dd>
+    <p>
+      Flickr supports <a href="https://www.flickr.com/services/api/misc.dates.html">approximate dates</a>
+      for "date taken" attribute of photos.</p>
+    <p>
+      These will be imported as exact dates, and an <code>approximate date</code> keyword added
+      as well as keywords for
+      the date (e.g. <code>c. 1933</code>, <code>March 2008</code>, or <code>1986</code>)
+      and granularity (one of: <code>month</code>, <code>year</code>, <code>circa</code>).
+    </p>
+    <p>
+      For example, a date taken on Flickr of "c. 2006" will be imported with a date of "2006-01-01 00:00:00"
+      and keywords "approximate date", "circa", and "c. 2006".
+    </p>
+  </dd>
+</dl>

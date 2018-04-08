@@ -182,7 +182,10 @@ function ws_flickr2piwigo_importPhoto($params)
     $updates = array();
     if (in_array('fill_name', $photo['fills']))   $updates['name'] = pwg_db_real_escape_string($photo['title']);
     if (in_array('fill_posted', $photo['fills'])) $updates['date_available'] = date('Y-m-d H:i:s', $photo['dates']['posted']);
-    if (in_array('fill_taken', $photo['fills']))  $updates['date_creation'] = $photo['dates']['taken'];
+    if (in_array('fill_taken', $photo['fills'])) {
+      // See also below where tags for approximate dates are added.
+      $updates['date_creation'] = $photo['dates']['taken'];
+    }
     if (in_array('fill_author', $photo['fills'])) $updates['author'] = pwg_db_real_escape_string($photo['owner']['username']);
     if (in_array('fill_description', $photo['fills']) && isset($photo['description']))
     {
@@ -207,6 +210,35 @@ function ws_flickr2piwigo_importPhoto($params)
 
     // Start compiling tags.
     $tag_ids = [];
+
+    // Add tags for approximate dates. https://www.flickr.com/services/api/misc.dates.html
+    // See also above where the actual date_creation is imported. Github #14.
+    $logger->debug('Importing dates', FLICKR2PIWIGO, $photo['dates']);
+    if (
+      !empty($photo['dates']['takengranularity'])
+      && in_array('fill_taken', $photo['fills'])
+    ) {
+      $date_tags = [l10n('approximate date')];
+      switch ($photo['dates']['takengranularity']) {
+        case 8:
+          $date_tags[] = l10n('circa');
+          $year = date( 'Y', strtotime($photo['dates']['taken']));
+          $date_tags[] = l10n('c. %s', $year);
+          break;
+        case 6:
+          $date_tags[] = l10n('year');
+          $date_tags[] = date( 'Y', strtotime($photo['dates']['taken']));
+          break;
+        case 4:
+          $date_tags[] = l10n('month');
+          $date_tags[] = date( 'F Y', strtotime($photo['dates']['taken']));
+          break;
+      }
+      $logger->debug('Importing date keywords', FLICKR2PIWIGO, $date_tags);
+      foreach ($date_tags as $date_tag) {
+        $tag_ids[] = tag_id_from_tag_name(pwg_db_real_escape_string($date_tag));
+      }
+    }
 
     // Add a tag for the Flickr safety level. '0' for Safe, '1' for Moderate, and '2' for Restricted
     if (in_array('fill_safety', $photo['fills'])

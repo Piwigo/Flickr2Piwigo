@@ -14,6 +14,11 @@
 	<h2>Flickr2Piwigo</h2>
 </div>
 
+<fieldset>
+  <legend>{'Help'|translate}</legend>
+  {$help}
+</fieldset>
+
 {* <!-- LOGIN --> *}
 {if $ACTION == 'init_login'}
 <p><input type="submit" onclick="javascript:window.location.href ='{$flickr_login}';" value="{'Login'|translate}"></p>
