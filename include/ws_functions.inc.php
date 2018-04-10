@@ -39,8 +39,9 @@ function flickr2piwigo_ws_init()
     return new PwgError(403, 'Forbidden');
   }
 
-  global $conf;
+  load_language('plugin.lang', FLICKR_PATH);
 
+  global $conf;
   if (empty($conf['flickr2piwigo']['api_key']) or empty($conf['flickr2piwigo']['secret_key']))
   {
     return new PwgError(null, l10n('Please enter your Flickr API keys on the configuration tab'));

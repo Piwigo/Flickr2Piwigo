@@ -31,8 +31,8 @@ var flickrUserId = '{$flickrUserId}';
     <p id="albumSelectWrapper" style="display:none;">
       <span id="albumSelection" style="display:none">
       <select data-selectize="categories" data-default="first" name="category" style="width:600px"></select>
-      <br>{'... or '|@translate}</span>
-      <a href="#" data-add-album="category" title="{'create a new album'|@translate}">{'create a new album'|@translate}</a>
+      <br>{'... or '|translate}</span>
+      <a href="#" data-add-album="category" title="{'Create a new album'|translate}">{'Create a new album'|translate}</a>
     </p>
 
     <p>
@@ -42,10 +42,10 @@ var flickrUserId = '{$flickrUserId}';
       <label><input type="checkbox" name="fill_tags" checked="checked"> {'Tags'|translate}</label>
       <label><input type="checkbox" name="fill_taken" checked="checked"> {'Creation date'|translate}</label>
       <label><input type="checkbox" name="fill_posted"> {'Post date'|translate}</label>
-      <label><input type="checkbox" name="fill_description" checked="checked"> {'Description'|@translate}</label>
-      <label><input type="checkbox" name="fill_geotag" checked="checked"> {'Geolocalization'|@translate}</label>
-      <label><input type="checkbox" name="fill_level" checked="checked"> {'Privacy level'|@translate}</label>
-      <label><input type="checkbox" name="fill_safety" checked="checked"> {'Safety level (as keyword)'|@translate}</label>
+      <label><input type="checkbox" name="fill_description" checked="checked"> {'Description'|translate}</label>
+      <label><input type="checkbox" name="fill_geotag" checked="checked"> {'Geolocalization'|translate}</label>
+      <label><input type="checkbox" name="fill_level" checked="checked"> {'Privacy level'|translate}</label>
+      <label><input type="checkbox" name="fill_safety" checked="checked"> {'Safety level (as keyword)'|translate}</label>
     </p>
 
     <p>
