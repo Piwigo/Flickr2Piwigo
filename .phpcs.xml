@@ -8,7 +8,6 @@
     </rule>
     <rule ref="Generic.WhiteSpace.ScopeIndent">
         <properties>
-            <property name="exact" value="true" />
             <property name="indent" value="2" />
         </properties>
     </rule>

@@ -54,10 +54,11 @@ if (defined('IN_ADMIN'))
 
   function flickr_add_batch_manager_prefilters($prefilters)
   {
-    $prefilters[] = array(
+    load_language('plugin.lang', FLICKR_PATH);
+    $prefilters[] = [
       'ID' => 'flickr',
       'NAME' => l10n('Imported from Flickr'),
-    );
+    ];
     return $prefilters;
   }
 
