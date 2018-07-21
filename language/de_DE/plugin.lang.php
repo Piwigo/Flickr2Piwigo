@@ -52,3 +52,22 @@ $lang['Photo "%s" imported'] = '"%s" Bilder importiert';
 $lang['Geolocalization'] = 'Standortbestimmung';
 $lang['Please enter your Flickr API keys'] = 'Bitte Flickr API-Schlüssel eingeben';
 $lang['Please enter your Flickr API keys on the configuration tab'] = 'Bitte Flickr API-Schlüssel beim Konfigurationsreiter eingeben';
+$lang['Unable to get info from Flickr about photo: %s'] = 'Infos über %s können nicht von Flickr geladen werden';
+$lang['c. %s'] = 'etw. %s';
+$lang['Already imported: %s (Piwigo ID: %s)'] = 'Bereits importiert: %s (Piwigo ID: %s)';
+$lang['Can\'t download file: %s'] = 'Datei %s kann nicht heruntergeladen werden';
+$lang['Help'] = 'Hilfe';
+$lang['Restricted'] = 'Beschränkt';
+$lang['Safety level (as keyword)'] = 'Sicherheitsstufe (als Schlüsselwort)';
+$lang['Unable to create category: %s'] = 'Kategorie %s kann nicht erstellt werden
+
+';
+$lang['approximate date'] = 'ungefähres Datum';
+$lang['Imported from Flickr'] = 'von Flickr importiert';
+$lang['Moderate'] = 'Moderieren';
+$lang['Stop'] = 'Stop';
+$lang['Success'] = 'Erfolg';
+$lang['circa'] = 'etwa';
+$lang['month'] = 'Monat';
+$lang['year'] = 'Jahr';
+$lang['Create a new album'] = 'Neues Album erstellen';
