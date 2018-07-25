@@ -26,6 +26,10 @@ function get_PhpFlickr()
   $flickr = new PhpFlickr($conf['flickr2piwigo']['api_key'], $conf['flickr2piwigo']['secret_key']);
 
   // Enable the cache.
+  if (!is_writable(FLICKR_FS_CACHE)) {
+    $err = 'Unable to write to Flickr2Piwigo cache directory: %s';
+    throw new Exception(l10n($err, FLICKR_FS_CACHE));
+  }
   $driver = new FileSystem([ 'path' => FLICKR_FS_CACHE ]);
   $pool = new Pool($driver);
   $flickr->setCache($pool);
