@@ -1,6 +1,5 @@
 <?php
 
-$lang['Please fill your API keys on the configuration tab'] = 'Veuillez renseigner votre clé d\'API sur l\'écran de configuration';
 $lang['Successfully logged in to you Flickr account'] = 'Connecté à votre compte Flickr';
 $lang['Pictures without album'] = 'Photos sans album';
 $lang['One picture is not displayed because already existing in the database.'] = 'Une photo n\'est pas affichée car elle existe déjà sur la galerie';
@@ -32,4 +31,23 @@ $lang['Logged out'] = 'Déconnecté';
 $lang['%d elements ready for importation'] = '%d elements prêts à l\'importation';
 $lang['Geolocalization'] = 'Géolocalisation';
 
-?>
+$lang['Safety level (as keyword)'] = 'Niveau de sécurité (comme mot-clé)';
+$lang['circa'] = 'environ';
+$lang['year'] = 'année';
+$lang['approximate date'] = 'date approximative';
+$lang['c. %s'] = 'c. %s';
+$lang['month'] = 'mois';
+$lang['Moderate'] = 'Modérer';
+$lang['Please enter your Flickr API keys'] = 'Merci d\'entrer vos clés d\'API Flickr';
+$lang['Please enter your Flickr API keys on the configuration tab'] = 'Merci d\'entrer vos clés d\'API Flickr depuis l\'onglet configuration';
+$lang['Restricted'] = 'Restreint';
+$lang['Stop'] = 'Stop';
+$lang['Success'] = 'Succès';
+$lang['Unable to create category: %s'] = 'Impossible de créer la catégorie : %s';
+$lang['Unable to get info from Flickr about photo: %s'] = 'Impossible de récupérer les information depuis Flickr pour la photo : %s';
+$lang['Unable to write to Flickr2Piwigo cache directory: %s'] = 'Impossible d\'écrire dans le répertoire cache Flickr2Piwigo : %s';
+$lang['Imported from Flickr'] = 'Importé depuis Flickr';
+$lang['Help'] = 'Aide';
+$lang['Create a new album'] = 'Créer un nouvel album';
+$lang['Already imported: %s (Piwigo ID: %s)'] = 'Déjà importé : %s (Piwigo ID: %s)';
+$lang['Can\'t download file: %s'] = 'Échec du téléchargement du fichier : %s';
