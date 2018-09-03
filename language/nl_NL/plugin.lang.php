@@ -69,3 +69,4 @@ $lang['c. %s'] = 'c. %s';
 $lang['circa'] = 'circa';
 $lang['month'] = 'maand';
 $lang['year'] = 'jaar';
+$lang['Unable to write to Flickr2Piwigo cache directory: %s'] = 'Kan niet wegschrijven naar de Flickr2Piwigo cachedirectory:%s';
