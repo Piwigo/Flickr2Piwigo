@@ -69,3 +69,4 @@ $lang['Stop'] = 'Стоп';
 $lang['Success'] = 'Успешно';
 $lang['month'] = 'месяц';
 $lang['year'] = 'год';
+$lang['Unable to write to Flickr2Piwigo cache directory: %s'] = 'Не удается записать в каталог кэша Flickr2Piwigo: %s';
