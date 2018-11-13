@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Flickr2Piwigo
-Version: 1.5.2
+Version: 1.5.3
 Description: Import pictures from your Flickr account
 Plugin URI: auto
 Author: Mistic
@@ -10,7 +10,7 @@ Author URI: http://www.strangeplanet.fr
 
 defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
 
-if (basename(dirname(__FILE__)) != 'flickr2piwigo')
+if (basename(__DIR__) !== 'flickr2piwigo')
 {
   add_event_handler('init', 'flickr_error');
   function flickr_error()

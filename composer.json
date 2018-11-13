@@ -3,7 +3,7 @@
     "description": "A Piwigo plugin for importing photos from Flickr.",
     "license": "GPL-2.0-only",
     "require": {
-        "samwilson/phpflickr": "^4.3",
+        "samwilson/phpflickr": "^4.4",
         "tedivm/stash": "^0.14"
     },
     "require-dev": {
