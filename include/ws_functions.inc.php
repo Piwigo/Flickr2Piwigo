@@ -204,7 +204,7 @@ function ws_flickr2piwigo_importPhoto($params)
     }
     if (in_array('fill_views', $photo['fills']) && isset($photo['views'])) {
       $logger->debug('setting views counter to: '.$photo['views'], FLICKR2PIWIGO);
-      $updates['hit'] = $photo['views'];
+      $updates['hit'] = (int)$photo['views'];
     }
     if (count($updates))
     {
