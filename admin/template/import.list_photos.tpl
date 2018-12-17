@@ -392,7 +392,7 @@ jQuery('[data-add-album]').pwgAddAlbum({
       <label><input type="checkbox" name="fill_author" checked="checked"> {'Author'|translate}</label>
       <label><input type="checkbox" name="fill_tags" checked="checked"> {'Tags'|translate}</label>
       <label><input type="checkbox" name="fill_taken" checked="checked"> {'Creation date'|translate}</label>
-      <label><input type="checkbox" name="fill_posted"> {'Post date'|translate}</label>
+      <label><input type="checkbox" name="fill_posted" checked="checked"> {'Post date'|translate}</label>
       <label><input type="checkbox" name="fill_description" checked="checked"> {'Description'|translate}</label>
       <label><input type="checkbox" name="fill_geotag" checked="checked"> {'Geolocalization'|translate}</label>
       <label><input type="checkbox" name="fill_level" checked="checked"> {'Privacy level'|translate}</label>
