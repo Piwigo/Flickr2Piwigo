@@ -202,6 +202,10 @@ function ws_flickr2piwigo_importPhoto($params)
       if ($photo['visibility']['isfamily']) $updates['level'] = 4;
       if ($photo['visibility']['isfriend']) $updates['level'] = 2;
     }
+    if (in_array('fill_views', $photo['fills']) && isset($photo['views'])) {
+      $logger->debug('setting views counter to: '.$photo['views'], FLICKR2PIWIGO);
+      $updates['hit'] = $photo['views'];
+    }
     if (count($updates))
     {
       $logger->debug('Updating metadata of Piwigo ID: '.$photo['image_id'], FLICKR2PIWIGO);
