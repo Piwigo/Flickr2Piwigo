@@ -51,3 +51,4 @@ $lang['Help'] = 'Aide';
 $lang['Create a new album'] = 'Créer un nouvel album';
 $lang['Already imported: %s (Piwigo ID: %s)'] = 'Déjà importé : %s (Piwigo ID: %s)';
 $lang['Can\'t download file: %s'] = 'Échec du téléchargement du fichier : %s';
+$lang['View counter'] = 'Compteur d\'affichages';

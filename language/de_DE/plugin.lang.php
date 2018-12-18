@@ -70,3 +70,4 @@ $lang['month'] = 'Monat';
 $lang['year'] = 'Jahr';
 $lang['Create a new album'] = 'Neues Album erstellen';
 $lang['Unable to write to Flickr2Piwigo cache directory: %s'] = 'Flickr2Piwigo Zwischenspeicher-Verzeichnis kann nicht beschrieben werden: %s';
+$lang['View counter'] = 'Anzahl der Aufrufe';

@@ -50,3 +50,4 @@ $lang['Unable to get info from Flickr about photo: %s'] = 'Unable to get info fr
 $lang['Unable to create category: %s'] = 'Unable to create category: %s';
 $lang['Unable to write to Flickr2Piwigo cache directory: %s'] = 'Unable to write to Flickr2Piwigo cache directory: %s';
 $lang['year'] = 'year';
+$lang['View counter'] = 'View counter';
