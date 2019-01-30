@@ -70,3 +70,4 @@ $lang['c. %s'] = 'c. %s';
 $lang['circa'] = 'circa';
 $lang['month'] = 'mese';
 $lang['year'] = 'anno';
+$lang['View counter'] = 'Contatore di visualizzazione ';
