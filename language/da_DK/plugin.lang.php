@@ -70,3 +70,4 @@ $lang['circa'] = 'cirka';
 $lang['month'] = 'måned';
 $lang['year'] = 'år';
 $lang['Unable to write to Flickr2Piwigo cache directory: %s'] = 'Kan ikke skrive til Flickr2Piwigos cachemappe: %s';
+$lang['View counter'] = 'Visningstæller';
