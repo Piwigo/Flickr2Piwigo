@@ -158,14 +158,12 @@ function ws_flickr2piwigo_importPhoto($params)
       else
       {
         $logger->info('Creating category: '.$photoset_info['title'], FLICKR2PIWIGO);
-        $photoset_description = $flickr->photosets()->getInfo($photoset_info['id'], NULL)['description'];
-        if (isset($photoset_description)) {
+        $photoset_info = $flickr->photosets()->getInfo($photoset_info['id'], $params['user_id']);
+        $photoset_options=NULL;
+        if (isset($photoset_info['description'])) {
+          $photoset_description = $flickr->photosets()->getInfo($photoset_info['id'], NULL)['description'];
           $logger->info('Category: '.$photoset_info['title'].' will be created with description: '.$photoset_description, FLICKR2PIWIGO);
           $photoset_options = ["comment" => pwg_db_real_escape_string($photoset_description)];
-        }
-        else
-        {
-          $photoset_options=NULL;
         }
         $cat = create_virtual_category(pwg_db_real_escape_string($photoset_info['title']), NULL, $photoset_options);
         if ( !isset( $cat['id'] ) ) {
