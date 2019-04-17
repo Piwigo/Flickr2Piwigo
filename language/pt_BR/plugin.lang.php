@@ -70,3 +70,4 @@ $lang['circa'] = 'circa';
 $lang['month'] = 'a cerca de';
 $lang['year'] = 'ano';
 $lang['Unable to write to Flickr2Piwigo cache directory: %s'] = 'Não é possível gravar no diretório de cache do Flickr2Piwigo: %s';
+$lang['View counter'] = 'Visualizar contador';
