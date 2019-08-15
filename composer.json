@@ -4,11 +4,11 @@
     "license": "GPL-2.0-only",
     "require": {
         "samwilson/phpflickr": "^4.4",
-        "tedivm/stash": "^0.14"
+        "tedivm/stash": "^0.15"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.0",
-        "jakub-onderka/php-parallel-lint": "^0.9",
+        "jakub-onderka/php-parallel-lint": "^1.0",
         "mediawiki/minus-x": "^0.3"
     },
     "scripts": {

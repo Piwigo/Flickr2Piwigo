@@ -23,14 +23,24 @@ else
 {
   $flickr = get_PhpFlickr();
 
-  if ( isset($_GET['action']) and in_array($_GET['action'], ['login', 'logged'])) {
+  if (isset($_GET['action']) and in_array($_GET['action'], ['login', 'logged'])) {
     // Set up session storage for use while logging in.
     $storage = new Session();
     $flickr->setOauthStorage($storage);
-  } else {
+  }
+  else
+  {
     // If we're not logging in, test authentication.
-    $u = $flickr->test()->login();
-    if (!$u && !isset($_GET['action'])) {
+    try
+    {
+      $u = $flickr->test()->login();
+      if (!$u && !isset($_GET['action']))
+      {
+        $_GET['action'] = 'init_login';
+      }
+    }
+    catch (Exception $exception)
+    {
       $_GET['action'] = 'init_login';
     }
   }
@@ -57,8 +67,16 @@ switch ($_GET['action'])
   case 'login':
   {
     $callbackUrl = get_absolute_root_url().FLICKR_ADMIN.'-import&action=logged';
-    $flickrUrl = $flickr->getAuthUrl('read', $callbackUrl);
-    redirect($flickrUrl->getAbsoluteUri());
+    try
+    {
+      $flickrUrl = $flickr->getAuthUrl('read', $callbackUrl);
+      redirect($flickrUrl->getAbsoluteUri());
+    }
+    catch (Exception $exception)
+    {
+      $_SESSION['page_warnings'][] = l10n('An error occurred when trying to log in to Flickr: %s', $exception->getMessage());
+      redirect(FLICKR_ADMIN);
+    }
     break;
   }
 
@@ -81,7 +99,7 @@ switch ($_GET['action'])
     $conf['flickr2piwigo']['access_secret'] = $accessToken->getAccessTokenSecret();
     conf_update_param('flickr2piwigo', $conf['flickr2piwigo']);
 
-    $_SESSION['page_infos'][] = l10n('Successfully logged in to you Flickr account');
+    $_SESSION['page_infos'][] = l10n('Successfully logged in to your Flickr account');
     redirect(FLICKR_ADMIN.'-import');
     break;
   }

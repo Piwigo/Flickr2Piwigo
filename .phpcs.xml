@@ -11,6 +11,7 @@
             <property name="indent" value="2" />
         </properties>
     </rule>
+    <rule ref="PSR2.ControlStructures.ControlStructureSpacing" />
     <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman" />
     <rule ref="Squiz.Strings.ConcatenationSpacing" />
 
