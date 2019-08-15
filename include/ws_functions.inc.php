@@ -159,7 +159,7 @@ function ws_flickr2piwigo_importPhoto($params)
       {
         $logger->info('Creating category: '.$photoset_info['title'], FLICKR2PIWIGO);
         $cat = create_virtual_category(pwg_db_real_escape_string($photoset_info['title']));
-        if ( !isset( $cat['id'] ) ) {
+        if (!isset( $cat['id'] )) {
           $cat_error_msg = l10n('Unable to create category: %s', $photoset_info['title']);
           $logger->error( $cat_error_msg, FLICKR2PIWIGO );
           return $cat_error_msg;
@@ -191,7 +191,7 @@ function ws_flickr2piwigo_importPhoto($params)
     {
       $updates['comment'] = pwg_db_real_escape_string($photo['description']);
     }
-    if (in_array('fill_geotag', $photo['fills']) and !empty($photo['location']) )
+    if (in_array('fill_geotag', $photo['fills']) and !empty($photo['location']))
     {
       $updates['latitude'] = pwg_db_real_escape_string($photo['location']['latitude']);
       $updates['longitude'] = pwg_db_real_escape_string($photo['location']['longitude']);
@@ -218,8 +218,7 @@ function ws_flickr2piwigo_importPhoto($params)
     // Add tags for approximate dates. https://www.flickr.com/services/api/misc.dates.html
     // See also above where the actual date_creation is imported. Github #14.
     $logger->debug('Importing dates', FLICKR2PIWIGO, $photo['dates']);
-    if (
-      !empty($photo['dates']['takengranularity'])
+    if (!empty($photo['dates']['takengranularity'])
       && in_array('fill_taken', $photo['fills'])
     ) {
       $date_tags = [l10n('approximate date')];
