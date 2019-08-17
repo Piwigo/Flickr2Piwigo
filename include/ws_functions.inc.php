@@ -1,5 +1,8 @@
 <?php
+
 defined('FLICKR_PATH') or die('Hacking attempt!');
+
+use Samwilson\PhpFlickr\PhotosApi;
 
 function flickr_add_ws_method($arr)
 {
@@ -7,7 +10,7 @@ function flickr_add_ws_method($arr)
   $service = &$arr[0];
 
   $service->addMethod(
-    'flickr2piwigo.allPhotos', 
+    'flickr2piwigo.allPhotos',
     'ws_flickr2piwigo_allPhotos',
     [
       'user_id' => [],
@@ -32,7 +35,7 @@ function flickr_add_ws_method($arr)
   );
 }
 
-function flickr2piwigo_ws_init() 
+function flickr2piwigo_ws_init()
 {
   if (!is_admin())
   {
@@ -64,7 +67,7 @@ function flickr2piwigo_ws_init()
  * @param $params
  * @return bool|string[]
  */
-function ws_flickr2piwigo_allPhotos($params) 
+function ws_flickr2piwigo_allPhotos($params)
 {
   $flickr = flickr2piwigo_ws_init();
   $page = $params['page'];
@@ -80,7 +83,7 @@ function ws_flickr2piwigo_allPhotos($params)
  * @param $photo
  * @return PwgError|string
  */
-function ws_flickr2piwigo_importPhoto($params) 
+function ws_flickr2piwigo_importPhoto($params)
 {
   global $logger;
   $flickr = flickr2piwigo_ws_init();
@@ -107,10 +110,11 @@ function ws_flickr2piwigo_importPhoto($params)
 
   // Download largest available size. If not original, this needs an extra API request.
   if (isset($photo['originalsecret']) && isset($photo['originalformat'])) {
-    $photo['url'] = $flickr->buildPhotoURL($photo, 'original');
+    $photo['url'] = $flickr->urls()->getImageUrl($photo, PhotosApi::SIZE_ORIGINAL);
   } else {
     $photo['url'] = $flickr->photos()->getLargestSize($photo['id'])['source'];
   }
+  $logger->debug('Downloading '.$photo['url']);
   $photo['path'] = FLICKR_FS_CACHE.$filename_prefix.'.'.get_extension($photo['url']);
   if (download_remote_file($photo['url'], $photo['path']) == false)
   {
