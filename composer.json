@@ -7,9 +7,9 @@
         "tedivm/stash": "^0.15"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.0",
         "jakub-onderka/php-parallel-lint": "^1.0",
-        "mediawiki/minus-x": "^0.3"
+        "mediawiki/minus-x": "^0.3",
+        "samwilson/piwigo-coding-standards": "^0.1"
     },
     "scripts": {
         "test": [

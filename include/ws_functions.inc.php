@@ -71,9 +71,9 @@ function ws_flickr2piwigo_allPhotos($params)
 {
   $flickr = flickr2piwigo_ws_init();
   $page = $params['page'];
-  $userId = $params['user_id'];
+  $user_id = $params['user_id'];
   $photos = $flickr->people()->getPhotos(
-    $userId, null, null, null,
+    $user_id, null, null, null,
     null, null, null, null, null, 500, $page
   );
   return $photos;

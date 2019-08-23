@@ -66,11 +66,11 @@ switch ($_GET['action'])
   // call flickr login procedure
   case 'login':
   {
-    $callbackUrl = get_absolute_root_url().FLICKR_ADMIN.'-import&action=logged';
+    $callback_url = get_absolute_root_url().FLICKR_ADMIN.'-import&action=logged';
     try
     {
-      $flickrUrl = $flickr->getAuthUrl('read', $callbackUrl);
-      redirect($flickrUrl->getAbsoluteUri());
+      $flickr_url = $flickr->getAuthUrl('read', $callback_url);
+      redirect($flickr_url->getAbsoluteUri());
     }
     catch (Exception $exception)
     {
@@ -84,19 +84,19 @@ switch ($_GET['action'])
   case 'logged':
   {
     // Get the access token.
-    $oauthVerifier = $_GET[ 'oauth_verifier' ];
-    $oauthToken = $_GET[ 'oauth_token' ];
+    $oauth_verifier = $_GET[ 'oauth_verifier' ];
+    $oauth_token = $_GET[ 'oauth_token' ];
     try
     {
-      $accessToken = $flickr->retrieveAccessToken($oauthVerifier, $oauthToken);
+      $access_token = $flickr->retrieveAccessToken($oauth_verifier, $oauth_token);
     } catch (Exception $e) {
       $_SESSION['page_warnings'][] = l10n('Unable to retrieve Flickr access token. The error was:').$e->getMessage();
       redirect(FLICKR_ADMIN.'-import');
     }
 
     // Save the access token.
-    $conf['flickr2piwigo']['access_token'] = $accessToken->getAccessToken();
-    $conf['flickr2piwigo']['access_secret'] = $accessToken->getAccessTokenSecret();
+    $conf['flickr2piwigo']['access_token'] = $access_token->getAccessToken();
+    $conf['flickr2piwigo']['access_secret'] = $access_token->getAccessTokenSecret();
     conf_update_param('flickr2piwigo', $conf['flickr2piwigo']);
 
     $_SESSION['page_infos'][] = l10n('Successfully logged in to your Flickr account');
@@ -267,11 +267,11 @@ SELECT id, name, uppercats, global_rank
       'load' => 'footer',
     ]);
 
-    $photoInfo = $flickr->people()->getPhotos($u['id']);
+    $photo_info = $flickr->people()->getPhotos($u['id']);
 
     $template->assign([
       'flickrUserId' => $u['id'],
-      'nb_elements' => (int)$photoInfo['total'],
+      'nb_elements' => (int)$photo_info['total'],
       'F_ACTION' => FLICKR_ADMIN.'-import&amp;action=import_set',
       'CACHE_KEYS' => get_admin_client_cache_keys(['categories']),
     ]);
