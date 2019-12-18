@@ -186,7 +186,7 @@ switch ($_GET['action'])
     else
     {
       $all_photos = $flickr->photosets_getPhotos($_GET['album'], 'url_m, url_t', NULL, 500, NULL, 'photos');
-      $all_photos = $all_photos['photoset']['photo'];
+      $all_photos = $all_photos['photo'];
     }
 
     // get existing photos
