@@ -134,15 +134,20 @@ switch ($_GET['action'])
   case 'list_albums':
   {
     // all albums
-    $albums = $flickr->photosets_getList($u['id']);
+    $albums = $flickr->photosets_getList($u['id'],1);
+    $pages = $albums['pages'];
     $total_albums = $albums['total'];
-    $albums = $albums['photoset'];
-
-    foreach ($albums as &$album)
+    $albums = [];
+    for ($count=1; $count<=$pages; $count++)
     {
-      $album['U_LIST'] = FLICKR_ADMIN.'-import&amp;action=list_photos&amp;album='.$album['id'];
+      $albumspage = $flickr->photosets_getList($u['id'],$count)['photoset'];
+      foreach ( $albumspage as &$album)
+      {
+        $album['U_LIST'] = FLICKR_ADMIN.'-import&amp;action=list_photos&amp;album='.$album['id'];
+        $albums[] = $album;
+      }
+      unset($album);
     }
-    unset($album);
 
     // not classed
     $wo_albums = $flickr->photos_getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, NULL, 1);
