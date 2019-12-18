@@ -55,6 +55,7 @@ $(function() {
                 sticky: true,
                 header: 'Stopped'
                 });
+              $.manageAjax.destroy('queued');
               return;
           }
             var errorMsg = 'An error happened';
