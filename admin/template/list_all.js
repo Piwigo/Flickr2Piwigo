@@ -56,6 +56,13 @@ $(function() {
                 header: 'Stopped'
                 });
               $.manageAjax.destroy('queued');
+              $('#beginImport').prop('disabled', false);
+              queuedManager = $.manageAjax.create('queued', {
+                queue: true,
+                maxRequests: 1
+              });
+              totalImported = 0;
+              stop = false;
               return;
           }
             var errorMsg = 'An error happened';
