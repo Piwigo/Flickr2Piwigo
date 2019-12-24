@@ -1,1 +1,1 @@
-Flickr转Piwigo
+将你在Flickr中存储的图片轻松转移到Piwigo！
