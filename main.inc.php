@@ -6,6 +6,7 @@ Description: Import pictures from your Flickr account
 Plugin URI: auto
 Author: Mistic
 Author URI: http://www.strangeplanet.fr
+Has Settings: true
 */
 
 defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
@@ -41,19 +42,8 @@ add_event_handler('ws_add_methods', 'flickr_add_ws_method');
 
 if (defined('IN_ADMIN'))
 {
-  add_event_handler('get_admin_plugin_menu_links', 'flickr_admin_menu');
-
   add_event_handler('get_batch_manager_prefilters', 'flickr_add_batch_manager_prefilters');
   add_event_handler('perform_batch_manager_prefilters', 'flickr_perform_batch_manager_prefilters', EVENT_HANDLER_PRIORITY_NEUTRAL, 2);
-
-  function flickr_admin_menu($menu)
-  {
-    $menu[] = array(
-      'NAME' => 'Flickr2Piwigo',
-      'URL' => FLICKR_ADMIN,
-    );
-    return $menu;
-  }
 
   function flickr_add_batch_manager_prefilters($prefilters)
   {
