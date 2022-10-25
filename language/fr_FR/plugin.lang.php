@@ -1,6 +1,5 @@
 <?php
 
-$lang['Successfully logged in to you Flickr account'] = 'Connecté à votre compte Flickr';
 $lang['Pictures without album'] = 'Photos sans album';
 $lang['One picture is not displayed because already existing in the database.'] = 'Une photo n\'est pas affichée car elle existe déjà sur la galerie';
 $lang['%d pictures are not displayed because already existing in the database.'] = '%d photo ne sont pas affichées car elles existent déjà sur la galerie';
@@ -52,3 +51,5 @@ $lang['Create a new album'] = 'Créer un nouvel album';
 $lang['Already imported: %s (Piwigo ID: %s)'] = 'Déjà importé : %s (Piwigo ID: %s)';
 $lang['Can\'t download file: %s'] = 'Échec du téléchargement du fichier : %s';
 $lang['View counter'] = 'Compteur d\'affichages';
+$lang['An error occurred when trying to log in to Flickr: %s'] = 'Une erreur s\'est produite lors de la connexion à Flickr : %s';
+$lang['Successfully logged in to your Flickr account'] = 'Vous vous êtes connecté avec succès à votre compte Flickr';
