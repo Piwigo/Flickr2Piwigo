@@ -119,7 +119,7 @@ switch ($_GET['action'])
   // main menu
   case 'main':
   {
-    $u = $flickr->people_getInfo($u['id']);
+    $u = $flickr->people()->getInfo($u['id']);
     $template->assign(array(
       'username' => $u['username'],
       'profile_url' => $u['profileurl'],
@@ -134,7 +134,7 @@ switch ($_GET['action'])
   case 'list_albums':
   {
     // all albums
-    $albums = $flickr->photosets_getList($u['id']);
+    $albums = $flickr->photosets()->getList($u['id']);
     $total_albums = $albums['total'];
     $albums = $albums['photoset'];
 
@@ -145,7 +145,7 @@ switch ($_GET['action'])
     unset($album);
 
     // not classed
-    $wo_albums = $flickr->photos_getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, NULL, 1);
+    $wo_albums = $flickr->photos()->getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, NULL, 1);
     if ($wo_albums['photos']['total'] > 0)
     {
       $albums[] = array(
@@ -169,7 +169,7 @@ switch ($_GET['action'])
   {
     $self_url = FLICKR_ADMIN.'-import&amp;action=list_photos&amp;album='.$_GET['album'];
     $flickr_prefix = 'flickr-'.$u['username'].'-';
-    $flickr_root_url = $flickr->urls_getUserPhotos($u['id']);
+    $flickr_root_url = $flickr->urls()->getUserPhotos($u['id']);
 
     // pagination
     if (isset($_GET['start']))   $page['start'] = intval($_GET['start']);
@@ -180,12 +180,12 @@ switch ($_GET['action'])
     // get photos
     if ($_GET['album'] == 'not_in_set')
     {
-      $all_photos = $flickr->photos_getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, NULL, 500);
+      $all_photos = $flickr->photos()->getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, 'url_m, url_t', 500);
       $all_photos = $all_photos['photos']['photo'];
     }
     else
     {
-      $all_photos = $flickr->photosets_getPhotos($_GET['album'], 'url_m, url_t', NULL, 500, NULL, 'photos');
+      $all_photos = $flickr->photosets()->getPhotos($_GET['album'], null, 'url_m, url_t', NULL, 500, NULL, 'photos');
       $all_photos = $all_photos['photoset']['photo'];
     }
 
