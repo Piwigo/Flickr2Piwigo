@@ -2,12 +2,17 @@
     "name": "mistic100/flickr2piwigo",
     "description": "A Piwigo plugin for importing photos from Flickr.",
     "license": "GPL-2.0-only",
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
     "require": {
         "samwilson/phpflickr": "^4.4",
         "tedivm/stash": "^0.15"
     },
     "require-dev": {
-        "jakub-onderka/php-parallel-lint": "^1.0",
+        "php-parallel-lint/php-parallel-lint": "^1.0",
         "mediawiki/minus-x": "^0.3",
         "samwilson/piwigo-coding-standards": "^0.1"
     },
