@@ -119,7 +119,7 @@ switch ($_GET['action'])
   // main menu
   case 'main':
   {
-    $u = $flickr->people_getInfo($u['id']);
+    $u = $flickr->people()->getInfo($u['id']);
     $template->assign(array(
       'username' => $u['username'],
       'profile_url' => $u['profileurl'],
@@ -134,7 +134,7 @@ switch ($_GET['action'])
   case 'list_albums':
   {
     // all albums
-    $albums = $flickr->photosets_getList($u['id']);
+    $albums = $flickr->photosets()->getList($u['id']);
     $total_albums = $albums['total'];
     $albums = $albums['photoset'];
 
@@ -145,7 +145,7 @@ switch ($_GET['action'])
     unset($album);
 
     // not classed
-    $wo_albums = $flickr->photos_getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, NULL, 1);
+    $wo_albums = $flickr->photos()->getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, NULL, 1);
     if ($wo_albums['photos']['total'] > 0)
     {
       $albums[] = array(
@@ -169,7 +169,7 @@ switch ($_GET['action'])
   {
     $self_url = FLICKR_ADMIN.'-import&amp;action=list_photos&amp;album='.$_GET['album'];
     $flickr_prefix = 'flickr-'.$u['username'].'-';
-    $flickr_root_url = $flickr->urls_getUserPhotos($u['id']);
+    $flickr_root_url = $flickr->urls()->getUserPhotos($u['id']);
 
     // pagination
     if (isset($_GET['start']))   $page['start'] = intval($_GET['start']);
@@ -180,13 +180,13 @@ switch ($_GET['action'])
     // get photos
     if ($_GET['album'] == 'not_in_set')
     {
-      $all_photos = $flickr->photos_getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, NULL, 500);
+      $all_photos = $flickr->photos()->getNotInSet(NULL, NULL, NULL, NULL, 'photos', NULL, 'url_m, url_t', $page['display'], $page['start']);
       $all_photos = $all_photos['photos']['photo'];
     }
     else
     {
-      $all_photos = $flickr->photosets_getPhotos($_GET['album'], 'url_m, url_t', NULL, 500, NULL, 'photos');
-      $all_photos = $all_photos['photoset']['photo'];
+      $all_photos = $flickr->photosets()->getPhotos($_GET['album'], null, 'url_m, url_t', $page['display'], $page['start'], NULL, 'photos');
+      $all_photos = $all_photos['photo'];
     }
 
     // get existing photos
@@ -195,8 +195,10 @@ SELECT id, file
   FROM '.IMAGES_TABLE.'
   WHERE file LIKE "'.$flickr_prefix.'%"
 ;';
-    $existing_photos = simple_hash_from_query($query, 'id', 'file');
-    $existing_photos = array_map(create_function('$p', 'return preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p);'), $existing_photos);
+    $existing_photos = query2array($query, 'id', 'file');
+    $existing_photos = array_map(static function ($p) use ($flickr_prefix) {
+      return preg_replace("#^'.$flickr_prefix.'([0-9]+)\.([a-z]{3,4})$#i", "$1", $p);
+    }, $existing_photos);
 
     // remove existing photos
     $duplicates = 0;
@@ -219,7 +221,9 @@ SELECT id, file
 
     // displayed photos
     $page_photos = array_slice($all_photos, $page['start'], $page['display']);
-    $all_elements = array_map(create_function('$p', 'return  \'"\'.$p["id"].\'"\';'), $all_photos);
+    $all_elements = array_map(static function($p) {
+      return  '"'.$p["id"].'"';
+    }, $all_photos);
 
     foreach ($page_photos as &$photo)
     {
@@ -236,6 +240,7 @@ SELECT id, file
       'all_elements' => $all_elements,
       'album' => $_GET['album'],
       'F_ACTION' => FLICKR_ADMIN.'-import&amp;action=import_set',
+      'CACHE_KEYS' => get_admin_client_cache_keys(['categories']),
       'U_DISPLAY' => $self_url,
     ));
 
