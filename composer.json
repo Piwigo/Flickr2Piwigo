@@ -9,11 +9,11 @@
     },
     "require": {
         "samwilson/phpflickr": "^5.0",
-        "tedivm/stash": "^0.15"
+        "tedivm/stash": "^0.17"
     },
     "require-dev": {
         "php-parallel-lint/php-parallel-lint": "^1.0",
-        "mediawiki/minus-x": "^0.3",
+        "mediawiki/minus-x": "^1.0",
         "samwilson/piwigo-coding-standards": "^0.1"
     },
     "scripts": {
