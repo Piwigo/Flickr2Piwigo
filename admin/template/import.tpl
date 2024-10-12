@@ -60,7 +60,7 @@ jQuery('.load').click(function() {
 {foreach from=$albums item=album}
   <li {if $album.id == "not_in_set"}class="not_in_set"{/if}>
     <b><a href="{$album.U_LIST}" class="load">{$album.title}</a></b> <i>{'(%d photos)'|translate:$album.photos}</i>
-    {if $album.description}- {$album.description|truncate:100}{/if}
+    {if $album.description}- {$album.description|strip_tags|truncate:100}{/if}
   </li>
 {/foreach}
 </ul>
