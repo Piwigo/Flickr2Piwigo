@@ -11,7 +11,7 @@ categoriesCache.selectize(jQuery('[data-selectize=categories]'), {
     if (categories.length > 0) {
       jQuery("#albumSelection").show();
     }
-    
+
     return categories;
   }
 });
@@ -26,7 +26,7 @@ jQuery('[data-add-album]').pwgAddAlbum({
 (function($){
   /* global vars */
   var nb_thumbs_set = {$nb_thumbs_set};
-  var all_elements = [{if !empty($all_elements)}{','|@implode:$all_elements}{/if}];
+  var all_elements = [{if !empty($all_elements)}{$all_elements|join:','}{/if}];
   var import_done = 0;
   var import_selected = 0;
   var queuedManager = $.manageAjax.create('queued', {ldelim}
