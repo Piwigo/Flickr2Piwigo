@@ -4,12 +4,12 @@
     "license": "GPL-2.0-only",
     "config": {
         "platform": {
-            "php": "7.4"
+            "php": "8.2"
         }
     },
     "require": {
-        "samwilson/phpflickr": "^5.0",
-        "tedivm/stash": "^0.17"
+        "samwilson/phpflickr": "^6",
+        "tedivm/stash": "^1"
     },
     "require-dev": {
         "php-parallel-lint/php-parallel-lint": "^1.0",
