@@ -143,7 +143,7 @@ function ws_flickr2piwigo_importPhoto($params)
   }
   else
   {
-    // ...or we ignore it an query for all of the photo's albums on Flickr.
+    // ...or we ignore it and query for all of the photo's albums on Flickr.
     $photosets = $flickr->photos()->getSets([$photo['id']]);
     $logger->info(count($photosets).' albums found on Flickr', FLICKR2PIWIGO);
 
