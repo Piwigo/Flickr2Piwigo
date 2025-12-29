@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Flickr2Piwigo
-Version: 1.5.9
+Version: 2.0.1
 Description: Import pictures from your Flickr account
 Plugin URI: auto
 Author: Mistic
