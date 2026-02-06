@@ -3,7 +3,7 @@
 Plugin Name: Flickr2Piwigo
 Version: 2.0.1
 Description: Import pictures from your Flickr account
-Plugin URI: auto
+Plugin URI: https://piwigo.org/ext/index.php?eid=612
 Author: Mistic
 Author URI: http://www.strangeplanet.fr
 Has Settings: true
