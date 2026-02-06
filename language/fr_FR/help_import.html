@@ -1,0 +1,29 @@
+<dl>
+  <dt>Doublons</dt>
+  <dd>
+    <p>
+      Les photos qui existent déjà dans Piwigo ne seront pas importées.
+    </p>
+    <p>
+      La comparaison s'effectue d'abord sur le nom du fichier, (pour une correspondance avec "<code>flickr-&lt;Flickr_ID&gt;</code>")
+      puis sur la somme de contrôle du fichier image réel.
+      Notez qu'aucune métadonnée n'est mise à jour pour les photos déjà importées.
+    </p>
+  </dd>
+  <dt>Dates approximatives</dt>
+  <dd>
+    <p>
+      Flickr prend en charge <a href="https://www.flickr.com/services/api/misc.dates.html">les dates approximatives</a>
+      pour l'attribut « date de prise de vue » des photos.</p>
+    <p>
+      Elles seront importées en tant que dates exactes, et un mot-clef <code>approximate date</code> sera ajouté
+      ainsi que des mots-clefs pour
+      la date (ex. <code>c. 1933</code>, <code>March 2008</code>, or <code>1986</code>)
+      et le niveau de granularité (parmi : <code>month</code>, <code>year</code>, <code>circa</code>).
+    </p>
+    <p>
+      Par exemple, une date prise sur Flickr comme "vers 2006" sera importée avec une date comme "2006-01-01 00:00:00"
+      et les mots-clefs "date approximative", "vers", et "vers 2006".
+    </p>
+  </dd>
+</dl>
