@@ -1,0 +1,28 @@
+<dl>
+  <dt>重复文件</dt>
+  <dd>
+    <p>
+      Piwigo 中已存在的照片将不会被导入。
+    </p>
+    <p>
+      系统会先通过文件名进行比对 (匹配格式为"<code>flickr-&lt;Flickr_ID&gt;</code>")
+      再比对实际图片文件的校验和。
+      请注意，已导入的照片其元数据不会被更新。
+    </p>
+  </dd>
+  <dt>近似日期</dt>
+  <dd>
+    <p>
+      Flickr为照片的"拍摄日期"属性提供<a href="https://www.flickr.com/services/api/misc.dates.html">近似日期</a>功能。
+      </p>
+    <p>
+      这些近似日期会被导入为精确日期，同时会添加 <code>近似日期</code> 关键词
+      以及与该日期相关的关键词(例如 <code>c. 1933</code>, <code>March 2008</code>, 或 <code>1986</code>)
+      还有粒度相关关键词 (可选值：<code>month</code>, <code>year</code>, <code>circa</code>).
+    </p>
+    <p>
+      例如，Flickr 上标注为"c. 2006" 的拍摄日期，导入后会显示为 "2006-01-01 00:00:00"
+      并附带关键词"approximate date", "circa", 和 "c. 2006".
+    </p>
+  </dd>
+</dl>
