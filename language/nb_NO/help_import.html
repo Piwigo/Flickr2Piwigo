@@ -1,0 +1,27 @@
+<dl>
+<dt>Duplikater</dt>
+<dd>
+<p>
+Bilder som allerede finnes i Piwigo vil ikke bli importert.
+</p>
+<p>
+Sammenligningen gjøres først på filnavnet (for et samsvar med "<code>flickr-<Flickr_ID></code>")
+og deretter på sjekksummen til den faktiske bildefilen.
+Merk at ingen metadata oppdateres for bilder som allerede er importert.
+</p>
+</dd>
+<dt>Omtrentlige datoer</dt>
+<dd>
+<p>
+Flickr støtter <a href="https://www.flickr.com/services/api/misc.dates.html">omtrentlige datoer</a>
+for attributtet «date taken» for bilder.</p>
+<p>
+Disse importeres som eksakte datoer, og et nøkkelord for <code>approximate date</code> legges til samt nøkkelord for datoen (f.eks. <code>ca. 1933</code>, <code>mars 2008</code> eller <code>1986</code>) og granularitet (en av: <code>måned</code>, <code>år</code>, <code>ca.</code>).
+</p>
+<p>
+For eksempel vil en dato tatt på Flickr «ca. 2006» bli importert med datoen «2006-01-01 00:00:00» og nøkkelordene «omtrentlig dato», «ca.» og «ca. 2006».
+</p>
+</dd>
+</dl>
+Send tilbakemelding
+
