@@ -1,0 +1,28 @@
+<dl>
+  <dt>Duplikater</dt>
+  <dd>
+    <p>
+      Fotografier der allerede findes i Piwigo importeres ikke.
+    </p>
+    <p>
+      Sammenligningen foretages først på filnavnet (for et match med "<code>flickr-&lt;Flickr_ID&gt;</code>")
+      og dernæst på den faktiske billedfils kontrolsum.
+      Bemærk at metadata ikke opdateres ved billeder, der allerede er importeret.
+    </p>
+  </dd>
+  <dt>Omtrentlige datoer</dt>
+  <dd>
+    <p>
+      Flickr understøtter <a href="https://www.flickr.com/services/api/misc.dates.html">omtrentlige datoer</a>
+      for fotografiers "dato optaget"-attribut.</p>
+    <p>
+      Disse importeres om nøjagtige datoer og et <code>omtrentlig dato</code>-nøgleord tilføjes, samt nøgleord
+      for datoen (fx <code>c. 1933</code>, <code>Marts 2008</code> eller <code>1986</code>) og granularitet
+      (en af: <code>måned</code>, <code>år</code>, <code>circa</code>).
+    </p>
+    <p>
+      For eksempel, en optagelsesdato hos Flickr med "c. 2006" importeres som datoen "2006-01-01 00:00:00"
+      og nøgleordene "omrentlig dato", "circa" og "c. 2006".
+    </p>
+  </dd>
+</dl>
