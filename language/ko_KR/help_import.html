@@ -1,0 +1,29 @@
+<dl>
+  <dt>중복 사진</dt>
+  <dd>
+    <p>
+      Piwigo에 이미 존재하는 사진은 가져오지 않습니다.
+    </p>
+    <p>
+      비교는 먼저 파일명("<code>flickr-&lt;Flickr_ID&gt;</code>" 일치 여부)을 기준으로 수행되며,
+      그 다음 실제 이미지 파일의 체크섬을 기준으로 수행됩니다.
+      이미 가져온 사진의 메타데이터는 업데이트되지 않습니다.
+    </p>
+  </dd>
+  <dt>대략적인 날짜</dt>
+  <dd>
+    <p>
+      Flickr는 사진의 "date taken" 속성에 대해 <a href="https://www.flickr.com/services/api/misc.dates.html">대략적인 날짜</a>를 지원합니다.
+    </p>
+    <p>
+      이들은 정확한 날짜로 가져오며, <code>approximate date</code> 키워드와 날짜 키워드
+      (예: <code>c. 1933</code>, <code>March 2008</code>, 또는 <code>1986</code>) 및 세분화
+      (다음 중 하나: <code>month</code>, <code>year</code>, <code>circa</code>)에 대한 키워드도 
+      함께 추가됩니다.
+    </p>
+    <p>
+      예를 들어, Flickr에서 "c. 2006"으로 촬영된 날짜는 "2006-01-01 00:00:00"이라는 날짜와 
+      "approximate date", 'circa', "c. 2006"이라는 키워드와 함께 가져옵니다.
+    </p>
+  </dd>
+</dl>
