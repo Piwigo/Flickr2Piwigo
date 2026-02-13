@@ -1,0 +1,28 @@
+<dl>
+  <dt>Dubletter</dt>
+  <dd>
+    <p>
+      Foton som redan finns i Piwigo kommer inte att importeras.
+    </p>
+    <p>
+      Jämförelsen görs först på filnamnet (för en matchning med "<code>flickr-&lt;Flickr_ID&gt;</code>")
+      och sedan på kontrollsumman för den faktiska bildfilen.
+      Observera att ingen metadata uppdateras för foton som redan importerats.
+    </p>
+  </dd>
+  <dt>Ungefärliga datum</dt>
+  <dd>
+    <p>
+      Flickr stöder <a href="https://www.flickr.com/services/api/misc.dates.html">ungefärliga datum</a>
+      för attributet "date taken" för foton.</p>
+    <p>
+      Dessa importeras som exakta datum, och ett nyckelord <code>approximate date</code> läggs till
+      samt nyckelord för datumet (t.ex. <code>ca 1933</code>, <code>mars 2008</code> eller <code>1986</code>)
+      och granularitet (en av <code>månad</code>, <code>år</code>, <code>cirka</code>).
+    </p>
+    <p>
+      Till exempel kommer ett datum taget på Flickr "ca 2006" att importeras med datumet "2006-01-01 00:00:00"
+      och nyckelorden "ungefärligt datum", "cirka" och "ca 2006".
+    </p>
+  </dd>
+</dl>
