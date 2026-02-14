@@ -276,7 +276,36 @@ function ws_flickr2piwigo_importPhoto($params)
       set_tags($tag_ids, $photo['image_id']);
     }
   }
-
+  
+  // Associated comments
+  if (in_array('fill_comments', $photo['fills'])) {
+    $comments = $flickr->photosComments()->getList($photo['id']);
+    $logger->debug('Comments for '.$photo['image_id'].': '. json_encode($comments), FLICKR2PIWIGO);      
+    if (isset($comments['comments']['comment'])) {
+      $n = count($comments['comments']['comment']);
+      $logger->debug('Comments for '.$photo['image_id'].': '.$n, FLICKR2PIWIGO);
+        foreach ($comments['comments']['comment'] as $com) {
+          $query = '
+          INSERT INTO '.COMMENTS_TABLE.'
+            (author, author_id, anonymous_id, content, date, validated, validation_date, image_id, website_url, email)
+            VALUES (
+              \''.$com['authorname'].'\',
+              NULL,
+              \''. FLICKR2PIWIGO.'\',
+              \''.$com['_content'].'\',
+              \''.date('Y-m-d H:i:s', $com['datecreate']).'\',
+              \'true\',
+              NOW(),
+              '.$photo['image_id'].',
+              NULL,
+              NULL
+            )
+          ';
+          pwg_query($query);
+       }
+     }
+  }
+  
   $logger->info('Import complete', FLICKR2PIWIGO);
   return l10n('Photo "%s" imported', $photo['title']);
 }
