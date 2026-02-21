@@ -1,0 +1,28 @@
+<dl>
+  <dt>Duplicats</dt>
+  <dd>
+    <p>
+      Les fotos que ja existien al Piwigo no s'importaran.
+    </p>
+    <p>
+      Primer la comparació es fa amb el nom de fitxer (cercant una coincidència amb "<code>flickr-&lt;Flickr_ID&gt;</code>")
+      i després amb la suma de comprovació (checksum) del fitxer d'imatge pròpiament dit.
+      Teniu en compte que no s'actualitzaran les metadades de les fotos ja importades.
+    </p>
+  </dd>
+  <dt>Dates aproximades</dt>
+  <dd>
+    <p>
+      Flickr dóna suport a <a href="https://www.flickr.com/services/api/misc.dates.html">dates aproximades</a>
+      per a l'atribut de data de captura ("Fecha de captura") de les fotos.</p>
+    <p>
+      Aquestes dates s'importaran com a dates exactes, i s'hi afegirà una paraula clau <code>data aproximada</code> i
+      paraules clau per a la data (p. ex. <code>c. 1933</code>, <code>març 2008</code>, o <code>1986</code>)
+      i granularitat (un de: <code>mes</code>, <code>any</code>, <code>aprox.</code>).
+    </p>
+    <p>
+      Per exemple, una data de captura de "c. 2006" a Flickr s'importarà amb una data de "2006-01-01 00:00:00"
+      i les paraules clau "data aproximada", "aprox." i "c. 2006".
+    </p>
+  </dd>
+</dl>
