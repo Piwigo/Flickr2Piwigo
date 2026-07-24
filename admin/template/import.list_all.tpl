@@ -57,4 +57,9 @@ var flickrUserId = '{$flickrUserId}';
       <button type="button" class="stop">{'Stop'|translate}</button>
     </p>
   </fieldset>
+
+  <fieldset class="flickr2piwigo-progress">
+    <legend>{'Progress'|translate}</legend>
+    <ul></ul>
+  </fieldset>
 </form>

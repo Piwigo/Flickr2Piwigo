@@ -6,6 +6,7 @@ $lang['API secret'] = 'API secret';
 $lang['approximate date'] = 'approximate date';
 $lang['Already imported: %s (Piwigo ID: %s)'] = 'Already imported: %s (Piwigo ID: %s)';
 $lang['Begin transfer'] = 'Begin transfer';
+$lang['Progress'] = 'Progress';
 $lang['c. %s'] = 'c. %s';
 $lang['Callback URL'] = 'Callback URL';
 $lang['Can\'t download file: %s'] = 'Can\'t download file: %s';

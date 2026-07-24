@@ -10,6 +10,24 @@ $(function() {
     /** Whether to stop the process. Set by the 'stop' button. */
     var stop = false;
 
+    /** @var {jQuery} Progress output element. */
+    const $progressList = $('.flickr2piwigo-progress ul');
+
+    /**
+     * Add a line item to the progress box, optionally highlighted as an error.
+     *
+     * @param {string} message
+     * @param {boolean} isError
+     */
+    function addProgressItem(message, isError = false) {
+        const $li = $('<li>')
+            .append(message);
+        if (isError) {
+            $li.addClass('flickr2piwigo-error')
+        }
+        $progressList.append($li);
+    }
+
     /**
      * Import a single photo.
      */
@@ -26,22 +44,7 @@ $(function() {
           format: 'json'
         },
         success: function(data) {
-          if (data['stat'] === 'ok') {
-              $.jGrowl(data['result'], {
-                theme: 'success',
-                life: 4000,
-                sticky: false,
-                header: 'Success'
-                });
-          }
-          else {
-              $.jGrowl(data['result'], {
-                theme: 'error',
-                sticky: true,
-                header: 'ERROR'
-                });
-          }
-
+            addProgressItem(data['result'], data['stat'] !== 'ok')
             totalImported++;
             $("#progress").html(totalImported+'/'+photosTotal);
           if (totalImported === photosTotal) {
@@ -50,22 +53,14 @@ $(function() {
         },
         error: function(data) {
           if (data.statusText === 'abort') {
-              $.jGrowl('The import has been stopped', {
-                theme: 'success',
-                sticky: true,
-                header: 'Stopped'
-                });
+              addProgressItem('The import has been stopped.')
               return;
           }
             var errorMsg = 'An error happened';
           if (data.responseText) {
               errorMsg += ': '+data.responseText;
           }
-            $.jGrowl(errorMsg, {
-              theme: 'error',
-              sticky: true,
-              header: 'ERROR'
-              });
+            addProgressItem(errorMsg, true)
         }
         });
   }
@@ -94,14 +89,14 @@ $(function() {
           }
             // See if the stop button's been pressed.
           if (stop) {
-              queuedManager.abort();
+              queuedManager.clear(true);
               return false;
           }
             $.each(data.result.photo, function (i, photoInfo) {
                 flickr2piwigo_importPhoto(photoInfo.id, album, metadata);
                 // Check again if we should stop.
               if (stop) {
-                  queuedManager.abort();
+                  queuedManager.clear(true);
                   return false;
               }
             });
@@ -121,6 +116,7 @@ $(function() {
         $(this).prop('disabled', true);
         $("#loader_import").fadeIn();
         $("#progress").html('0/' + photosTotal);
+        stop = false;
 
         // Determine the album ID (or null if we're to replicate the albums of Flickr).
         var album;
@@ -140,8 +136,11 @@ $(function() {
         return false;
     });
     $('button.stop').on('click', function() {
+        addProgressItem('Stopping...');
         stop = true;
-        queuedManager.abort();
+        errorTally = 0;
+        queuedManager.clear(true);
+        $('#beginImport').prop('disabled', false);
         $("#loader_import").fadeOut();
     });
 
