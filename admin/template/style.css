@@ -9,3 +9,19 @@ UL.thumbnails span.wrap2 {
   height: 128px;
   width: 128px;
 }
+
+.flickr2piwigo-progress {
+  height: 20em;
+  border: 2px inset #bbb;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.flickr2piwigo-progress legend {
+  padding: 0.3em;
+}
+
+.flickr2piwigo-progress .flickr2piwigo-error {
+  color: red;
+}

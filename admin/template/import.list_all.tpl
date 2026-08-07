@@ -6,6 +6,9 @@ var rootUrl = '{$ROOT_URL}';
 var photosTotal = {$nb_elements};
 var flickrUserId = '{$flickrUserId}';
 
+var translateStopping = '{"Stopping..."|translate|escape:javascript}';
+var translateImportStopped = '{"The import has been stopped."|translate|escape:javascript}';
+
 {/footer_script}
 
 <form action="{$F_ACTION}" method="post" id="import_form">
@@ -56,5 +59,10 @@ var flickrUserId = '{$flickrUserId}';
       <img src="admin/themes/default/images/ajax-loader.gif"> <i>{'Processing...'|translate}</i> <span id="progress"></span>
       <button type="button" class="stop">{'Stop'|translate}</button>
     </p>
+  </fieldset>
+
+  <fieldset class="flickr2piwigo-progress">
+    <legend>{'Progress'|translate}</legend>
+    <ul></ul>
   </fieldset>
 </form>
