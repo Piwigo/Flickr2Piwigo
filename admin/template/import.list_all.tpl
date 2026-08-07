@@ -6,6 +6,9 @@ var rootUrl = '{$ROOT_URL}';
 var photosTotal = {$nb_elements};
 var flickrUserId = '{$flickrUserId}';
 
+var translateStopping = '{"Stopping..."|translate|escape:javascript}';
+var translateImportStopped = '{"The import has been stopped."|translate|escape:javascript}';
+
 {/footer_script}
 
 <form action="{$F_ACTION}" method="post" id="import_form">

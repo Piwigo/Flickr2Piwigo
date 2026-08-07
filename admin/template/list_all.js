@@ -53,7 +53,7 @@ $(function() {
         },
         error: function(data) {
           if (data.statusText === 'abort') {
-              addProgressItem('The import has been stopped.')
+              addProgressItem(translateImportStopped)
               return;
           }
             var errorMsg = 'An error happened';
@@ -136,7 +136,7 @@ $(function() {
         return false;
     });
     $('button.stop').on('click', function() {
-        addProgressItem('Stopping...');
+        addProgressItem(translateStopping);
         stop = true;
         errorTally = 0;
         queuedManager.clear(true);
