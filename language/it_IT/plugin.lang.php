@@ -72,3 +72,6 @@ $lang['year'] = 'anno';
 $lang['View counter'] = 'Contatore di visualizzazione ';
 $lang['An error occurred when trying to log in to Flickr: %s'] = 'Si è verificato un errore durante il tentativo di accesso a Flickr: %s';
 $lang['Successfully logged in to your Flickr account'] = 'Accesso effettuato correttamente al tuo account Flickr';
+$lang['Progress'] = 'Progressione';
+$lang['Stopping...'] = 'Arresto in corso...';
+$lang['The import has been stopped.'] = 'L\'importazione è stata interrotta.';
