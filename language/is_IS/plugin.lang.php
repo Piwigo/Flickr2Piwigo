@@ -57,3 +57,6 @@ $lang['Processing...'] = 'Vinnsla...';
 $lang['Reproduce flickr albums'] = 'Endurskapa flickr albúm';
 $lang['Restricted'] = 'Takmarkað';
 $lang['Safety level (as keyword)'] = 'Öryggisstig (sem leitarorð)';
+$lang['Progress'] = 'Framför';
+$lang['Stopping...'] = 'Stöðvast…';
+$lang['The import has been stopped.'] = 'Innflutningurinn hefur verið stöðvaður.';
