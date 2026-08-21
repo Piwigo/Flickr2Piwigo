@@ -72,3 +72,6 @@ $lang['Already imported: %s (Piwigo ID: %s)'] = '已经导入：%s（Piwigo ID�
 $lang['An error occurred when trying to log in to Flickr: %s'] = '在登录到Flickr的时候发生错误：%s';
 $lang['Create a new album'] = '创建一个新的相册';
 $lang['Can\'t download file: %s'] = '无法下载文件：%s';
+$lang['Progress'] = '进度';
+$lang['Stopping...'] = '正在停止…';
+$lang['The import has been stopped.'] = '导入已停止。';
