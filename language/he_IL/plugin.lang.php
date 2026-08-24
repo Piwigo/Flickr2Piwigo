@@ -57,3 +57,6 @@ $lang['An error occurred when trying to log in to Flickr: %s'] = 'אירעה ש�
 $lang['Create a new album'] = 'צור אלבום חדש';
 $lang['Help'] = 'עזרה';
 $lang['Import'] = 'ייבוא';
+$lang['Progress'] = 'התקדמות';
+$lang['Stopping...'] = 'עצירה...';
+$lang['The import has been stopped.'] = 'הייבוא נעצר.';
