@@ -57,3 +57,6 @@ $lang['Geolocalization'] = '지리적 위치 정보';
 $lang['Help'] = '도움말';
 $lang['How do I get my Flickr API key?'] = 'Flickr API 키는 어떻게 얻나요?';
 $lang['Import'] = '가져오기';
+$lang['Progress'] = '진행 상황';
+$lang['Stopping...'] = '중지 중...';
+$lang['The import has been stopped.'] = '가져오기가 중지되었습니다.';
