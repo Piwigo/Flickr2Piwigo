@@ -50,6 +50,7 @@ var translateImportStopped = '{"The import has been stopped."|translate|escape:j
       <label><input type="checkbox" name="fill_views" checked="checked"> {'View counter'|translate}</label>
       <label><input type="checkbox" name="fill_level" checked="checked"> {'Privacy level'|translate}</label>
       <label><input type="checkbox" name="fill_safety" checked="checked"> {'Safety level (as keyword)'|translate}</label>
+      <label><input type="checkbox" name="fill_comments" checked="checked"> {'Comments'|translate}</label>
     </p>
 
     <p>
