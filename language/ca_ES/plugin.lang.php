@@ -57,3 +57,6 @@ $lang['View counter'] = 'Visualitza comptador';
 $lang['approximate date'] = 'Data aproximada';
 $lang['c. %s'] = 'aprox. %s';
 $lang['circa'] = 'aproximadament';
+$lang['Progress'] = 'Progrés';
+$lang['Stopping...'] = 'Aturant-se...';
+$lang['The import has been stopped.'] = 'La importació s\'ha aturat.';
