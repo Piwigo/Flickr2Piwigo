@@ -72,3 +72,6 @@ $lang['c. %s'] = 'apr. %s';
 $lang['circa'] = 'aproximadamente';
 $lang['month'] = 'mes';
 $lang['year'] = 'año';
+$lang['Progress'] = 'Progreso';
+$lang['Stopping...'] = 'Deteniéndose...';
+$lang['The import has been stopped.'] = 'La importación se ha detenido.';
