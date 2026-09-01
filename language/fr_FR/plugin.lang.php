@@ -53,3 +53,6 @@ $lang['Can\'t download file: %s'] = 'Échec du téléchargement du fichier : %s'
 $lang['View counter'] = 'Compteur d\'affichages';
 $lang['An error occurred when trying to log in to Flickr: %s'] = 'Une erreur s\'est produite lors de la connexion à Flickr : %s';
 $lang['Successfully logged in to your Flickr account'] = 'Vous vous êtes connecté avec succès à votre compte Flickr';
+$lang['Progress'] = 'Progression';
+$lang['Stopping...'] = 'Arrêter';
+$lang['The import has been stopped.'] = 'L\'importation a été arrêtée';
