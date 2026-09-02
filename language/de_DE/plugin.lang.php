@@ -72,3 +72,6 @@ $lang['Unable to write to Flickr2Piwigo cache directory: %s'] = 'Flickr2Piwigo Z
 $lang['View counter'] = 'Anzahl der Aufrufe';
 $lang['An error occurred when trying to log in to Flickr: %s'] = 'Beim Versuch sich bei Flickr einzuloggen ist ein Fehler aufgetreten: %s';
 $lang['Successfully logged in to your Flickr account'] = 'Der Login in Ihren Flickr-Account war erfolgreich.';
+$lang['Progress'] = 'Fortschritt';
+$lang['Stopping...'] = 'Stoppen...';
+$lang['The import has been stopped.'] = 'Der Import wurde gestoppt';
