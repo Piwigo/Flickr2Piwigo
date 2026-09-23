@@ -72,3 +72,6 @@ $lang['List my albums'] = 'Lista mina album';
 $lang['List pictures of this album'] = 'Lista bilder för detta album';
 $lang['Logged in as'] = 'Inloggad som';
 $lang['Logged out'] = 'Utloggad';
+$lang['Progress'] = 'Förlopp';
+$lang['Stopping...'] = 'Stoppar...';
+$lang['The import has been stopped.'] = 'Importen har stoppats';
