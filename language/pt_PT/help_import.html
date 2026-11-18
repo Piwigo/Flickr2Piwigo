@@ -1,0 +1,28 @@
+</dl>
+<dt>Duplicadas</dt>
+  <dd>
+    <p>
+      Fotos que já existem no Piwigo não serão importadas.
+    </p>
+    <p>
+      A comparação é feita, primeiramente, com base no nome do arquivo (verificando se corresponde ao padrão "<code>flickr-&lt;Flickr_ID&gt;</code>")e, em seguida, por meio da soma de verificação (checksum) do próprio arquivo de imagem.
+      Observe que nenhum metadado é atualizado para fotos que já foram importadas.
+    </p>
+  </dd>
+  <dt>Datas aproximadas</dt>
+  <dd>
+    <p>
+      O Flickr oferece suporte a <a href="https://www.flickr.com/services/api/misc.dates.html">datas aproximadas</a>
+      para o atributo "data em que a foto foi tirada".
+    </p>
+    <p>
+      Essas datas serão importadas como datas exatas, e uma palavra-chave <code>data aproximada</code> será adicionada,
+      juntamente com palavras-chave referentes à data (por exemplo: <code>c. 1933</code>, <code>março de 2008</code> ou <code>1986</code>)
+      e à granularidade (uma das seguintes opções: <code>mês</code>, <code>ano</code>, <code>circa</code>).
+    </p>
+    <p>
+      Por exemplo, uma data de captura no Flickr registrada como "c. 2006" será importada com a data "2006-01-01 00:00:00",
+      acompanhada das palavras-chave "data aproximada", "cerca" e "c. 2006".
+    </p>
+  </dd>
+</dl>
